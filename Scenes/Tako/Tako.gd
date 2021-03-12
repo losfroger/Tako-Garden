@@ -1,14 +1,14 @@
 class_name Tako
 extends KinematicBody2D
 
-# Steering
-onready var agent := GSAIKinematicBody2DAgent.new(self)
-onready var proximity_takos := GSAIRadiusProximity.new(agent, [], proximity_radius)
-
 export var speed_max := 520.0
 export var acceleration_max := 1384.0
 export var proximity_radius := 100
 export var proximity_draw: bool = false
+
+# Steering
+onready var agent := GSAIKinematicBody2DAgent.new(self)
+onready var proximity_takos := GSAIRadiusProximity.new(agent, [], proximity_radius)
 
 var _radius
 var _acceleration := GSAITargetAcceleration.new()
@@ -51,6 +51,6 @@ func _on_SearchFood_body_exited(body: Node):
 	stateMachine.transition_to("Idle")
 
 func _on_EatArea_body_entered(body: Node) -> void:
-	DebugEvents.ConsolePrint(Color.blueviolet, name, "Yummy food!")
+	DebugEvents.console_print(Color.blueviolet, name, "Yummy food!")
 	particleEmitter.emitting = true
 	body.queue_free()

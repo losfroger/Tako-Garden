@@ -15,7 +15,7 @@ func _ready():
 
 func enter(_msg := {}) -> void:
 	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
-	DebugEvents.ConsolePrint(Color.blueviolet, owner.name, "Idle")
+	DebugEvents.console_print(Color.blueviolet, owner.name, "Idle")
 	
 	timer.wait_time = rand_range(1, 8)
 	timer.start()
@@ -30,6 +30,6 @@ func timer_end() -> void:
 		STATES.WANDER:
 			state_machine.transition_to("Wander")
 		STATES.IDLE:
-			DebugEvents.ConsolePrint(Color.blueviolet, owner.name, "Staying in idle")
+			DebugEvents.console_print(Color.blueviolet, owner.name, "Staying in idle")
 			timer.wait_time = rand_range(0.4, 5)
 			timer.start()
