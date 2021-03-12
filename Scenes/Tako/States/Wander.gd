@@ -24,10 +24,10 @@ func enter(_msg := {}) -> void:
 	seek.arrival_tolerance = arrival_tolerance
 	seek.deceleration_radius = deceleration_radius
 
-	# FIXME: Need to change the way it gets a random position
-	# since if the size of the screen changes, it breaks!
-	target.position.x = rand_range(0 + margin.x, OS.window_size.x - margin.x)
-	target.position.y = rand_range(0 + margin.y, OS.window_size.y - margin.y)
+	var width = ProjectSettings["display/window/size/width"]
+	var height = ProjectSettings["display/window/size/height"]
+	target.position.x = rand_range(0 + margin.x, width - margin.x)
+	target.position.y = rand_range(0 + margin.y, height - margin.y)
 
 	wander_blend.add(seek, 1)
 	seek.connect("arrived", self, "_on_arrived")
