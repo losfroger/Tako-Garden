@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 export var speed_max := 520.0
 export var acceleration_max := 1384.0
-export var proximity_radius := 100
+export var proximity_radius := 100.0
 export var proximity_draw: bool = false
 
 # Steering
@@ -52,7 +52,7 @@ func _on_SearchFood_body_entered(body: Node):
 	stateMachine.transition_to("Food", {"target": body.agent})
 
 
-func _on_SearchFood_body_exited(body: Node):
+func _on_SearchFood_body_exited(_body: Node):
 	stateMachine.transition_to("Idle")
 
 

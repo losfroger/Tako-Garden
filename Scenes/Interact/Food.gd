@@ -2,7 +2,7 @@ extends RigidBody2D
 
 onready var agent := GSAISteeringAgent.new()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	_update_agent()
 
 func _update_agent() -> void:
@@ -16,5 +16,5 @@ func _update_agent() -> void:
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
 
-func _on_InteractZone_area_entered(area: Area2D) -> void:
+func _on_InteractZone_area_entered(_area: Area2D) -> void:
 	queue_free()
