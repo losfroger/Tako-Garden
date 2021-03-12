@@ -16,10 +16,11 @@ tako_template = ExtResource( 5 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 1282.56, 0 )
+motion_mirroring = Vector2( 1282.56, 721.44 )
 
 [node name="Sky" type="Sprite" parent="ParallaxBackground/Sky"]
-scale = Vector2( 0.334, 0.334 )
+position = Vector2( -32.7579, -25.1984 )
+scale = Vector2( 0.344, 0.373 )
 texture = ExtResource( 6 )
 centered = false
 
@@ -73,7 +74,12 @@ position = Vector2( 645.746, -27.4918 )
 rotation = 1.5708
 scale = Vector2( 1, 22.52 )
 
-[node name="DebugConsole" parent="." instance=ExtResource( 1 )]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 640, 360 )
+current = true
+
+[node name="DebugConsole" parent="Camera2D" instance=ExtResource( 1 )]
+margin_left = -640.0
+margin_top = -360.0
+margin_right = -293.0
+margin_bottom = -189.0
