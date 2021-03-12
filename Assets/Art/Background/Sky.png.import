@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-2628f9d9d02e454ea58e09998961bbc9.stex"
+path="res://.import/Sky.png-81f9678c4a4204654275fddaebf3ee14.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Background/background.png"
-dest_files=[ "res://.import/background.png-2628f9d9d02e454ea58e09998961bbc9.stex" ]
+source_file="res://Assets/Art/Background/Sky.png"
+dest_files=[ "res://.import/Sky.png-81f9678c4a4204654275fddaebf3ee14.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=2
+flags/repeat=1
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
