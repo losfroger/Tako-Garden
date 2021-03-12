@@ -11,7 +11,7 @@ onready var avoid: GSAIAvoidCollisions
 
 
 func enter(_msg := {}) -> void:
-	DebugEvents.console_print(Color.blueviolet, owner.name, "Food detected!")
+	DebugEvents.console_print(tako.logColor, owner.name, "Food detected!")
 
 	food_seek = GSAIPursue.new(tako.agent, null, predict_time)
 	food_blend = GSAIBlend.new(tako.agent)

@@ -15,7 +15,7 @@ onready var wander_blend: GSAIBlend
 
 
 func enter(_msg := {}) -> void:
-	DebugEvents.console_print(Color.blueviolet, owner.name, "Wander")
+	DebugEvents.console_print(tako.logColor, owner.name, "Wander")
 
 	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
 	seek = GSAIArrive.new(tako.agent, target)
@@ -39,5 +39,5 @@ func physics_update(delta: float) -> void:
 
 
 func _on_arrived():
-	DebugEvents.console_print(Color.blueviolet, owner.name, "Arrived to target")
+	DebugEvents.console_print(tako.logColor, owner.name, "Arrived to target")
 	state_machine.transition_to("Idle")

@@ -5,6 +5,7 @@ export var speed_max := 520.0
 export var acceleration_max := 1384.0
 export var proximity_radius := 100.0
 export var proximity_draw: bool = false
+export var logColor: Color = Color.cornflower
 
 # Steering
 onready var agent := GSAIKinematicBody2DAgent.new(self)
@@ -57,6 +58,6 @@ func _on_SearchFood_body_exited(_body: Node):
 
 
 func _on_EatArea_body_entered(body: Node) -> void:
-	DebugEvents.console_print(Color.blueviolet, name, "Yummy food!")
+	DebugEvents.console_print(logColor, name, "Yummy food!")
 	particleEmitter.emitting = true
 	body.queue_free()
