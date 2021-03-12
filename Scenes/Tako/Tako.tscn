@@ -102,5 +102,4 @@ visible = false
 position = Vector2( 0, 9.67031 )
 shape = SubResource( 6 )
 [connection signal="body_entered" from="SearchFood" to="." method="_on_SearchFood_body_entered"]
-[connection signal="body_exited" from="SearchFood" to="." method="_on_SearchFood_body_exited"]
 [connection signal="body_entered" from="EatArea" to="." method="_on_EatArea_body_entered"]

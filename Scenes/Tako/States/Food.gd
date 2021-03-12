@@ -24,5 +24,7 @@ func enter(_msg := {}) -> void:
 
 
 func physics_update(delta: float) -> void:
+	if tako.searchFoodArea.get_overlapping_bodies().size() == 0:
+		state_machine.transition_to("Idle")
 	food_blend.calculate_steering(tako._acceleration)
 	tako.agent._apply_steering(tako._acceleration, delta)

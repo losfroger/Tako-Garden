@@ -20,6 +20,7 @@ onready var animationPlayer = $TakoSprite.animationPlayer
 onready var collision = $CollisionShape2D
 onready var particleEmitter = $ParticleEmitter
 onready var stateMachine = $StateMachine
+onready var searchFoodArea = $SearchFood
 
 
 func _ready() -> void:
@@ -51,10 +52,6 @@ func set_proximity_agents(agents: Array) -> void:
 
 func _on_SearchFood_body_entered(body: Node):
 	stateMachine.transition_to("Food", {"target": body.agent})
-
-
-func _on_SearchFood_body_exited(_body: Node):
-	stateMachine.transition_to("Idle")
 
 
 func _on_EatArea_body_entered(body: Node) -> void:
