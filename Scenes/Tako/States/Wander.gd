@@ -8,33 +8,35 @@ export var arrival_tolerance = 80
 export var deceleration_radius = 180
 
 onready var target := GSAIAgentLocation.new()
-onready var avoid : GSAIAvoidCollisions
-onready var seek : GSAIArrive
+onready var avoid: GSAIAvoidCollisions
+onready var seek: GSAIArrive
 
 onready var wander_blend: GSAIBlend
 
 
 func enter(_msg := {}) -> void:
 	DebugEvents.console_print(Color.blueviolet, owner.name, "Wander")
-	
+
 	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
 	seek = GSAIArrive.new(tako.agent, target)
 	wander_blend = GSAIBlend.new(tako.agent)
-	
+
 	seek.arrival_tolerance = arrival_tolerance
 	seek.deceleration_radius = deceleration_radius
-	
+
 	# FIXME: Need to change the way it gets a random position
 	# since if the size of the screen changes, it breaks!
 	target.position.x = rand_range(0 + margin.x, OS.window_size.x - margin.x)
 	target.position.y = rand_range(0 + margin.y, OS.window_size.y - margin.y)
-	
+
 	wander_blend.add(seek, 1)
 	seek.connect("arrived", self, "_on_arrived")
+
 
 func physics_update(delta: float) -> void:
 	wander_blend.calculate_steering(tako._acceleration)
 	tako.agent._apply_steering(tako._acceleration, delta)
+
 
 func _on_arrived():
 	DebugEvents.console_print(Color.blueviolet, owner.name, "Arrived to target")

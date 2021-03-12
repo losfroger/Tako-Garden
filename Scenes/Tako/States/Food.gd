@@ -9,17 +9,19 @@ onready var food_seek: GSAIPursue
 onready var food_blend: GSAIBlend
 onready var avoid: GSAIAvoidCollisions
 
+
 func enter(_msg := {}) -> void:
 	DebugEvents.console_print(Color.blueviolet, owner.name, "Food detected!")
-	
+
 	food_seek = GSAIPursue.new(tako.agent, null, predict_time)
 	food_blend = GSAIBlend.new(tako.agent)
 	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
-	
+
 	food_seek.target = _msg.target
-	
-	food_blend.add(avoid,0.6)
-	food_blend.add(food_seek,1)
+
+	food_blend.add(avoid, 0.6)
+	food_blend.add(food_seek, 1)
+
 
 func physics_update(delta: float) -> void:
 	food_blend.calculate_steering(tako._acceleration)
