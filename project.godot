@@ -1,0 +1,249 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "GSAIAgentLocation",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/GSAIAgentLocation.gd"
+}, {
+"base": "GSAISteeringBehavior",
+"class": "GSAIArrive",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAIArrive.gd"
+}, {
+"base": "GSAIGroupBehavior",
+"class": "GSAIAvoidCollisions",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAIAvoidCollisions.gd"
+}, {
+"base": "GSAISteeringBehavior",
+"class": "GSAIBlend",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAIBlend.gd"
+}, {
+"base": "GSAIGroupBehavior",
+"class": "GSAICohesion",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAICohesion.gd"
+}, {
+"base": "GSAIPursue",
+"class": "GSAIEvade",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAIEvade.gd"
+}, {
+"base": "GSAIMatchOrientation",
+"class": "GSAIFace",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAIFace.gd"
+}, {
+"base": "GSAISeek",
+"class": "GSAIFlee",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAIFlee.gd"
+}, {
+"base": "GSAIArrive",
+"class": "GSAIFollowPath",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAIFollowPath.gd"
+}, {
+"base": "GSAISteeringBehavior",
+"class": "GSAIGroupBehavior",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/GSAIGroupBehavior.gd"
+}, {
+"base": "GSAIProximity",
+"class": "GSAIInfiniteProximity",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Proximities/GSAIInfiniteProximity.gd"
+}, {
+"base": "GSAISpecializedAgent",
+"class": "GSAIKinematicBody2DAgent",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Agents/GSAIKinematicBody2DAgent.gd"
+}, {
+"base": "GSAISpecializedAgent",
+"class": "GSAIKinematicBody3DAgent",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Agents/GSAIKinematicBody3DAgent.gd"
+}, {
+"base": "GSAIMatchOrientation",
+"class": "GSAILookWhereYouGo",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAILookWhereYouGo.gd"
+}, {
+"base": "GSAISteeringBehavior",
+"class": "GSAIMatchOrientation",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAIMatchOrientation.gd"
+}, {
+"base": "Reference",
+"class": "GSAIPath",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/GSAIPath.gd"
+}, {
+"base": "GSAISteeringBehavior",
+"class": "GSAIPriority",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAIPriority.gd"
+}, {
+"base": "Reference",
+"class": "GSAIProximity",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Proximities/GSAIProximity.gd"
+}, {
+"base": "GSAISteeringBehavior",
+"class": "GSAIPursue",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAIPursue.gd"
+}, {
+"base": "GSAIProximity",
+"class": "GSAIRadiusProximity",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Proximities/GSAIRadiusProximity.gd"
+}, {
+"base": "GSAISpecializedAgent",
+"class": "GSAIRigidBody2DAgent",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Agents/GSAIRigidBody2DAgent.gd"
+}, {
+"base": "GSAISpecializedAgent",
+"class": "GSAIRigidBody3DAgent",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Agents/GSAIRigidBody3DAgent.gd"
+}, {
+"base": "GSAISteeringBehavior",
+"class": "GSAISeek",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAISeek.gd"
+}, {
+"base": "GSAIGroupBehavior",
+"class": "GSAISeparation",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Behaviors/GSAISeparation.gd"
+}, {
+"base": "GSAISteeringAgent",
+"class": "GSAISpecializedAgent",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/Agents/GSAISpecializedAgent.gd"
+}, {
+"base": "GSAIAgentLocation",
+"class": "GSAISteeringAgent",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/GSAISteeringAgent.gd"
+}, {
+"base": "Reference",
+"class": "GSAISteeringBehavior",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/GSAISteeringBehavior.gd"
+}, {
+"base": "Reference",
+"class": "GSAITargetAcceleration",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/GSAITargetAcceleration.gd"
+}, {
+"base": "Reference",
+"class": "GSAIUtils",
+"language": "GDScript",
+"path": "res://Libraries/godot-steering-framework/GSAIUtils.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://Source/StateMachineClass/StateClass.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://Source/StateMachineClass/StateMachineClass.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Tako",
+"language": "GDScript",
+"path": "res://Scenes/Tako/Tako.gd"
+}, {
+"base": "State",
+"class": "TakoState",
+"language": "GDScript",
+"path": "res://Scenes/Tako/TakoState.gd"
+} ]
+_global_script_class_icons={
+"GSAIAgentLocation": "",
+"GSAIArrive": "",
+"GSAIAvoidCollisions": "",
+"GSAIBlend": "",
+"GSAICohesion": "",
+"GSAIEvade": "",
+"GSAIFace": "",
+"GSAIFlee": "",
+"GSAIFollowPath": "",
+"GSAIGroupBehavior": "",
+"GSAIInfiniteProximity": "",
+"GSAIKinematicBody2DAgent": "",
+"GSAIKinematicBody3DAgent": "",
+"GSAILookWhereYouGo": "",
+"GSAIMatchOrientation": "",
+"GSAIPath": "",
+"GSAIPriority": "",
+"GSAIProximity": "",
+"GSAIPursue": "",
+"GSAIRadiusProximity": "",
+"GSAIRigidBody2DAgent": "",
+"GSAIRigidBody3DAgent": "",
+"GSAISeek": "",
+"GSAISeparation": "",
+"GSAISpecializedAgent": "",
+"GSAISteeringAgent": "",
+"GSAISteeringBehavior": "",
+"GSAITargetAcceleration": "",
+"GSAIUtils": "",
+"State": "",
+"StateMachine": "",
+"Tako": "",
+"TakoState": ""
+}
+
+[application]
+
+config/name="Tako Garden"
+run/main_scene="res://Scenes/World/Garden.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+DebugEvents="*res://Source/Globals/DebugEvents.gd"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep_height"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "Todo_Manager", "ui_design_tool" )
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Tako"
+2d_physics/layer_3="Interaction"
+2d_physics/layer_8="Misc. Objects"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
