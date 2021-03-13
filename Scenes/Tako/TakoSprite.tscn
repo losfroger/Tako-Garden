@@ -21,6 +21,7 @@ tracks/0/keys = {
 }
 
 [node name="TakoSprite" type="Sprite"]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 hframes = 7
 script = ExtResource( 2 )
