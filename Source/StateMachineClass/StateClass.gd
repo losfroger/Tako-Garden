@@ -9,6 +9,8 @@ class_name State
 # The state machine node will set it
 var state_machine = null
 
+var state_name: String
+
 # Virtual function, Recieves events from the `unhandled_input()` callback
 func handle_input(_event: InputEvent) -> void:
 	pass
@@ -29,4 +31,7 @@ func enter(_msg := {}) -> void:
 # Virtual function. Called by the state machine before changing the active state. Use this function
 # to clean up the state.
 func exit() -> void:
+	pass
+
+func update_data(_msg := {}) -> void:
 	pass
