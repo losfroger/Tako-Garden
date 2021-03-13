@@ -5,6 +5,8 @@ extends TakoState
 
 export var predict_time = 0.3
 
+var targets: Array
+
 onready var food_seek: GSAIPursue
 onready var food_blend: GSAIBlend
 onready var avoid: GSAIAvoidCollisions
@@ -17,7 +19,7 @@ func enter(_msg := {}) -> void:
 	food_blend = GSAIBlend.new(tako.agent)
 	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
 
-	food_seek.target = _msg.target
+	food_seek.target = tako.foodSorted.pop_front().body.agent
 
 	food_blend.add(avoid, 0.6)
 	food_blend.add(food_seek, 1)
@@ -26,5 +28,15 @@ func enter(_msg := {}) -> void:
 func physics_update(delta: float) -> void:
 	if tako.searchFoodArea.get_overlapping_bodies().size() == 0:
 		state_machine.transition_to("Idle")
+	
 	food_blend.calculate_steering(tako._acceleration)
 	tako.agent._apply_steering(tako._acceleration, delta)
+
+
+func update_data(_msg := {}) -> void:
+	DebugEvents.console_print(tako.logColor, owner.name, 
+		"Update data, size: " + String(tako.foodSorted.size()))
+	if tako.foodSorted.size() > 0:
+		food_seek.target = tako.foodSorted.pop_front().body.agent
+	else:
+		state_machine.transition_to("Idle")

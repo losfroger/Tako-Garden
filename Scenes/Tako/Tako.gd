@@ -13,6 +13,7 @@ onready var proximity_takos := GSAIRadiusProximity.new(agent, [], proximity_radi
 
 var _radius
 var _acceleration := GSAITargetAcceleration.new()
+var foodSorted: Array
 
 # Nodes
 # TODO: Change the TakoSprite to make it more general(?)
@@ -50,11 +51,36 @@ func set_proximity_agents(agents: Array) -> void:
 	proximity_takos.agents = agents
 
 
-func _on_SearchFood_body_entered(body: Node):
-	stateMachine.transition_to("Food", {"target": body.agent})
+class FoodSorter:
+	static func sort_desc_distance(a, b):
+		if a.distance < b.distance:
+			return true
+		return false
 
+
+func _on_SearchFood_body_entered(body: Node):
+	foodSorted = get_food_sorted()
+	if stateMachine.state.name != "Food":
+		stateMachine.transition_to("Food")
+
+func get_food_sorted():
+	var bodySort: Array
+	for body in searchFoodArea.get_overlapping_bodies():
+		bodySort.append({"body": body, "distance": body.global_position.distance_to(global_position)})
+	if searchFoodArea.get_overlapping_bodies().size() > 1:
+		bodySort.sort_custom(FoodSorter, "sort_desc_distance")
+	return bodySort
 
 func _on_EatArea_body_entered(body: Node) -> void:
 	DebugEvents.console_print(logColor, name, "Yummy food!")
 	particleEmitter.emitting = true
 	body.queue_free()
+	yield(body, "tree_exited")
+	foodSorted = get_food_sorted()
+	foodSorted.pop_front()
+	if stateMachine.state.name == "Food":
+		stateMachine.state.update_data()
+
+
+func _on_SearchFood_body_exited(body: Node) -> void:
+	pass # Replace with function body.
