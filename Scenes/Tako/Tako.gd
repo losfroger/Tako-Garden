@@ -66,7 +66,9 @@ func _on_SearchFood_body_entered(body: Node):
 func get_food_sorted():
 	var bodySort: Array
 	for body in searchFoodArea.get_overlapping_bodies():
-		bodySort.append({"body": body, "distance": body.global_position.distance_to(global_position)})
+		if body.is_inside_tree():
+			bodySort.append({"body": body,
+				"distance": body.global_position.distance_to(global_position)})
 	if searchFoodArea.get_overlapping_bodies().size() > 1:
 		bodySort.sort_custom(FoodSorter, "sort_desc_distance")
 	return bodySort
@@ -80,7 +82,3 @@ func _on_EatArea_body_entered(body: Node) -> void:
 	foodSorted.pop_front()
 	if stateMachine.state.name == "Food":
 		stateMachine.state.update_data()
-
-
-func _on_SearchFood_body_exited(body: Node) -> void:
-	pass # Replace with function body.
