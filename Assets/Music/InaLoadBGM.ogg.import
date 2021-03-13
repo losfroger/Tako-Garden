@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/InaLoadBGM.ogg-674831bec6d79c2cac7a47b687d43e05.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/InaLoadBGM.ogg"
+dest_files=[ "res://.import/InaLoadBGM.ogg-674831bec6d79c2cac7a47b687d43e05.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
