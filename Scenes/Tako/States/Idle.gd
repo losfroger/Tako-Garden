@@ -27,6 +27,9 @@ func physics_update(delta: float) -> void:
 	avoid.calculate_steering(tako._acceleration)
 	tako.agent._apply_steering(tako._acceleration, delta)
 
+func exit() -> void:
+	timer.stop()
+
 
 func timer_end() -> void:
 	var random_state = randi() % 2
