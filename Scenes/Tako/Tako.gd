@@ -14,6 +14,7 @@ onready var proximity_takos := GSAIRadiusProximity.new(agent, [], proximity_radi
 var _radius
 var _acceleration := GSAITargetAcceleration.new()
 var foodSorted: Array
+var eat_recently = false
 
 # Nodes
 # TODO: Change the TakoSprite to make it more general(?)
@@ -22,7 +23,8 @@ onready var collision = $CollisionShape2D
 onready var particleEmitter = $ParticleEmitter
 onready var stateMachine = $StateMachine
 onready var searchFoodArea = $SearchFood
-
+onready var emoteSprite = $Emotes
+onready var eatTimer = $EatCD
 
 func _ready() -> void:
 	proximity_radius *= scale.x
@@ -76,9 +78,30 @@ func get_food_sorted():
 func _on_EatArea_body_entered(body: Node) -> void:
 	DebugEvents.console_print(logColor, name, "Yummy food!")
 	particleEmitter.emitting = true
+	emoteSprite.emote(emoteSprite.EMOTES.happy, 1.5)
+	
 	body.queue_free()
 	yield(body, "tree_exited")
 	foodSorted = get_food_sorted()
 	foodSorted.pop_front()
 	if stateMachine.state.name == "Food":
 		stateMachine.state.update_data()
+	eat_recently = true
+	eatTimer.start()
+
+
+func _on_Tako_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		event = event as InputEventMouseButton
+		if event.pressed:
+			var randomEmotes = [
+				emoteSprite.EMOTES.happy, emoteSprite.EMOTES.heart, emoteSprite.EMOTES.heart2, 
+				emoteSprite.EMOTES.star, emoteSprite.EMOTES.star2, emoteSprite.EMOTES.yay,
+				emoteSprite.EMOTES.note 
+				]
+			randomEmotes.shuffle()
+			emoteSprite.emote(randomEmotes[0], 1)
+
+
+func _on_EatCD_timeout() -> void:
+	eat_recently = false
