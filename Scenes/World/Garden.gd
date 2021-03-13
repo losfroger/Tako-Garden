@@ -1,13 +1,13 @@
-extends Node2D
+extends Node
 
 onready var foodLoad = preload("res://Scenes/Interact/Food.tscn")
 export var tako_template: PackedScene
+export var margin = Vector2(70, 70)
 
 onready var takos = $Takos
 onready var food = $Food
 
 
-#1024 x 600
 func _ready() -> void:
 	randomize()
 	var tako_agents := []
@@ -16,8 +16,10 @@ func _ready() -> void:
 		takos.add_child(takoInst, true)
 
 		var randPos = Vector2.ZERO
-		randPos.x = rand_range(0 + 70, 1024 - 70)
-		randPos.y = rand_range(0 + 70, 600 - 70)
+		var width = ProjectSettings["display/window/size/width"]
+		var height = ProjectSettings["display/window/size/height"]
+		randPos.x = rand_range(0 + margin.x, width - margin.x)
+		randPos.y = rand_range(0 + margin.y, height - margin.y)
 
 		var randScale = rand_range(0.4, 0.8)
 
@@ -30,9 +32,9 @@ func _ready() -> void:
 		tako.set_proximity_agents(tako_agents)
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		var foodInst = foodLoad.instance()
-		foodInst.global_position = get_global_mouse_position()
+		foodInst.global_position = event.position
 
 		food.add_child(foodInst)
