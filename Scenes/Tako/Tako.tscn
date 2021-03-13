@@ -9,7 +9,7 @@
 [ext_resource path="res://Scenes/Tako/States/Food.gd" type="Script" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 54.3877
+radius = 79.2944
 
 [sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
@@ -33,15 +33,18 @@ scale_random = 0.31
 color_ramp = SubResource( 3 )
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 318.0
+radius = 556.445
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 62.0
+radius = 77.4705
 
 [node name="Tako" type="KinematicBody2D"]
 collision_layer = 2147483650
 collision_mask = 3
 script = ExtResource( 6 )
+__meta__ = {
+"_editor_description_": ""
+}
 speed_max = 250.0
 acceleration_max = 1000.0
 
@@ -54,6 +57,7 @@ shape = SubResource( 1 )
 
 [node name="ParticleEmitter" type="Particles2D" parent="."]
 position = Vector2( 0, 18.6878 )
+scale = Vector2( 1.5, 1.5 )
 emitting = false
 amount = 5
 lifetime = 1.5
@@ -98,8 +102,8 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea"]
-visible = false
-position = Vector2( 0, 9.67031 )
+position = Vector2( 0, 19.184 )
 shape = SubResource( 6 )
 [connection signal="body_entered" from="SearchFood" to="." method="_on_SearchFood_body_entered"]
+[connection signal="body_exited" from="SearchFood" to="." method="_on_SearchFood_body_exited"]
 [connection signal="body_entered" from="EatArea" to="." method="_on_EatArea_body_entered"]
