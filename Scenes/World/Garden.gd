@@ -33,7 +33,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("click"):
+	if event.get_action_strength("r_click"):
 		var foodInst = foodLoad.instance()
 		foodInst.global_position = event.position
 
