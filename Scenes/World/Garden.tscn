@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Art/Background/Foreground.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Art/Background/Torii.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Music/InaLoadBGM.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Scenes/UI/TakoUI.tscn" type="PackedScene" id=10]
 
 [node name="Garden" type="Node2D"]
 script = ExtResource( 2 )
@@ -80,6 +81,10 @@ scale = Vector2( 1, 30 )
 stream = ExtResource( 9 )
 autoplay = true
 bus = "Music"
+
+[node name="TakoUI" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 924.782, 302.381 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 

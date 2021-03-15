@@ -1,6 +1,8 @@
 class_name Tako
 extends KinematicBody2D
 
+signal takoUI(remoteTransform, info)
+
 export var speed_max := 520.0
 export var acceleration_max := 1384.0
 export var proximity_radius := 100.0
@@ -19,6 +21,7 @@ var eat_recently = false
 # Nodes
 # TODO: Change the TakoSprite to make it more general(?)
 onready var animationPlayer = $TakoSprite.animationPlayer
+onready var takoSprite = $TakoSprite
 onready var collision = $CollisionShape2D
 onready var particleEmitter = $ParticleEmitter
 onready var stateMachine = $StateMachine
@@ -101,7 +104,17 @@ func _on_Tako_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -
 				]
 			randomEmotes.shuffle()
 			emoteSprite.emote(randomEmotes[0], 1)
+			InterfaceSignals.emit_signal("DeselectedTako")
+			InterfaceSignals.connect("DeselectedTako", self, "_on_Deselected")
+			emit_signal("takoUI", $RemoteTakoUI,
+				{
+					"name": self.name,
+				})
+			takoSprite.outline(true)
 
+func _on_Deselected() -> void:
+	takoSprite.outline(false)
+	InterfaceSignals.disconnect("DeselectedTako", self, "_on_Deselected")
 
 func _on_EatCD_timeout() -> void:
 	eat_recently = false

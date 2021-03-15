@@ -115,6 +115,9 @@ scale = Vector2( 1, 1 )
 [node name="EatCD" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+[node name="RemoteTakoUI" type="RemoteTransform2D" parent="."]
+position = Vector2( 0, 103.38 )
+update_scale = false
 [connection signal="input_event" from="." to="." method="_on_Tako_input_event"]
 [connection signal="body_entered" from="SearchFood" to="." method="_on_SearchFood_body_entered"]
 [connection signal="body_entered" from="EatArea" to="." method="_on_EatArea_body_entered"]

@@ -26,15 +26,18 @@ func _ready() -> void:
 		takoInst.global_position = randPos
 		takoInst.scale = Vector2(randScale, randScale)
 
+		takoInst.connect("takoUI", $TakoUI, "newLocation")
+
 		tako_agents.append(takoInst.agent)
 
 	for tako in takos.get_children():
 		tako.set_proximity_agents(tako_agents)
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.get_action_strength("r_click"):
 		var foodInst = foodLoad.instance()
 		foodInst.global_position = event.position
 
 		food.add_child(foodInst)
+		InterfaceSignals.emit_signal("DeselectedTako")
