@@ -4,15 +4,17 @@ extends TakoState
 onready var timer = $Timer
 
 enum STATES {
-	WANDER = 0,
-	IDLE = 1,
-	CONV = 2,
+	WANDER,
+	IDLE,
+	CONV,
+	SIT
 }
 
 var probStates = [
 	{"item": STATES.WANDER, "weight": 2.0},
 	{"item": STATES.IDLE, "weight": 2.0},
-	{"item": STATES.CONV, "weight": 0.1},
+	{"item": STATES.CONV, "weight": 0.03},
+	{"item": STATES.SIT, "weight": 0.1},
 	]
 
 onready var avoid: GSAIAvoidCollisions
@@ -53,3 +55,15 @@ func _on_timer_end() -> void:
 		STATES.CONV:
 			DebugEvents.console_print(tako.logColor, owner.name, "Start conv")
 			state_machine.transition_to("StartConv")
+		STATES.SIT:
+			DebugEvents.console_print(tako.logColor, owner.name, "Going to sit")
+			var randomCoord = GlobalFunctions.randomCord(Vector2(100,30))
+			randomCoord.y = 1000
+			var msg = {
+				"target": randomCoord,
+				"return_to": "Sit",
+				"arrivalT": 50,
+				"decRad": 200,
+				"timer": 10,
+			}
+			state_machine.transition_to("Move", msg)
