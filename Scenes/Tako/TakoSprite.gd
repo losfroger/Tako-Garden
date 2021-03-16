@@ -7,6 +7,8 @@ var shaderOutline = preload("res://Source/Shaders/Outline.tres")
 
 func _ready() -> void:
 	shaderOutline.set_shader_param("line_thickness", 10)
+	
+	animationTree.active = true
 	animation_state_machine = animationTree["parameters/playback"]
 	
 	var randomFrame = rand_range(0, 0.5)
