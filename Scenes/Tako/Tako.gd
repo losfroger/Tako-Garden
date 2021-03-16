@@ -2,6 +2,7 @@ class_name Tako
 extends KinematicBody2D
 
 signal takoUI(remoteTransform, info)
+signal arrivedConv()
 
 export var speed_max := 520.0
 export var acceleration_max := 1384.0
