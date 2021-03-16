@@ -25,6 +25,7 @@ onready var collision = $CollisionShape2D
 onready var particleEmitter = $ParticleEmitter
 onready var stateMachine = $StateMachine
 onready var searchFoodArea = $SearchFood
+onready var eatFoodArea = $EatArea
 onready var emoteSprite = $Emotes
 onready var eatTimer = $EatCD
 
