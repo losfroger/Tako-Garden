@@ -20,8 +20,6 @@ var foodSorted: Array
 var eat_recently = false
 
 # Nodes
-# TODO: Change the TakoSprite to make it more general(?)
-onready var animationPlayer = $TakoSprite.animationPlayer
 onready var takoSprite = $TakoSprite
 onready var collision = $CollisionShape2D
 onready var particleEmitter = $ParticleEmitter
@@ -32,10 +30,6 @@ onready var eatTimer = $EatCD
 
 func _ready() -> void:
 	proximity_radius *= scale.x
-
-	animationPlayer.play("idle")
-	var randomFrame = rand_range(0, 0.5)
-	animationPlayer.seek(randomFrame)
 
 	# Steering setup
 	agent.linear_speed_max = speed_max
