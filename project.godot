@@ -173,6 +173,11 @@ _global_script_classes=[ {
 "class": "TakoState",
 "language": "GDScript",
 "path": "res://Scenes/Tako/TakoState.gd"
+}, {
+"base": "Reference",
+"class": "WeightedRandom",
+"language": "GDScript",
+"path": "res://Source/WeightedRandom.gd"
 } ]
 _global_script_class_icons={
 "GSAIAgentLocation": "",
@@ -207,7 +212,8 @@ _global_script_class_icons={
 "State": "",
 "StateMachine": "",
 "Tako": "",
-"TakoState": ""
+"TakoState": "",
+"WeightedRandom": ""
 }
 
 [application]
@@ -220,6 +226,7 @@ config/icon="res://icon.png"
 
 DebugEvents="*res://Source/Globals/DebugEvents.gd"
 InterfaceSignals="*res://Source/Globals/InterfaceSignals.gd"
+GlobalFunctions="*res://Source/Globals/GlobalFunctions.gd"
 
 [debug]
 
