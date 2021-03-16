@@ -30,17 +30,20 @@ func enter(_msg := {}) -> void:
 		seek.arrival_tolerance = arrival_tolerance
 		seek.deceleration_radius = deceleration_radius
 	
-	if _msg.has_all(["target", "return_to", "msg"]):
+	if _msg.has_all(["target", "return_to"]):
 		DebugEvents.console_print(tako.logColor, owner.name, "Has target")
 		target.position.x = _msg.target.x
 		target.position.y = _msg.target.y
 		return_to = _msg.return_to
-		msg_next = _msg.msg
 	else:
 		DebugEvents.console_print(tako.logColor, owner.name, "Wander")
 		var randomCoord = GlobalFunctions.randomCord(margin)
 		target.position.x = randomCoord.x
 		target.position.y = randomCoord.y
+	
+	if _msg.has("msg"):
+		msg_next = _msg.msg
+	
 	if _msg.has("timer"):
 		timer.wait_time = _msg.timer
 		timer.start()
