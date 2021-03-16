@@ -4,7 +4,6 @@
 [ext_resource path="res://Scenes/Tako/TakoSprite.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "idle"
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -17,13 +16,15 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0, 6 ]
+"values": [ 0, 15 ]
 }
 
 [node name="TakoSprite" type="Sprite"]
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 0.45, 0.45 )
+z_as_relative = false
 texture = ExtResource( 1 )
-hframes = 7
+hframes = 16
+frame = 13
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_description_": "TODO: Change the sprite with a separate node that handles it"
