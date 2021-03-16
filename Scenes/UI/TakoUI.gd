@@ -3,8 +3,6 @@ extends Node2D
 
 var currentRemote: RemoteTransform2D = null
 
-onready var nameLabel = $Control/VBoxContainer/Label
-onready var takosprite = $MarginContainer/PanelContainer/ViewportContainer/Viewport/TakoSprite
 onready var buttonContainer = $ButtonContainer
 
 func _ready() -> void:
