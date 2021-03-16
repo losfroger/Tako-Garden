@@ -1,16 +1,19 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Art/Tako/Heart.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Tako/TakoSprite.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Source/StateMachineClass/StateMachineClass.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Tako/States/Idle.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Tako/States/Wander.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Tako/States/Move.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Tako/Tako.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Tako/States/Food.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Tako/Emotes.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Tako/States/StartConv.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Tako/States/Conv.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Tako/States/WaitConv.gd" type="Script" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 79.2944
+radius = 57.7449
 
 [sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
@@ -37,9 +40,12 @@ color_ramp = SubResource( 3 )
 radius = 556.445
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 77.4705
+radius = 64.1032
 
-[node name="Tako" type="KinematicBody2D"]
+[node name="Tako" type="KinematicBody2D" groups=[
+"Tako",
+]]
+position = Vector2( 0, 1.68176 )
 input_pickable = true
 collision_layer = 2147483650
 collision_mask = 3
@@ -51,9 +57,11 @@ speed_max = 250.0
 acceleration_max = 1000.0
 
 [node name="TakoSprite" parent="." instance=ExtResource( 2 )]
+frame = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 17.027 )
+visible = false
+position = Vector2( 0, 1.15299 )
 shape = SubResource( 1 )
 
 [node name="ParticleEmitter" type="Particles2D" parent="."]
@@ -78,27 +86,51 @@ script = ExtResource( 4 )
 [node name="Timer" type="Timer" parent="StateMachine/Idle"]
 one_shot = true
 
-[node name="Wander" type="Node" parent="StateMachine"]
+[node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
-margin = Vector2( 20, 20 )
-arrival_tolerance = 90
-deceleration_radius = 400
+margin = Vector2( 50, 50 )
+
+[node name="Timer" type="Timer" parent="StateMachine/Move"]
+wait_time = 5.0
+one_shot = true
 
 [node name="Food" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
 
+[node name="StartConv" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
+
+[node name="Conv" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="StateMachine/Conv"]
+one_shot = true
+
+[node name="WaitConv" type="Node" parent="StateMachine"]
+script = ExtResource( 11 )
+
+[node name="WaitTime" type="Timer" parent="StateMachine/WaitConv"]
+wait_time = 15.0
+one_shot = true
+
 [node name="SearchFood" type="Area2D" parent="."]
+visible = false
 modulate = Color( 0.537255, 1, 0.509804, 0.458824 )
 position = Vector2( 0, 16.6677 )
 input_pickable = false
 monitorable = false
 collision_layer = 128
 collision_mask = 128
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SearchFood"]
 shape = SubResource( 5 )
 
 [node name="EatArea" type="Area2D" parent="."]
+position = Vector2( 0, -15.0803 )
 input_pickable = false
 monitorable = false
 collision_layer = 128
@@ -115,10 +147,15 @@ scale = Vector2( 1, 1 )
 [node name="EatCD" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
 [node name="RemoteTakoUI" type="RemoteTransform2D" parent="."]
 position = Vector2( 0, 103.38 )
 update_scale = false
 [connection signal="input_event" from="." to="." method="_on_Tako_input_event"]
+[connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_end"]
+[connection signal="timeout" from="StateMachine/Move/Timer" to="StateMachine/Move" method="_on_timer_end"]
+[connection signal="timeout" from="StateMachine/Conv/Timer" to="StateMachine/Conv" method="_on_Timer_timeout"]
+[connection signal="timeout" from="StateMachine/WaitConv/WaitTime" to="StateMachine/WaitConv" method="_on_WaitTime_timeout"]
 [connection signal="body_entered" from="SearchFood" to="." method="_on_SearchFood_body_entered"]
 [connection signal="body_entered" from="EatArea" to="." method="_on_EatArea_body_entered"]
 [connection signal="timeout" from="EatCD" to="." method="_on_EatCD_timeout"]
