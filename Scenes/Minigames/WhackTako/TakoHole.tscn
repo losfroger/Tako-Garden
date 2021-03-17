@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Art/WhackATako/HoleMask.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art/WhackATako/Hole.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Tako/TakoSprite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Minigames/WhackTako/TakoHole.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Tako/Emotes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/SFX/WhackTako/Ina_-_Bonk2.ogg" type="AudioStream" id=6]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "default"
 tracks/0/type = "value"
 tracks/0/path = NodePath("TakoSprite:frame")
@@ -45,7 +46,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "down"
 length = 0.3
 step = 0.05
@@ -86,7 +87,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -126,7 +127,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 123.528, 55.4279 )
 
 [node name="TakoWhack" type="Node2D"]
@@ -150,9 +151,9 @@ scale = Vector2( 0.7, 0.7 )
 offset = Vector2( 0, -200 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/default = SubResource( 6 )
-anims/down = SubResource( 4 )
-anims/pop = SubResource( 2 )
+anims/default = SubResource( 1 )
+anims/down = SubResource( 2 )
+anims/pop = SubResource( 3 )
 
 [node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2( 5.96046e-08, 7.62939e-06 )
@@ -160,7 +161,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( 0, -126.103 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Emotes" parent="." instance=ExtResource( 5 )]
 light_mask = -2147483647
@@ -171,5 +172,10 @@ frame = 25
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="BonkSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 6.0
+bus = "Sound effects"
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
