@@ -11,7 +11,7 @@ onready var food = $Food
 func _ready() -> void:
 	randomize()
 	var tako_agents := []
-	for _i in range(10):
+	for _i in range(12):
 		var takoInst = tako_template.instance()
 		takos.add_child(takoInst, true)
 
@@ -21,7 +21,7 @@ func _ready() -> void:
 		randPos.x = rand_range(0 + margin.x, width - margin.x)
 		randPos.y = rand_range(0 + margin.y, height - margin.y)
 
-		var randScale = rand_range(0.4, 0.8)
+		var randScale = rand_range(0.6, 1)
 
 		takoInst.global_position = randPos
 		takoInst.scale = Vector2(randScale, randScale)
