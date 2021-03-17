@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Art/WhackATako/Whack a tako BG.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Minigames/WhackTako/TakoHole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Minigames/WhackTako/WhackTako.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Minigames/WhackTako/PlayerHammer.tscn" type="PackedScene" id=4]
+
+[node name="WhackTako" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Whack a tako BG" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Takos" type="Node2D" parent="."]
+
+[node name="TakoWhack" parent="Takos" instance=ExtResource( 2 )]
+position = Vector2( 356.491, 746.79 )
+
+[node name="TakoWhack2" parent="Takos" instance=ExtResource( 2 )]
+position = Vector2( 807.285, 746.79 )
+
+[node name="TakoWhack3" parent="Takos" instance=ExtResource( 2 )]
+position = Vector2( 1211.75, 746.79 )
+
+[node name="TakoWhack4" parent="Takos" instance=ExtResource( 2 )]
+position = Vector2( 1626.91, 746.79 )
+
+[node name="TakoWhack5" parent="Takos" instance=ExtResource( 2 )]
+position = Vector2( 586.52, 935.374 )
+
+[node name="Light2D" parent="Takos/TakoWhack5" index="1"]
+range_item_cull_mask = 4
+
+[node name="TakoSprite" parent="Takos/TakoWhack5" index="2"]
+light_mask = 4
+
+[node name="TakoWhack6" parent="Takos" instance=ExtResource( 2 )]
+position = Vector2( 1023.02, 935.374 )
+
+[node name="Light2D" parent="Takos/TakoWhack6" index="1"]
+range_item_cull_mask = 4
+
+[node name="TakoSprite" parent="Takos/TakoWhack6" index="2"]
+light_mask = 4
+
+[node name="TakoWhack7" parent="Takos" instance=ExtResource( 2 )]
+position = Vector2( 1444.68, 935.374 )
+
+[node name="Light2D" parent="Takos/TakoWhack7" index="1"]
+range_item_cull_mask = 4
+
+[node name="TakoSprite" parent="Takos/TakoWhack7" index="2"]
+light_mask = 4
+
+[node name="PlayerHammer" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2209.88, 713.423 )
+
+[editable path="Takos/TakoWhack5"]
+
+[editable path="Takos/TakoWhack6"]
+
+[editable path="Takos/TakoWhack7"]
