@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Minigames/WhackTako/TakoHole.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Tako/Emotes.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=6]
 resource_name = "default"
 tracks/0/type = "value"
 tracks/0/path = NodePath("TakoSprite:frame")
@@ -147,25 +147,24 @@ range_item_cull_mask = 2
 light_mask = 2
 position = Vector2( 1, 57.2878 )
 scale = Vector2( 0.7, 0.7 )
+offset = Vector2( 0, -200 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/default = SubResource( 1 )
+anims/default = SubResource( 6 )
 anims/down = SubResource( 4 )
 anims/pop = SubResource( 2 )
 
 [node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2( 5.96046e-08, 7.62939e-06 )
-scale = Vector2( 1, 1 )
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2( 0, -126.103 )
 shape = SubResource( 5 )
-disabled = true
 
 [node name="Emotes" parent="." instance=ExtResource( 5 )]
 light_mask = -2147483647
-position = Vector2( 0, -262.486 )
+position = Vector2( 0, -213.714 )
 z_index = 10
 offset = Vector2( 0, -17.0189 )
 frame = 25
