@@ -19,19 +19,19 @@ __meta__ = {
 [node name="Takos" type="Node2D" parent="."]
 
 [node name="TakoWhack" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 356.491, 746.79 )
+position = Vector2( 356.491, 690.158 )
 
 [node name="TakoWhack2" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 807.285, 746.79 )
+position = Vector2( 807.285, 690.158 )
 
 [node name="TakoWhack3" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 1211.75, 746.79 )
+position = Vector2( 1211.75, 690.158 )
 
 [node name="TakoWhack4" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 1626.91, 746.79 )
+position = Vector2( 1626.91, 690.158 )
 
 [node name="TakoWhack5" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 586.52, 935.374 )
+position = Vector2( 586.52, 954.251 )
 
 [node name="Light2D" parent="Takos/TakoWhack5" index="1"]
 range_item_cull_mask = 4
@@ -40,7 +40,7 @@ range_item_cull_mask = 4
 light_mask = 4
 
 [node name="TakoWhack6" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 1023.02, 935.374 )
+position = Vector2( 1023.02, 954.251 )
 
 [node name="Light2D" parent="Takos/TakoWhack6" index="1"]
 range_item_cull_mask = 4
@@ -49,7 +49,7 @@ range_item_cull_mask = 4
 light_mask = 4
 
 [node name="TakoWhack7" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 1444.68, 935.374 )
+position = Vector2( 1444.68, 954.251 )
 
 [node name="Light2D" parent="Takos/TakoWhack7" index="1"]
 range_item_cull_mask = 4
@@ -58,7 +58,7 @@ range_item_cull_mask = 4
 light_mask = 4
 
 [node name="PlayerHammer" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2209.88, 713.423 )
+position = Vector2( 1349.07, 811.586 )
 
 [editable path="Takos/TakoWhack5"]
 

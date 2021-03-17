@@ -3,6 +3,9 @@ extends Node2D
 
 onready var animationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	animationPlayer.play("default")
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("l_click"):
