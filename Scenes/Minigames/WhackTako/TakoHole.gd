@@ -31,7 +31,7 @@ func _on_Hurtbox_area_entered(area: Area2D) -> void:
 	emit_signal("bonked")
 	sfxPlayer.play()
 	emote.emote(emote.EMOTES.circle, 0.5)
-	hurtBox.disabled = true
+	hurtBox.set_deferred("disabled", true)
 	bonked = true
 	downTako()
 
