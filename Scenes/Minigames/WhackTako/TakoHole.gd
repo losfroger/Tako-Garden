@@ -13,6 +13,7 @@ onready var animationPlayer = $AnimationPlayer
 onready var timer = $Timer
 onready var emote = $Emotes
 onready var hurtBox = $Hurtbox/CollisionShape2D
+onready var sfxPlayer = $BonkSFX
 
 var state = STATE.DOWN
 var bonked = false
@@ -27,8 +28,8 @@ func _ready() -> void:
 
 func _on_Hurtbox_area_entered(area: Area2D) -> void:
 	timer.stop()
-	print("Bonk!")
 	emit_signal("bonked")
+	sfxPlayer.play()
 	emote.emote(emote.EMOTES.circle, 0.5)
 	hurtBox.disabled = true
 	bonked = true
