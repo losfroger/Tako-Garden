@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ina_-_BonkTime.ogg-da685028627f043b237659408a15a99c.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/WhackTako/Ina_-_BonkTime.ogg"
+dest_files=[ "res://.import/Ina_-_BonkTime.ogg-da685028627f043b237659408a15a99c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
