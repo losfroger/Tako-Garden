@@ -9,9 +9,16 @@ func enter(_msg := {}) -> void:
 	emotes = tako.emoteSprite
 	numMessages = _msg.numMessages
 	if _msg.first:
-		emotes.emote(randi() % emotes.EMOTES.size() + 1, 1)
-		timer.wait_time = 2
-		timer.start()
+		var otherTako = _msg.otherTako as Tako
+		if otherTako.stateMachine.state.name == "WaitConv":
+			otherTako.stateMachine.transition_to("Conv",
+				{"numMessages": numMessages, "first": false})
+			emotes.emote(randi() % emotes.EMOTES.size() + 1, 1)
+			timer.wait_time = 2
+			timer.start()
+		else:
+			state_machine.transition_to("idle")
+			return
 	else:
 		timer.wait_time = 1
 		timer.start()

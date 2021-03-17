@@ -11,20 +11,13 @@ func enter(_msg := {}) -> void:
 	numMessages = _msg.numMessages
 	first = _msg.first
 	otherTako = _msg.otherTako as Tako
-	tako.emit_signal("arrivedConv")
 	
 	timer.start()
-	otherTako.connect("arrivedConv", self, "_otherTako_arrived")
+	tako.set_physics_process(false)
 
 func exit() -> void:
-	otherTako.disconnect("arrivedConv", self, "_otherTako_arrived")
+	tako.set_physics_process(true)
 	timer.stop()
-
-func _otherTako_arrived():
-	DebugEvents.console_print(tako.logColor, owner.name, "Other tako arrived")
-	state_machine.transition_to("Conv", {"numMessages": numMessages, "first": first})
-	otherTako.stateMachine.transition_to("Conv", {"numMessages": numMessages, "first": !first})
-
 
 func _on_WaitTime_timeout() -> void:
 	state_machine.transition_to("Idle")

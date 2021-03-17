@@ -19,18 +19,14 @@ func enter(_msg := {}) -> void:
 	var numMessages = randi() % 6 + 2
 	DebugEvents.console_print(tako.logColor, owner.name, "Chat numMessages: " + String(numMessages))
 	var message = {
-			"target": target + Vector2(50,0),
-			"return_to": "WaitConv",
+			"target": takoConv.global_position + Vector2(rand_range(5,20), rand_range(5,20)),
+			"return_to": "Conv",
 			"arrivalT": 120,
 			"decRad": 200,
 			"timer": 10,
-			"msg": {"otherTako": takoConv, "numMessages": numMessages, "first": false},
+			"msg": {"otherTako": takoConv, "numMessages": numMessages, "first": true},
 		}
-	takoConv.stateMachine.transition_to("Move", message)
-	
-	var message2 = message.duplicate(true)
-	message.target = target
-	message.msg.otherTako = tako
-	message.msg.first = true
-	state_machine.transition_to("Move", message2)
-	
+		
+	state_machine.transition_to("Move", message)
+	takoConv.stateMachine.transition_to("WaitConv", 
+		{"otherTako": tako, "numMessages": numMessages, "first": false})
