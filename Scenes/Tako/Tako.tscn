@@ -13,6 +13,8 @@
 [ext_resource path="res://Scenes/Tako/States/WaitConv.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/Tako/States/Sit.gd" type="Script" id=12]
 
+
+
 [sub_resource type="CircleShape2D" id=1]
 radius = 57.7449
 
@@ -111,7 +113,7 @@ one_shot = true
 script = ExtResource( 11 )
 
 [node name="WaitTime" type="Timer" parent="StateMachine/WaitConv"]
-wait_time = 15.0
+wait_time = 20.0
 one_shot = true
 
 [node name="Sit" type="Node" parent="StateMachine"]
