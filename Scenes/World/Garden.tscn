@@ -90,3 +90,4 @@ position = Vector2( 924.782, 302.381 )
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="DebugConsole" parent="UI" instance=ExtResource( 1 )]
+visible = false
