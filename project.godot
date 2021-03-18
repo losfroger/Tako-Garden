@@ -169,7 +169,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Tako/Tako.gd"
 }, {
-"base": "State",
+"base": "Reference",
 "class": "TakoState",
 "language": "GDScript",
 "path": "res://Scenes/Tako/TakoState.gd"
@@ -220,7 +220,7 @@ _global_script_class_icons={
 
 config/name="Tako Garden"
 run/main_scene="res://Scenes/World/Garden.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Art/Tako/Tako.png"
 
 [autoload]
 
@@ -236,14 +236,23 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=1920
 window/size/height=1080
+window/size/always_on_top=true
 window/size/test_width=1280
 window/size/test_height=720
+mouse_cursor/custom_image="res://Assets/Art/cursorHand_grey.png"
 window/stretch/mode="2d"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
 enabled=PoolStringArray( "Todo_Manager", "ui_design_tool" )
+
+[importer_defaults]
+
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
 
 [input]
 
