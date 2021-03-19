@@ -169,7 +169,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Tako/Tako.gd"
 }, {
-"base": "Reference",
+"base": "State",
 "class": "TakoState",
 "language": "GDScript",
 "path": "res://Scenes/Tako/TakoState.gd"
@@ -231,6 +231,7 @@ output_latency.web=75
 DebugEvents="*res://Source/Globals/DebugEvents.gd"
 InterfaceSignals="*res://Source/Globals/InterfaceSignals.gd"
 GlobalFunctions="*res://Source/Globals/GlobalFunctions.gd"
+ParticlesCache="*res://Source/Globals/ParticlesCache.gd"
 
 [debug]
 
