@@ -65,7 +65,7 @@ func _on_SearchFood_body_entered(_body: Node) -> void:
 		stateMachine.transition_to("Food")
 
 func get_food_sorted() -> Array:
-	var bodySort: Array
+	var bodySort: Array = []
 	for body in searchFoodArea.get_overlapping_bodies():
 		if body.is_inside_tree():
 			bodySort.append({"body": body,
