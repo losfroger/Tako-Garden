@@ -222,6 +222,10 @@ config/name="Tako Garden"
 run/main_scene="res://Scenes/World/Garden.tscn"
 config/icon="res://Assets/Art/Tako/Tako.png"
 
+[audio]
+
+output_latency.web=75
+
 [autoload]
 
 DebugEvents="*res://Source/Globals/DebugEvents.gd"
@@ -236,7 +240,6 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=1920
 window/size/height=1080
-window/size/always_on_top=true
 window/size/test_width=1280
 window/size/test_height=720
 mouse_cursor/custom_image="res://Assets/Art/cursorHand_grey.png"
