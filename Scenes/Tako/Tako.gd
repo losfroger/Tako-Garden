@@ -7,7 +7,6 @@ signal arrivedConv()
 export var speed_max := 520.0
 export var acceleration_max := 1384.0
 export var proximity_radius := 100.0
-export var proximity_draw: bool = false
 export var logColor: Color = Color.cornflower
 
 # Steering
@@ -41,11 +40,6 @@ func _ready() -> void:
 	agent.bounding_radius = _radius
 
 	proximity_takos.radius = proximity_radius
-
-
-func _draw() -> void:
-	if proximity_draw:
-		draw_circle(Vector2.ZERO, proximity_radius, "#22ffffff")
 
 
 func set_proximity_agents(agents: Array) -> void:
