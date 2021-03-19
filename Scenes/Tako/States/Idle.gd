@@ -16,7 +16,7 @@ var probStates = [
 	{"item": STATES.IDLE, "weight": 2.0},
 	{"item": STATES.CONV, "weight": 0.03},
 	{"item": STATES.SIT, "weight": 0.1},
-	{"item": STATES.SPIN, "weight": 0.08},
+	{"item": STATES.SPIN, "weight": 0.1},
 	]
 
 onready var avoid: GSAIAvoidCollisions
