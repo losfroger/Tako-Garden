@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Art/WhackATako/Whack a tako BG.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Minigames/WhackTako/TakoHole.tscn" type="PackedScene" id=2]
@@ -9,6 +9,246 @@
 [ext_resource path="res://Assets/Music/Kanalumi.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Assets/SFX/WhackTako/Ina_-_BonkTime.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Scenes/Minigames/WhackTako/GameOverScreen.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TakoSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TakoSprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "down"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("TakoSprite:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -200 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TakoSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 7, 9 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("TakoSprite:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -200 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TakoSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 9, 15, 10 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TakoSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TakoSprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "down"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("TakoSprite:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -200 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TakoSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 7, 9 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("TakoSprite:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -200 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TakoSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 9, 15, 10 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="WhackTako" type="Node2D"]
 script = ExtResource( 3 )
@@ -26,43 +266,63 @@ centered = false
 [node name="Takos" type="Node2D" parent="."]
 
 [node name="TakoWhack" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 356.491, 690.158 )
+position = Vector2( 384, 690.158 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="TakoWhack2" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 807.285, 690.158 )
+position = Vector2( 768, 690.158 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="TakoWhack3" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 1211.75, 690.158 )
+position = Vector2( 1152, 690.158 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="TakoWhack4" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 1626.91, 690.158 )
+position = Vector2( 1536, 690.158 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="TakoWhack5" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 586.52, 954.251 )
+position = Vector2( 480, 954.251 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="Light2D" parent="Takos/TakoWhack5" index="1"]
+light_mask = -2147483644
 range_item_cull_mask = 4
 
 [node name="TakoSprite" parent="Takos/TakoWhack5" index="2"]
 light_mask = 4
 
 [node name="TakoWhack6" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 1023.02, 954.251 )
+position = Vector2( 960, 954.251 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="Light2D" parent="Takos/TakoWhack6" index="1"]
+light_mask = -2147483644
 range_item_cull_mask = 4
 
 [node name="TakoSprite" parent="Takos/TakoWhack6" index="2"]
 light_mask = 4
 
+[node name="AnimationPlayer" parent="Takos/TakoWhack6" index="3"]
+anims/default = SubResource( 1 )
+anims/down = SubResource( 2 )
+anims/pop = SubResource( 3 )
+
 [node name="TakoWhack7" parent="Takos" instance=ExtResource( 2 )]
-position = Vector2( 1444.68, 954.251 )
+position = Vector2( 1440, 954.251 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="Light2D" parent="Takos/TakoWhack7" index="1"]
+light_mask = -2147483644
 range_item_cull_mask = 4
 
 [node name="TakoSprite" parent="Takos/TakoWhack7" index="2"]
 light_mask = 4
+
+[node name="AnimationPlayer" parent="Takos/TakoWhack7" index="3"]
+anims/default = SubResource( 4 )
+anims/down = SubResource( 5 )
+anims/pop = SubResource( 6 )
 
 [node name="PlayerHammer" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1349.07, 811.586 )
