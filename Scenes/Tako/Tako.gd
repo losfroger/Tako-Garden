@@ -92,7 +92,7 @@ func _on_EatArea_body_entered(body: Node) -> void:
 func _on_Tako_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		event = event as InputEventMouseButton
-		if event.pressed:
+		if event.get_action_strength("l_click"):
 			var randomEmotes = [
 				emoteSprite.EMOTES.happy, emoteSprite.EMOTES.heart, emoteSprite.EMOTES.heart2, 
 				emoteSprite.EMOTES.star, emoteSprite.EMOTES.star2, emoteSprite.EMOTES.yay,
