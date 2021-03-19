@@ -59,7 +59,7 @@ class FoodSorter:
 		return false
 
 
-func _on_SearchFood_body_entered(body: Node):
+func _on_SearchFood_body_entered(_body: Node):
 	foodSorted = get_food_sorted()
 	if stateMachine.state.name != "Food":
 		stateMachine.transition_to("Food")

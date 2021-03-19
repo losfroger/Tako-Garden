@@ -16,5 +16,5 @@ func exit() -> void:
 	tween.stop_all()
 	tako.takoSprite.rotation = 0
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, _key):
 	state_machine.transition_to("Idle")

@@ -8,7 +8,7 @@ onready var buttonContainer = $ButtonContainer
 func _ready() -> void:
 	InterfaceSignals.connect("DeselectedTako", self, "_deselected")
 
-func newLocation(remoteTransform, info):
+func newLocation(remoteTransform, _info):
 	self.visible = true
 	if currentRemote != null:
 		currentRemote.remote_path = ""

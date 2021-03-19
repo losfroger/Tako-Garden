@@ -11,7 +11,6 @@ func enter(_msg := {}) -> void:
 	
 	takoList.shuffle()
 	var takoConv = takoList[0] as Tako
-	var target = GlobalFunctions.randomCord(Vector2(100,100))
 	
 	#takoConv.emoteSprite.emote(takoConv.emoteSprite.EMOTES.circle,1)
 	#tako.emoteSprite.emote(tako.emoteSprite.EMOTES.circle,1)
