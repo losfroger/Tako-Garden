@@ -27,9 +27,12 @@ func _ready() -> void:
 	probClass = WeightedRandom.new(probStates)
 
 
+func ready_after_parent() -> void:
+	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
+
+
 func enter(_msg := {}) -> void:
 	tako.add_to_group("Available_tako")
-	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
 	DebugEvents.console_print(tako.logColor, owner.name, "Idle")
 
 	timer.wait_time = rand_range(1, 8)

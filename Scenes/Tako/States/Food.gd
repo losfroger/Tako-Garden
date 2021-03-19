@@ -12,6 +12,13 @@ onready var food_seek: GSAIPursue
 onready var food_blend: GSAIBlend
 onready var avoid: GSAIAvoidCollisions
 
+func ready_after_parent() -> void:
+	food_seek = GSAIPursue.new(tako.agent, null, predict_time)
+	food_blend = GSAIBlend.new(tako.agent)
+	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
+	food_blend.add(avoid, 0.6)
+	food_blend.add(food_seek, 1)
+
 
 func enter(_msg := {}) -> void:
 	angryEmote = [
@@ -20,14 +27,8 @@ func enter(_msg := {}) -> void:
 		]
 	DebugEvents.console_print(tako.logColor, owner.name, "Food detected!")
 
-	food_seek = GSAIPursue.new(tako.agent, null, predict_time)
-	food_blend = GSAIBlend.new(tako.agent)
-	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
-
 	food_seek.target = tako.foodSorted.pop_front().body.agent
 
-	food_blend.add(avoid, 0.6)
-	food_blend.add(food_seek, 1)
 
 
 func physics_update(delta: float) -> void:

@@ -16,12 +16,18 @@ onready var wander_blend: GSAIBlend
 
 onready var timer = $Timer
 
-# _msg can have `target` which dictates target position of movement
-# and `return_to` for the state to which it'll return to, once it arrives
-func enter(_msg := {}) -> void:
+func ready_after_parent() -> void:
 	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
 	seek = GSAIArrive.new(tako.agent, target)
 	wander_blend = GSAIBlend.new(tako.agent)
+	wander_blend.add(seek, 1)
+	wander_blend.add(avoid, 0.6)
+	seek.connect("arrived", self, "_on_arrived")
+
+
+# _msg can have `target` which dictates target position of movement
+# and `return_to` for the state to which it'll return to, once it arrives
+func enter(_msg := {}) -> void:
 
 	if _msg.has_all(["arrivalT", "decRad"]):
 		seek.arrival_tolerance = _msg.arrivalT
@@ -47,10 +53,6 @@ func enter(_msg := {}) -> void:
 	if _msg.has("timer"):
 		timer.wait_time = _msg.timer
 		timer.start()
-
-	wander_blend.add(seek, 1)
-	wander_blend.add(avoid, 0.6)
-	seek.connect("arrived", self, "_on_arrived")
 
 
 func exit() -> void:
