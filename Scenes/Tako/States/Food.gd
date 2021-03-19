@@ -33,7 +33,7 @@ func enter(_msg := {}) -> void:
 func physics_update(delta: float) -> void:
 	if tako.searchFoodArea.get_overlapping_bodies().size() == 0:
 		var distanceTarget = food_seek.target.position.distance_to(Vector3(tako.global_position.x, tako.global_position.y, 0))
-		if tako.eat_recently == false and (distanceTarget < 250) and (randf() * 100) < 33:
+		if tako.eat_recently == false and (distanceTarget < 250) and (randf() * 100) < 15:
 			angryEmote.shuffle()
 			tako.emoteSprite.emote(angryEmote[0], 1.2)
 		state_machine.transition_to("Idle")
