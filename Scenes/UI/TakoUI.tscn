@@ -20,8 +20,8 @@ script = ExtResource( 2 )
 [node name="ButtonContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -83.5
-margin_right = 83.5
+margin_left = -43.5
+margin_right = 43.5
 margin_bottom = 49.0
 size_flags_horizontal = 4
 custom_constants/separation = 10
@@ -39,6 +39,7 @@ text = "Play"
 Scene = "res://Scenes/Minigames/WhackTako/WhackTako.tscn"
 
 [node name="Pat" type="Button" parent="ButtonContainer"]
+visible = false
 margin_left = 97.0
 margin_right = 167.0
 margin_bottom = 49.0
