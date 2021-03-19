@@ -7,6 +7,7 @@ onready var gameOverScreen = $CanvasLayer/Control/GameOverScreen
 # TODO: Change speed when gaining more points so the takos are
 # harder to hit
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	randomize()
 	for tako in takoContainer.get_children():
 		tako.connect("bonked", self, "add_score")
@@ -22,6 +23,7 @@ func reduce_score():
 
 
 func _on_CountDownTimer_end_timer() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 	gameOverScreen.score(scoreLabel.score)
 	gameOverScreen.visible = true
