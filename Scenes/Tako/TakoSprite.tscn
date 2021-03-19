@@ -1,7 +1,71 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Art/Tako/TakoFlap.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Tako/TakoSprite.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=35]
+resource_name = "default"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "get_up"
@@ -68,36 +132,7 @@ tracks/0/keys = {
 "values": [ 0, 7 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "spin"
-length = 0.3
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.28 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 360.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.29 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=23]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -111,61 +146,58 @@ tracks/0/keys = {
 "values": [ 10 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=7]
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "default"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
 animation = "get_up"
 
-[sub_resource type="AnimationNodeAnimation" id=8]
+[sub_resource type="AnimationNodeAnimation" id=25]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=26]
 animation = "rest"
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=27]
 animation = "sit_down"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
-animation = "spin"
-
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=28]
 animation = "still"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
-switch_mode = 2
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=17]
-states/get_up/node = SubResource( 7 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=34]
+states/default/node = SubResource( 36 )
+states/default/position = Vector2( -27, 101 )
+states/get_up/node = SubResource( 24 )
 states/get_up/position = Vector2( 389, 205 )
-states/idle/node = SubResource( 8 )
+states/idle/node = SubResource( 25 )
 states/idle/position = Vector2( 177, 101 )
-states/rest/node = SubResource( 9 )
+states/rest/node = SubResource( 26 )
 states/rest/position = Vector2( 580, 101 )
-states/sit_down/node = SubResource( 10 )
+states/sit_down/node = SubResource( 27 )
 states/sit_down/position = Vector2( 389, 101 )
-states/spin/node = SubResource( 19 )
-states/spin/position = Vector2( 177, 181 )
-states/still/node = SubResource( 11 )
+states/still/node = SubResource( 28 )
 states/still/position = Vector2( 177, -2 )
-transitions = [ "rest", "get_up", SubResource( 12 ), "get_up", "idle", SubResource( 13 ), "idle", "sit_down", SubResource( 14 ), "sit_down", "rest", SubResource( 15 ), "idle", "still", SubResource( 16 ), "idle", "spin", SubResource( 20 ), "spin", "idle", SubResource( 21 ) ]
-start_node = "idle"
-graph_offset = Vector2( -217, -11 )
+transitions = [ "rest", "get_up", SubResource( 29 ), "get_up", "idle", SubResource( 30 ), "idle", "sit_down", SubResource( 31 ), "sit_down", "rest", SubResource( 32 ), "idle", "still", SubResource( 33 ), "default", "idle", SubResource( 37 ) ]
+start_node = "default"
+graph_offset = Vector2( -195, -49 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
@@ -174,22 +206,21 @@ scale = Vector2( 0.45, 0.45 )
 z_as_relative = false
 texture = ExtResource( 1 )
 hframes = 16
-frame = 9
+frame = 10
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_description_": "TODO: Change the sprite with a separate node that handles it"
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/default = SubResource( 35 )
 anims/get_up = SubResource( 1 )
 anims/idle = SubResource( 2 )
 anims/rest = SubResource( 3 )
 anims/sit_down = SubResource( 4 )
-anims/spin = SubResource( 5 )
-anims/still = SubResource( 6 )
+anims/still = SubResource( 23 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 17 )
+tree_root = SubResource( 34 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 18 )
