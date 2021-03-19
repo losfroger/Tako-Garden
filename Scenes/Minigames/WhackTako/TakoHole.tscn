@@ -128,7 +128,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 123.528, 55.4279 )
+extents = Vector2( 119.894, 51.8437 )
 
 [node name="TakoWhack" type="Node2D"]
 script = ExtResource( 4 )
