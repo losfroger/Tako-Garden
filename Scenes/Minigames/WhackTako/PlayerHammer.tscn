@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Art/WhackATako/HammerImpact.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 39.7419, 79.0149 )
+extents = Vector2( 50.825, 79.0149 )
 
 [sub_resource type="Animation" id=2]
 length = 0.1
@@ -106,21 +106,27 @@ rotation = 0.319395
 
 [node name="HammerImpact" type="Sprite" parent="Position2D"]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.258824 )
 position = Vector2( -119.295, -92.3208 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Hammer" type="Sprite" parent="Position2D"]
 position = Vector2( -91.8315, -81.6227 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Hitbox" type="Area2D" parent="Position2D"]
 position = Vector2( -218.905, -100.049 )
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/Hitbox"]
-position = Vector2( 0, -1.12244 )
+position = Vector2( 18.6383, -9.43607 )
 rotation = -0.44855
 shape = SubResource( 1 )
 disabled = true
