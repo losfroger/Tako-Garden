@@ -14,7 +14,7 @@ onready var timer = $Timer
 func _ready() -> void:
 	animationPlayer.play("default")
 
-func emote(emote, duration: float):
+func emote(emote, duration: float) -> void:
 	self.frame = emote
 	if timer.time_left > 0:
 		timer.stop()

@@ -15,7 +15,7 @@ func _ready() -> void:
 	animationTree.advance(randomFrame)
 
 
-func outline(show = false):
+func outline(show:bool = false) -> void:
 	if show:
 		material = shaderOutline
 		z_index = 5
@@ -24,6 +24,6 @@ func outline(show = false):
 		material = null
 
 
-func animation(animation: String):
+func animation(animation: String) -> void:
 	animation_state_machine.travel(animation)
 

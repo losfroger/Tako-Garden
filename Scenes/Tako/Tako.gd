@@ -43,7 +43,7 @@ func _ready() -> void:
 	proximity_takos.radius = proximity_radius
 
 
-func _draw():
+func _draw() -> void:
 	if proximity_draw:
 		draw_circle(Vector2.ZERO, proximity_radius, "#22ffffff")
 
@@ -53,18 +53,18 @@ func set_proximity_agents(agents: Array) -> void:
 
 
 class FoodSorter:
-	static func sort_desc_distance(a, b):
+	static func sort_desc_distance(a, b) -> bool:
 		if a.distance < b.distance:
 			return true
 		return false
 
 
-func _on_SearchFood_body_entered(_body: Node):
+func _on_SearchFood_body_entered(_body: Node) -> void:
 	foodSorted = get_food_sorted()
 	if stateMachine.state.name != "Food":
 		stateMachine.transition_to("Food")
 
-func get_food_sorted():
+func get_food_sorted() -> Array:
 	var bodySort: Array
 	for body in searchFoodArea.get_overlapping_bodies():
 		if body.is_inside_tree():

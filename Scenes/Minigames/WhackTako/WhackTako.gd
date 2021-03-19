@@ -14,11 +14,11 @@ func _ready() -> void:
 		tako.connect("missed", self, "reduce_score")
 
 
-func add_score():
+func add_score() -> void:
 	scoreLabel.addScore(100)
 
 
-func reduce_score():
+func reduce_score() -> void:
 	scoreLabel.addScore(-25)
 
 
