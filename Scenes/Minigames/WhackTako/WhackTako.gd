@@ -3,6 +3,7 @@ extends Node2D
 onready var takoContainer = $Takos
 onready var scoreLabel = $CanvasLayer/Control/VBoxContainer/Score
 onready var gameOverScreen = $CanvasLayer/Control/GameOverScreen
+onready var blurRect = $CanvasLayer/Control/BlurRect
 
 # TODO: Change speed when gaining more points so the takos are
 # harder to hit
@@ -27,3 +28,4 @@ func _on_CountDownTimer_end_timer() -> void:
 	get_tree().paused = true
 	gameOverScreen.score(scoreLabel.score)
 	gameOverScreen.visible = true
+	blurRect.visible = true
