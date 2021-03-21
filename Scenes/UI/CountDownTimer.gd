@@ -1,17 +1,44 @@
-extends Label
+extends RichTextLabel
 
 signal end_timer()
 
 onready var timer = $Timer
-export var seconds = 60
+export var seconds = 60 setget set_seconds
 
 func _ready() -> void:
-	text = "Time: " + String(seconds)
+	self.seconds = seconds
+
+
+func set_seconds(new_seconds: int) -> void:
+	update_seconds(new_seconds)
+	seconds = new_seconds
 
 
 func _on_Timer_timeout() -> void:
-	seconds -= 1
-	text = "Time: " + String(seconds)
+	self.seconds -= 1
 	if seconds == 0:
 		emit_signal("end_timer")
 		timer.stop()
+
+func update_seconds(newSeconds):
+	clear()
+	push_align(RichTextLabel.ALIGN_CENTER)
+	append_bbcode("Time: ")
+	var textNumber = ""
+	
+	var stringNewSec = String(newSeconds)
+	var stringOldSec = String(seconds)
+	var numbers = []
+	for i in range(stringNewSec.length()):
+		if i < stringOldSec.length():
+			if stringNewSec[i] != stringOldSec[i]:
+				textNumber += "[count]%s[/count]"
+			else:
+				textNumber += "%s"
+		else:
+				textNumber += "%s"
+		numbers.append(stringNewSec[i])
+	textNumber = textNumber % numbers
+	append_bbcode(textNumber)
+	pop()
+

@@ -1,9 +1,12 @@
 extends Node2D
 
 onready var takoContainer = $Takos
-onready var scoreLabel = $CanvasLayer/Control/VBoxContainer/Score
-onready var gameOverScreen = $CanvasLayer/Control/GameOverScreen
-onready var blurRect = $CanvasLayer/Control/BlurRect
+onready var moreTime = $MoreTime
+
+onready var timeLabel = $UI/CountDownTimer
+onready var scoreLabel = $UI/Score
+onready var gameOverScreen = $UI/GameOverScreen
+onready var blurRect = $UI/BlurRect
 
 # TODO: Change speed when gaining more points so the takos are
 # harder to hit
@@ -13,6 +16,7 @@ func _ready() -> void:
 	for tako in takoContainer.get_children():
 		tako.connect("bonked", self, "add_score")
 		tako.connect("missed", self, "reduce_score")
+	moreTime.connect("bonked_more_time", self, "add_time")
 
 
 func add_score() -> void:
@@ -21,6 +25,10 @@ func add_score() -> void:
 
 func reduce_score() -> void:
 	scoreLabel.addScore(-25)
+
+
+func add_time() -> void:
+	timeLabel.seconds += 10
 
 
 func _on_CountDownTimer_end_timer() -> void:
