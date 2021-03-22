@@ -36,7 +36,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 120 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
@@ -65,7 +65,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -200 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -200 ), Vector2( 0, 120 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("TakoSprite:frame")
@@ -105,7 +105,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -200 ) ]
+"values": [ Vector2( 0, 120 ), Vector2( 0, -200 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("TakoSprite:frame")
@@ -156,7 +156,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 120 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
@@ -185,7 +185,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -200 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -200 ), Vector2( 0, 120 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("TakoSprite:frame")
@@ -225,7 +225,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -200 ) ]
+"values": [ Vector2( 0, 120 ), Vector2( 0, -200 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("TakoSprite:frame")
