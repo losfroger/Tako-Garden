@@ -12,7 +12,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		animationPlayer.play("hit")
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
 
 

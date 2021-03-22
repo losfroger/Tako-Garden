@@ -26,7 +26,7 @@ func _on_Timer_timeout() -> void:
 	tweenX.start()
 
 
-func _on_HurtBox_area_entered(area: Area2D) -> void:
+func _on_HurtBox_area_entered(_area: Area2D) -> void:
 	emit_signal("bonked_more_time")
 	speed = max(0.5, speed - 0.15)
 	hurtBox.set_deferred("disabled", true)
@@ -36,7 +36,7 @@ func _on_HurtBox_area_entered(area: Area2D) -> void:
 	get_parent().add_child(indicatorInst)
 
 
-func _on_TweenX_tween_completed(object: Object, key: NodePath) -> void:
+func _on_TweenX_tween_completed(_object: Object, _key: NodePath) -> void:
 	hurtBox.set_deferred("disabled", false)
 	timer.wait_time = rand_range(time_wait.x, time_wait.y)
 	timer.start()

@@ -43,7 +43,7 @@ func _ready() -> void:
 	timer.start()
 
 
-func _on_Hurtbox_area_entered(area: Area2D) -> void:
+func _on_Hurtbox_area_entered(_area: Area2D) -> void:
 	timer.stop()
 	emit_signal("bonked", bonkScore)
 	sfxPlayer.play()
