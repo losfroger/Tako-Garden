@@ -1,14 +1,15 @@
 extends Sprite
 
 const SPRITES = {
-	"tako": "res://Assets/Art/Tako/TakoFlap.png",
-	"ika": "res://Assets/Art/Tako/IkaFlap.png",
+	"tako": preload("res://Assets/Art/Tako/TakoFlap.png"),
+	"ika": preload("res://Assets/Art/Tako/IkaFlap.png"),
 }
 
 onready var animationTree = $AnimationTree
 
 var animation_state_machine: AnimationNodeStateMachinePlayback
 var shaderOutline = preload("res://Source/Shaders/Outline.tres")
+var sprite:String="tako" setget set_sprite
 
 func _ready() -> void:
 	shaderOutline.set_shader_param("line_thickness", 10)
@@ -29,8 +30,8 @@ func outline(show:bool = false) -> void:
 		material = null
 
 
-func change_sprite(name: String) -> void:
-	var newSprite = load(SPRITES.get(name))
+func set_sprite(name: String) -> void:
+	var newSprite = SPRITES.get(name)
 	texture = newSprite
 
 
