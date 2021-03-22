@@ -8,6 +8,17 @@ onready var scoreLabel = $UI/Score
 onready var gameOverScreen = $UI/GameOverScreen
 onready var blurRect = $UI/BlurRect
 
+enum TYPE {
+	TAKO,
+	IKA,
+}
+
+var probStates = [
+	{"item": TYPE.TAKO, "weight": 1.0},
+	{"item": TYPE.IKA, "weight": 0.02},
+	]
+
+
 # TODO: Change speed when gaining more points so the takos are
 # harder to hit
 func _ready() -> void:
@@ -19,12 +30,12 @@ func _ready() -> void:
 	moreTime.connect("bonked_more_time", self, "add_time")
 
 
-func add_score() -> void:
-	scoreLabel.addScore(100)
+func add_score(newScore) -> void:
+	scoreLabel.addScore(newScore)
 
 
-func reduce_score() -> void:
-	scoreLabel.addScore(-25)
+func reduce_score(newScore) -> void:
+	scoreLabel.addScore(newScore)
 
 
 func add_time() -> void:
