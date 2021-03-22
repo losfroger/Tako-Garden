@@ -1,5 +1,10 @@
 extends Sprite
 
+const SPRITES = {
+	"tako": "res://Assets/Art/Tako/TakoFlap.png",
+	"ika": "res://Assets/Art/Tako/IkaFlap.png",
+}
+
 onready var animationTree = $AnimationTree
 
 var animation_state_machine: AnimationNodeStateMachinePlayback
@@ -22,6 +27,11 @@ func outline(show:bool = false) -> void:
 	else:
 		z_index = 0
 		material = null
+
+
+func change_sprite(name: String) -> void:
+	var newSprite = load(SPRITES.get(name))
+	texture = newSprite
 
 
 func animation(animation: String) -> void:
