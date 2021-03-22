@@ -14,8 +14,8 @@ var TYPE := {
 }
 
 var probStates := [
-	{"item": TYPE.tako, "weight": 1.0},
-	{"item": TYPE.ika, "weight": 0.2},
+	{"item": TYPE.tako, "weight": 0.85},
+	{"item": TYPE.ika, "weight": 0.15},
 	]
 
 
