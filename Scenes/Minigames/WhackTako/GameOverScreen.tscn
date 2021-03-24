@@ -46,7 +46,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 530.0
-margin_bottom = 186.0
+margin_bottom = 370.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -68,15 +68,41 @@ custom_fonts/font = SubResource( 2 )
 text = "Score:"
 align = 1
 
-[node name="ChangeSceneButton" parent="." instance=ExtResource( 2 )]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 190.0
+margin_right = 530.0
+margin_bottom = 370.0
+custom_constants/margin_right = 70
+custom_constants/margin_top = 50
+custom_constants/margin_left = 70
+custom_constants/margin_bottom = 0
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+margin_left = 70.0
+margin_top = 50.0
+margin_right = 460.0
+margin_bottom = 180.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+
+[node name="Retry" parent="VBoxContainer/MarginContainer/Buttons" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 116.0
-margin_top = 246.0
-margin_right = 414.0
-margin_bottom = 309.0
-size_flags_horizontal = 4
+margin_right = 390.0
+margin_bottom = 63.0
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Retry"
+script = null
+
+[node name="MainMenu" parent="VBoxContainer/MarginContainer/Buttons" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 67.0
+margin_right = 390.0
+margin_bottom = 130.0
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 3 )
 text = "Main screen"
 Scene = "res://Scenes/World/Garden.tscn"
+[connection signal="pressed" from="VBoxContainer/MarginContainer/Buttons/Retry" to="." method="_on_Retry_pressed"]
