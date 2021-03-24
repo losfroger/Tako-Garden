@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Fonts/ArialRound/ArialRound-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/UI/CountDownTimer.gd" type="Script" id=2]
 [ext_resource path="res://Source/BBCode/CountDown.gd" type="Script" id=3]
+[ext_resource path="res://Assets/SFX/Clock/ticking clock - tick2.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/SFX/Clock/ticking clock - tick1.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/SFX/Clock/ticking clock - tick3.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/SFX/Clock/ticking clock - tick4.wav" type="AudioStream" id=7]
+[ext_resource path="res://addons/randomAudioStreamPlayer/random_audio_stream_player.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -35,4 +40,17 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="RandomAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 2.916
+bus = "Sound effects"
+script = ExtResource( 8 )
+streams = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ) ]
+random_strategy = 2
+randomize_volume = false
+volume_min = 0.0
+volume_max = 0.0
+randomize_pitch = false
+pitch_min = 1.0
+pitch_max = 1.0
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ticking clock - tick3.wav-973faaef51f4ccb500d6a47786f25ed9.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Clock/ticking clock - tick3.wav"
+dest_files=[ "res://.import/ticking clock - tick3.wav-973faaef51f4ccb500d6a47786f25ed9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

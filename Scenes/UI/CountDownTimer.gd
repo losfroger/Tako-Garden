@@ -3,7 +3,10 @@ extends RichTextLabel
 signal end_timer()
 
 onready var timer = $Timer
+onready var randomAudio = $RandomAudioStreamPlayer
+
 export var seconds = 60 setget set_seconds
+export var start_ticking = 10
 
 func _ready() -> void:
 	self.seconds = seconds
@@ -16,6 +19,8 @@ func set_seconds(new_seconds: int) -> void:
 
 func _on_Timer_timeout() -> void:
 	self.seconds -= 1
+	if seconds <= start_ticking:
+		randomAudio.play()
 	if seconds == 0:
 		emit_signal("end_timer")
 		timer.stop()
