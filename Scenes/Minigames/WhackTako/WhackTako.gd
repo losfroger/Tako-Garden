@@ -7,6 +7,7 @@ onready var timeLabel = $UI/CountDownTimer
 onready var scoreLabel = $UI/Score
 onready var gameOverScreen = $UI/GameOverScreen
 onready var blurRect = $UI/BlurRect
+onready var gitGudSFX = $GitGud
 
 enum TYPE {
 	TAKO,
@@ -22,6 +23,7 @@ var probStates = [
 # TODO: Change speed when gaining more points so the takos are
 # harder to hit
 func _ready() -> void:
+	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	randomize()
 	for tako in takoContainer.get_children():
@@ -43,6 +45,7 @@ func add_time() -> void:
 
 
 func _on_CountDownTimer_end_timer() -> void:
+	gitGudSFX.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
 	gameOverScreen.score(scoreLabel.score)
