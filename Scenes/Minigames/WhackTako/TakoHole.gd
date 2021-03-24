@@ -25,6 +25,7 @@ onready var timer = $Timer
 onready var emote = $Emotes
 onready var hurtBox = $Hurtbox/CollisionShape2D
 onready var sfxPlayer = $BonkSFX
+onready var popSFX = $PopOut
 
 var state = STATE.DOWN
 var bonked = false
@@ -39,7 +40,13 @@ func _ready() -> void:
 	probClass = WeightedRandom.new(probStates)
 	takoSprite.animationTree.active = false
 	animationPlayer.play("default")
-	timer.wait_time = rand_range(1,12)
+	timer.wait_time = rand_range(1,9)
+	
+	var newState = probClass.random_pick()
+	takoSprite.sprite = newState.name
+	bonkScore = newState.bonk
+	missScore = newState.miss
+	
 	timer.start()
 
 
@@ -54,7 +61,7 @@ func _on_Hurtbox_area_entered(_area: Area2D) -> void:
 
 func downTako():
 	state = STATE.DOWN
-	timer.wait_time = rand_range(5,10)
+	timer.wait_time = rand_range(4,10)
 	timer.start()
 	
 	var newState = probClass.random_pick()
@@ -84,6 +91,8 @@ func _on_Timer_timeout() -> void:
 			animationPlayer.play("down")
 		STATE.DOWN:
 			animationPlayer.play("pop")
+			if bonkScore > 0:
+				popSFX.play()
 			state = STATE.UP
 			timer.wait_time = rand_range(0.8, 1.5)
 			timer.start()
