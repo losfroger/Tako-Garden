@@ -257,7 +257,7 @@ window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "Todo_Manager", "ui_design_tool" )
+enabled=PoolStringArray( "Todo_Manager", "randomAudioStreamPlayer", "ui_design_tool" )
 
 [importer_defaults]
 
