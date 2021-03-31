@@ -33,6 +33,7 @@ func outline(show:bool = false) -> void:
 
 func set_sprite(name: String) -> void:
 	if name != sprite:
+		sprite = name
 		texture = SPRITES.get(name)
 
 
