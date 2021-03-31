@@ -31,8 +31,8 @@ func outline(show:bool = false) -> void:
 
 
 func set_sprite(name: String) -> void:
-	var newSprite = SPRITES.get(name)
-	texture = newSprite
+	if name != sprite:
+		texture = SPRITES.get(name)
 
 
 func animation(animation: String) -> void:
