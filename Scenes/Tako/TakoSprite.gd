@@ -3,6 +3,7 @@ extends Sprite
 const SPRITES = {
 	"tako": preload("res://Assets/Art/Tako/TakoFlap.png"),
 	"ika": preload("res://Assets/Art/Tako/IkaFlap.png"),
+	"gold_tako": preload("res://Assets/Art/Tako/GoldTakoFlap.png"),
 }
 
 onready var animationTree = $AnimationTree
