@@ -12,7 +12,15 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	randomize()
 	var tako_agents := []
-	var sprites = ["ika", "tako"]
+	
+	var probStates := [
+	{"item": "tako", "weight": 0.75},
+	{"item": "ika", "weight": 0.30},
+	{"item": "gold_tako", "weight": 0.08},
+	]
+	
+	var probClass = WeightedRandom.new(probStates)
+	
 	for _i in range(12):
 		var takoInst = tako_template.instance()
 		takos.add_child(takoInst, true)
@@ -27,7 +35,7 @@ func _ready() -> void:
 
 		takoInst.global_position = randPos
 		takoInst.scale = Vector2(randScale, randScale)
-		takoInst.takoSprite.sprite = sprites[randi() % 2]
+		takoInst.takoSprite.sprite = probClass.random_pick()
 
 		takoInst.connect("takoUI", $TakoUI, "newLocation")
 
