@@ -11,7 +11,7 @@ onready var hurtBox = $Position2D/HurtBox/CollisionShape2D
 onready var hitSFX = $HitSFX
 
 var speed = 2
-var indicator = preload("res://Scenes/Minigames/WhackTako/TimeIndication.tscn")
+var indicator = preload("res://Scenes/Minigames/WhackTako/UI/TimeIndication.tscn")
 
 func _ready() -> void:
 	randomize()

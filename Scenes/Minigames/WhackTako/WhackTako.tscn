@@ -5,15 +5,16 @@
 [ext_resource path="res://Scenes/Minigames/WhackTako/WhackTako.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Minigames/WhackTako/PlayerHammer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/UI/CountDownTimer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Minigames/WhackTako/Score.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Minigames/WhackTako/UI/Score.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Music/Kanalumi.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Assets/SFX/WhackTako/Ina_-_WhackATako.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Scenes/Minigames/WhackTako/GameOverScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Minigames/WhackTako/UI/GameOverScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/UI/MusicButton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Minigames/WhackTako/MoreTime.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/SFX/WhackTako/Ina_-_GitGud.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Scenes/Debug/FPSlabel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Fonts/ArialRound/ArialRound-regular.ttf" type="DynamicFontData" id=14]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
