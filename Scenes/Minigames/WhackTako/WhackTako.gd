@@ -6,7 +6,7 @@ onready var moreTime = $MoreTime
 onready var timeLabel = $UI/CountDownTimer
 onready var scoreLabel = $UI/Score
 onready var gameOverScreen = $UI/GameOverScreen
-onready var blurRect = $UI/BlurRect
+onready var blurRect = $UI/BlurScreen
 onready var gitGudSFX = $GitGud
 
 enum TYPE {
@@ -50,4 +50,5 @@ func _on_CountDownTimer_end_timer() -> void:
 	get_tree().paused = true
 	gameOverScreen.score(scoreLabel.score)
 	gameOverScreen.visible = true
-	blurRect.visible = true
+	
+	blurRect.show()
