@@ -9,7 +9,7 @@
 [ext_resource path="res://Assets/Music/Kanalumi.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Assets/SFX/WhackTako/Ina_-_WhackATako.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Scenes/Minigames/WhackTako/UI/GameOverScreen.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/UI/MusicButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Theme/kenneyUI-yellow.tres" type="Theme" id=10]
 [ext_resource path="res://Scenes/Minigames/WhackTako/MoreTime.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/SFX/WhackTako/Ina_-_GitGud.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Scenes/Debug/FPSlabel.tscn" type="PackedScene" id=13]
@@ -256,7 +256,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=7]
 size = 48
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -305,6 +305,12 @@ range_item_cull_mask = 4
 [node name="TakoSprite" parent="Takos/TakoWhack5" index="2"]
 light_mask = 4
 
+[node name="BonkSFX" parent="Takos/TakoWhack5" index="7"]
+bus = "Master"
+
+[node name="PopOut" parent="Takos/TakoWhack5" index="8"]
+bus = "Master"
+
 [node name="TakoWhack6" parent="Takos" instance=ExtResource( 2 )]
 position = Vector2( 960, 954.251 )
 scale = Vector2( 0.8, 0.8 )
@@ -321,6 +327,12 @@ anims/default = SubResource( 1 )
 anims/down = SubResource( 2 )
 anims/pop = SubResource( 3 )
 
+[node name="BonkSFX" parent="Takos/TakoWhack6" index="7"]
+bus = "Master"
+
+[node name="PopOut" parent="Takos/TakoWhack6" index="8"]
+bus = "Master"
+
 [node name="TakoWhack7" parent="Takos" instance=ExtResource( 2 )]
 position = Vector2( 1440, 954.251 )
 scale = Vector2( 0.8, 0.8 )
@@ -336,6 +348,12 @@ light_mask = 4
 anims/default = SubResource( 4 )
 anims/down = SubResource( 5 )
 anims/pop = SubResource( 6 )
+
+[node name="BonkSFX" parent="Takos/TakoWhack7" index="7"]
+bus = "Master"
+
+[node name="PopOut" parent="Takos/TakoWhack7" index="8"]
+bus = "Master"
 
 [node name="MoreTime" parent="." instance=ExtResource( 11 )]
 position = Vector2( -111.639, 214.266 )
@@ -354,13 +372,11 @@ bus = "Music"
 stream = ExtResource( 8 )
 volume_db = 10.0
 autoplay = true
-bus = "Sound effects"
 
 [node name="GitGud" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 12 )
 volume_db = 10.692
-bus = "Sound effects"
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -379,6 +395,7 @@ margin_left = -220.5
 margin_top = 10.0
 margin_right = 220.5
 margin_bottom = 123.141
+seconds = 10
 
 [node name="BlurScreen" parent="UI" instance=ExtResource( 15 )]
 
@@ -386,13 +403,7 @@ margin_bottom = 123.141
 visible = false
 margin_left = -251.0
 margin_right = 251.0
-
-[node name="MusicButton" parent="UI" instance=ExtResource( 10 )]
-pause_mode = 2
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -62.0
-margin_right = 0.0
+theme = ExtResource( 10 )
 
 [node name="FPSlabel" parent="UI" instance=ExtResource( 13 )]
 anchor_top = 1.0
@@ -400,7 +411,7 @@ anchor_bottom = 1.0
 margin_top = -57.0
 margin_right = 178.0
 margin_bottom = 0.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 7 )
 [connection signal="end_timer" from="UI/CountDownTimer" to="." method="_on_CountDownTimer_end_timer"]
 
 [editable path="Takos/TakoWhack5"]
