@@ -8,6 +8,7 @@ onready var scoreLabel = $UI/Score
 onready var gameOverScreen = $UI/GameOverScreen
 onready var blurRect = $UI/BlurScreen
 onready var gitGudSFX = $GitGud
+onready var pauseMenu = $UI/PauseMenu
 
 enum TYPE {
 	TAKO,
@@ -52,3 +53,11 @@ func _on_CountDownTimer_end_timer() -> void:
 	gameOverScreen.visible = true
 	
 	blurRect.show()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.get_action_strength("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		pauseMenu.show()
+		pauseMenu.mouseMode = Input.MOUSE_MODE_HIDDEN
+		get_tree().paused = true
