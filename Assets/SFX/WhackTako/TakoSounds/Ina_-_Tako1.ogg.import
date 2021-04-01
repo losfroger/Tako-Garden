@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ina_-_Tako1.ogg-4a7d5e84f0908da3e9b38cfd67ba2ff7.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/WhackTako/TakoSounds/Ina_-_Tako1.ogg"
+dest_files=[ "res://.import/Ina_-_Tako1.ogg-4a7d5e84f0908da3e9b38cfd67ba2ff7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

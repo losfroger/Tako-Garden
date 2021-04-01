@@ -1,7 +1,7 @@
 extends Node
 
 onready var foodLoad = preload("res://Scenes/Interact/Food.tscn")
-export var tako_template: PackedScene
+export var tako_template = preload("res://Scenes/Tako/Tako.tscn")
 export var margin = Vector2(70, 70)
 
 onready var takos = $Takos
@@ -9,8 +9,18 @@ onready var food = $Food
 
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	randomize()
 	var tako_agents := []
+	
+	var probStates := [
+	{"item": "tako", "weight": 0.75},
+	{"item": "ika", "weight": 0.30},
+	{"item": "gold_tako", "weight": 0.08},
+	]
+	
+	var probClass = WeightedRandom.new(probStates)
+	
 	for _i in range(12):
 		var takoInst = tako_template.instance()
 		takos.add_child(takoInst, true)
@@ -25,6 +35,7 @@ func _ready() -> void:
 
 		takoInst.global_position = randPos
 		takoInst.scale = Vector2(randScale, randScale)
+		takoInst.takoSprite.sprite = probClass.random_pick()
 
 		takoInst.connect("takoUI", $TakoUI, "newLocation")
 

@@ -5,6 +5,14 @@
 extends Node
 class_name State
 
+# TODO a function that gets called on ready after the parent, could be useful
+# for the nodes that initialize a class but need the parent to be ready
+
+# Virtual function, that gets called after the parent is ready
+func ready_after_parent() -> void:
+	pass
+
+
 # Reference to the state machine, to call at the `transitio_to()` method
 # The state machine node will set it
 var state_machine = null

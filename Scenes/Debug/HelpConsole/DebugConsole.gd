@@ -15,5 +15,5 @@ func submit_text(color:Color, node_name: String, text:String) -> void:
 	ConsoleLog.append_bbcode(text)
 
 
-func _on_ToggleButton_pressed():
+func _on_ToggleButton_pressed() -> void:
 	ConsoleLog.visible = !ConsoleLog.visible

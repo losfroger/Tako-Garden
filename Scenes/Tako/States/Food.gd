@@ -12,6 +12,13 @@ onready var food_seek: GSAIPursue
 onready var food_blend: GSAIBlend
 onready var avoid: GSAIAvoidCollisions
 
+func ready_after_parent() -> void:
+	food_seek = GSAIPursue.new(tako.agent, null, predict_time)
+	food_blend = GSAIBlend.new(tako.agent)
+	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
+	food_blend.add(avoid, 0.6)
+	food_blend.add(food_seek, 1)
+
 
 func enter(_msg := {}) -> void:
 	angryEmote = [
@@ -20,20 +27,14 @@ func enter(_msg := {}) -> void:
 		]
 	DebugEvents.console_print(tako.logColor, owner.name, "Food detected!")
 
-	food_seek = GSAIPursue.new(tako.agent, null, predict_time)
-	food_blend = GSAIBlend.new(tako.agent)
-	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
-
 	food_seek.target = tako.foodSorted.pop_front().body.agent
 
-	food_blend.add(avoid, 0.6)
-	food_blend.add(food_seek, 1)
 
 
 func physics_update(delta: float) -> void:
 	if tako.searchFoodArea.get_overlapping_bodies().size() == 0:
 		var distanceTarget = food_seek.target.position.distance_to(Vector3(tako.global_position.x, tako.global_position.y, 0))
-		if tako.eat_recently == false and (distanceTarget < 250) and (randf() * 100) < 33:
+		if tako.eat_recently == false and (distanceTarget < 250) and (randf() * 100) < 15:
 			angryEmote.shuffle()
 			tako.emoteSprite.emote(angryEmote[0], 1.2)
 		state_machine.transition_to("Idle")

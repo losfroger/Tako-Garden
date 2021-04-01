@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Kanalumi.ogg-260f1f431f391bc607ba6843f12d1acc.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/Kanalumi.ogg"
+dest_files=[ "res://.import/Kanalumi.ogg-260f1f431f391bc607ba6843f12d1acc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

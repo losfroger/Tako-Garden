@@ -7,7 +7,8 @@ enum STATES {
 	WANDER,
 	IDLE,
 	CONV,
-	SIT
+	SIT,
+	SPIN,
 }
 
 var probStates = [
@@ -15,6 +16,7 @@ var probStates = [
 	{"item": STATES.IDLE, "weight": 2.0},
 	{"item": STATES.CONV, "weight": 0.03},
 	{"item": STATES.SIT, "weight": 0.1},
+	{"item": STATES.SPIN, "weight": 0.1},
 	]
 
 onready var avoid: GSAIAvoidCollisions
@@ -25,9 +27,12 @@ func _ready() -> void:
 	probClass = WeightedRandom.new(probStates)
 
 
+func ready_after_parent() -> void:
+	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
+
+
 func enter(_msg := {}) -> void:
 	tako.add_to_group("Available_tako")
-	avoid = GSAIAvoidCollisions.new(tako.agent, tako.proximity_takos)
 	DebugEvents.console_print(tako.logColor, owner.name, "Idle")
 
 	timer.wait_time = rand_range(1, 8)
@@ -67,3 +72,6 @@ func _on_timer_end() -> void:
 				"timer": 10,
 			}
 			state_machine.transition_to("Move", msg)
+		STATES.SPIN:
+			DebugEvents.console_print(tako.logColor, owner.name, "Time to spin!")
+			state_machine.transition_to("Spin")

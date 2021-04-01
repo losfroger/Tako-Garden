@@ -13,12 +13,12 @@ func enter(_msg := {}) -> void:
 	
 	tako.searchFoodArea.monitoring = false
 	tako.eatFoodArea.monitoring = false
-	#tako.set_physics_process(false)
+	tako.set_physics_process(false)
 
 func exit():
 	tako.searchFoodArea.monitoring = true
 	tako.eatFoodArea.monitoring = true
-	#tako.set_physics_process(true)
+	tako.set_physics_process(true)
 	timer.stop()
 
 

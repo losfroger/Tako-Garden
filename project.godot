@@ -154,6 +154,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Libraries/godot-steering-framework/GSAIUtils.gd"
 }, {
+"base": "RichTextEffect",
+"class": "RichTextCountDown",
+"language": "GDScript",
+"path": "res://Source/BBCode/CountDown.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -209,6 +214,7 @@ _global_script_class_icons={
 "GSAISteeringBehavior": "",
 "GSAITargetAcceleration": "",
 "GSAIUtils": "",
+"RichTextCountDown": "",
 "State": "",
 "StateMachine": "",
 "Tako": "",
@@ -220,13 +226,18 @@ _global_script_class_icons={
 
 config/name="Tako Garden"
 run/main_scene="res://Scenes/World/Garden.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Art/Tako/Tako.png"
+
+[audio]
+
+output_latency.web=75
 
 [autoload]
 
 DebugEvents="*res://Source/Globals/DebugEvents.gd"
 InterfaceSignals="*res://Source/Globals/InterfaceSignals.gd"
 GlobalFunctions="*res://Source/Globals/GlobalFunctions.gd"
+ParticlesCache="*res://Source/Globals/ParticlesCache.gd"
 
 [debug]
 
@@ -236,14 +247,23 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=1920
 window/size/height=1080
+window/size/always_on_top=true
 window/size/test_width=1280
 window/size/test_height=720
+mouse_cursor/custom_image="res://Assets/Art/cursorHand_grey.png"
 window/stretch/mode="2d"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "Todo_Manager", "ui_design_tool" )
+enabled=PoolStringArray( "Todo_Manager", "randomAudioStreamPlayer", "ui_design_tool" )
+
+[importer_defaults]
+
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
 
 [input]
 

@@ -100,9 +100,9 @@ tracks/1/keys = {
 }
 
 [node name="Emotes" type="Sprite"]
-modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -21.357 )
 vframes = 5
 hframes = 6
 frame = 29

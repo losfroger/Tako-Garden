@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/jingles_STEEL16.ogg-caecba56abc8e69bf25e8551bc2a8ed1.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/WhackTako/jingles_STEEL16.ogg"
+dest_files=[ "res://.import/jingles_STEEL16.ogg-caecba56abc8e69bf25e8551bc2a8ed1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

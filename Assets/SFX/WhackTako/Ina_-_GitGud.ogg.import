@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ina_-_GitGud.ogg-06467287a6ff322b4a0b7380b4767aec.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/WhackTako/Ina_-_GitGud.ogg"
+dest_files=[ "res://.import/Ina_-_GitGud.ogg-06467287a6ff322b4a0b7380b4767aec.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

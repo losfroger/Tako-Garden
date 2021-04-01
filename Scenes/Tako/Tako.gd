@@ -7,7 +7,6 @@ signal arrivedConv()
 export var speed_max := 520.0
 export var acceleration_max := 1384.0
 export var proximity_radius := 100.0
-export var proximity_draw: bool = false
 export var logColor: Color = Color.cornflower
 
 # Steering
@@ -43,29 +42,24 @@ func _ready() -> void:
 	proximity_takos.radius = proximity_radius
 
 
-func _draw():
-	if proximity_draw:
-		draw_circle(Vector2.ZERO, proximity_radius, "#22ffffff")
-
-
 func set_proximity_agents(agents: Array) -> void:
 	proximity_takos.agents = agents
 
 
 class FoodSorter:
-	static func sort_desc_distance(a, b):
+	static func sort_desc_distance(a, b) -> bool:
 		if a.distance < b.distance:
 			return true
 		return false
 
 
-func _on_SearchFood_body_entered(body: Node):
+func _on_SearchFood_body_entered(_body: Node) -> void:
 	foodSorted = get_food_sorted()
 	if stateMachine.state.name != "Food":
 		stateMachine.transition_to("Food")
 
-func get_food_sorted():
-	var bodySort: Array
+func get_food_sorted() -> Array:
+	var bodySort: Array = []
 	for body in searchFoodArea.get_overlapping_bodies():
 		if body.is_inside_tree():
 			bodySort.append({"body": body,
@@ -92,7 +86,7 @@ func _on_EatArea_body_entered(body: Node) -> void:
 func _on_Tako_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		event = event as InputEventMouseButton
-		if event.pressed:
+		if event.get_action_strength("l_click"):
 			var randomEmotes = [
 				emoteSprite.EMOTES.happy, emoteSprite.EMOTES.heart, emoteSprite.EMOTES.heart2, 
 				emoteSprite.EMOTES.star, emoteSprite.EMOTES.star2, emoteSprite.EMOTES.yay,
