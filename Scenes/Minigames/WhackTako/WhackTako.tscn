@@ -395,7 +395,6 @@ margin_left = -220.5
 margin_top = 10.0
 margin_right = 220.5
 margin_bottom = 123.141
-seconds = 10
 
 [node name="BlurScreen" parent="UI" instance=ExtResource( 15 )]
 
