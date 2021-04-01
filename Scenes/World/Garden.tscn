@@ -94,4 +94,7 @@ visible = false
 theme = ExtResource( 11 )
 
 [node name="MenuButton" parent="UI" instance=ExtResource( 5 )]
+margin_left = -126.0
+margin_top = 10.0
+margin_right = -10.0
 pause = false
