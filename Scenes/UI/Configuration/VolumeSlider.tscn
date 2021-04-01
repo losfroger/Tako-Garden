@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/UI/Configuration/VolumeSlider.gd" type="Script" id=1]
+[ext_resource path="res://Assets/SFX/Configuration/Ina_-_Wah.ogg" type="AudioStream" id=2]
 
 [node name="VolumeSlider" type="HSlider"]
 margin_right = 16.0
@@ -9,4 +10,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="soundTest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = 0.5
+bus = "SFX"
 [connection signal="value_changed" from="." to="." method="_on_VolumeSlider_value_changed"]
