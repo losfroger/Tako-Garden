@@ -25,7 +25,7 @@ size = 23
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 36
 use_filter = true
 font_data = ExtResource( 3 )
@@ -138,7 +138,7 @@ margin_right = 804.0
 margin_bottom = 57.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Whack a tako"
+text = "There was an error?"
 align = 1
 
 [node name="ImageRect" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer/Container/VBoxContainer"]
@@ -171,9 +171,9 @@ custom_fonts/mono_font = SubResource( 3 )
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "Hello world!
-This is the description of the game!"
+Wait, you aren't supposed to see this! How did you do it?"
 text = "Hello world!
-This is the description of the game!"
+Wait, you aren't supposed to see this! How did you do it?"
 
 [node name="Controls" type="RichTextLabel" parent="Panel/MarginContainer/HBoxContainer/Container/VBoxContainer/TabContainer"]
 visible = false
@@ -200,7 +200,7 @@ margin_right = 462.0
 margin_bottom = 874.251
 rect_min_size = Vector2( 120, 0 )
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "Play"
 
 [node name="CloseButton" type="Button" parent="Panel"]

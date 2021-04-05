@@ -42,6 +42,8 @@ func _ready() -> void:
 		buttonContainer.add_child(button)
 
 func loadId(id: String) -> void:
+	tabContainer.current_tab = 0
+	
 	titleLabel.text = json[id]["name"]
 	imageRect.texture = load(json[id]["image"])
 	
