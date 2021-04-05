@@ -49,13 +49,11 @@ func loadId(id: String) -> void:
 	for line in json[id]["description"]:
 		description.append_bbcode(line)
 		description.newline()
-		description.pop()
 	
 	controls.clear()
 	for line in json[id]["controls"]:
 		controls.append_bbcode(line)
 		controls.newline()
-		controls.pop()
 	
 	playBt.Scene = json[id]["playBt"]
 	
