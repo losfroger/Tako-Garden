@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Debug/HelpConsole/DebugConsole.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/World/Garden.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Music/InaLoadBGM.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Scenes/UI/TakoUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Theme/kenneyUI-yellow.tres" type="Theme" id=11]
+[ext_resource path="res://Scenes/UI/ChooseMinigame.tscn" type="PackedScene" id=12]
 
 [node name="Garden" type="Node2D"]
 script = ExtResource( 2 )
@@ -99,3 +100,9 @@ margin_top = 10.0
 margin_right = -10.0
 items = [ "Options", null, 0, false, false, 0, 0, null, "", false ]
 pause = false
+
+[node name="ChooseMinigame" parent="UI" instance=ExtResource( 12 )]
+visible = false
+[connection signal="pressed" from="TakoUI/ButtonContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+
+[editable path="TakoUI"]

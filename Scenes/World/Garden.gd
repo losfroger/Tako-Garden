@@ -6,7 +6,7 @@ export var margin = Vector2(70, 70)
 
 onready var takos = $Takos
 onready var food = $Food
-
+onready var minigameSelection = $UI/ChooseMinigame
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -52,3 +52,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		food.add_child(foodInst)
 		InterfaceSignals.emit_signal("DeselectedTako")
+
+
+func _on_PlayButton_pressed() -> void:
+	InterfaceSignals.emit_signal("DeselectedTako")
+	minigameSelection.visible = true
