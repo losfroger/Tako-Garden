@@ -98,7 +98,6 @@ theme = ExtResource( 11 )
 margin_left = -126.0
 margin_top = 10.0
 margin_right = -10.0
-items = [ "Options", null, 0, false, false, 0, 0, null, "", false ]
 pause = false
 
 [node name="ChooseMinigame" parent="UI" instance=ExtResource( 12 )]
