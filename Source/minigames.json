@@ -11,7 +11,7 @@
 			"[table=2] [cell]Golden tako [/cell] [cell] 300 points[/cell] [cell]Normal tako [/cell][cell] 100 points[/cell] [cell]Ika [/cell][cell]-150 points[/cell] [/table]"
 		],
 		"controls": [
-			"[table=2] [cell]Left mouse button: [/cell][cell] Bonk[/cell] [cell]Move mouse: [/cell][cell] Control hammer[/cell] [/table]"
+			"[table=2] [cell]Bonk: [/cell][cell] Left mouse button[/cell] [cell]Control hammer: [/cell][cell] Move mouse[/cell] [/table]"
 		],
 		"image": "res://Assets/MinigameSS/Whack a tako.png",
 		"playBt": "res://Scenes/Minigames/WhackTako/WhackTako.tscn"
