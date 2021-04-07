@@ -197,11 +197,9 @@ one_shot = true
 [node name="BonkSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = 6.0
-bus = "Sound effects"
 
 [node name="PopOut" type="AudioStreamPlayer" parent="."]
 volume_db = 10.0
-bus = "Sound effects"
 script = ExtResource( 7 )
 streams = [ ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ) ]
 random_strategy = 2

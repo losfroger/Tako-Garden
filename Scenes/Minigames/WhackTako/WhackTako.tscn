@@ -297,12 +297,6 @@ range_item_cull_mask = 4
 [node name="TakoSprite" parent="Takos/TakoWhack5" index="2"]
 light_mask = 4
 
-[node name="BonkSFX" parent="Takos/TakoWhack5" index="7"]
-bus = "Master"
-
-[node name="PopOut" parent="Takos/TakoWhack5" index="8"]
-bus = "Master"
-
 [node name="TakoWhack6" parent="Takos" instance=ExtResource( 2 )]
 position = Vector2( 960, 954.251 )
 scale = Vector2( 0.8, 0.8 )
@@ -319,12 +313,6 @@ anims/default = SubResource( 1 )
 anims/down = SubResource( 2 )
 anims/pop = SubResource( 3 )
 
-[node name="BonkSFX" parent="Takos/TakoWhack6" index="7"]
-bus = "Master"
-
-[node name="PopOut" parent="Takos/TakoWhack6" index="8"]
-bus = "Master"
-
 [node name="TakoWhack7" parent="Takos" instance=ExtResource( 2 )]
 position = Vector2( 1440, 954.251 )
 scale = Vector2( 0.8, 0.8 )
@@ -340,12 +328,6 @@ light_mask = 4
 anims/default = SubResource( 4 )
 anims/down = SubResource( 5 )
 anims/pop = SubResource( 6 )
-
-[node name="BonkSFX" parent="Takos/TakoWhack7" index="7"]
-bus = "Master"
-
-[node name="PopOut" parent="Takos/TakoWhack7" index="8"]
-bus = "Master"
 
 [node name="MoreTime" parent="." instance=ExtResource( 11 )]
 position = Vector2( -111.639, 214.266 )

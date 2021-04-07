@@ -16,16 +16,16 @@ size = 48
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 23
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 36
 use_filter = true
 font_data = ExtResource( 3 )
@@ -167,8 +167,8 @@ margin_left = 4.0
 margin_top = 44.0
 margin_right = -4.0
 margin_bottom = -4.0
-custom_fonts/mono_font = SubResource( 3 )
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/mono_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "Hello world!
 Wait, you aren't supposed to see this! How did you do it?"
@@ -183,8 +183,8 @@ margin_left = 4.0
 margin_top = 44.0
 margin_right = -4.0
 margin_bottom = -4.0
-custom_fonts/mono_font = SubResource( 3 )
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/mono_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "Hello world!
 This is the description of the game!"
@@ -200,7 +200,7 @@ margin_right = 462.0
 margin_bottom = 874.251
 rect_min_size = Vector2( 120, 0 )
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Play"
 
 [node name="CloseButton" type="Button" parent="Panel"]
