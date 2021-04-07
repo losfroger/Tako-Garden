@@ -2,6 +2,7 @@ extends Node2D
 
 onready var playerHammer = $PlayerHammer
 onready var initalCountDown = $UI/InitialCountDown
+onready var retryDialog = $UI/RetryDialog
 
 onready var takoContainer = $Takos
 onready var moreTime = $MoreTime
@@ -27,6 +28,7 @@ var probStates = [
 # TODO: Change speed when gaining more points so the takos are
 # harder to hit
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = false
 	randomize()
 	for tako in takoContainer.get_children():
@@ -72,3 +74,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		pauseMenu.show()
 		pauseMenu.mouseMode = Input.MOUSE_MODE_HIDDEN
 		get_tree().paused = true
+	if event.get_action_strength("fast_reset"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+		retryDialog.popup()
+
+
+func _on_RetryDialog_popup_hide() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	get_tree().paused = false
