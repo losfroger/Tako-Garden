@@ -7,8 +7,22 @@ export var margin = Vector2(70, 70)
 onready var takos = $Takos
 onready var food = $Food
 onready var minigameSelection = $UI/ChooseMinigame
+onready var alertGLES = $UI/AlertGLES
+
+onready var shaders = [$ParallaxBackground/Bubbles, 
+	$ParallaxBackground/Bubbles2, 
+	$ParallaxBackground/Bubbles3,
+	$ParallaxBackground/Background/Godray,
+	$ParallaxBackground/Foreground/Godray2,
+	$LightParticles,
+	$LightParticles2
+	]
 
 func _ready() -> void:
+	if OS.get_current_video_driver() != OS.VIDEO_DRIVER_GLES3:
+		alertGLES.popup_centered()
+		for shader in shaders:
+			shader.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	randomize()
 	var tako_agents := []

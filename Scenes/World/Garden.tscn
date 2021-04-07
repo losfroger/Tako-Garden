@@ -16,19 +16,19 @@
 [ext_resource path="res://Assets/Particles/glowParticle.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Particles/Bubble.png" type="Texture" id=15]
 
-[sub_resource type="CanvasItemMaterial" id=10]
+[sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
 particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Curve" id=11]
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0.277273 ), 0.0, 2.94231, 0, 0, Vector2( 0.788235, 0.931818 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=12]
-curve = SubResource( 11 )
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=13]
+[sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 1
 emission_sphere_radius = 5.0
 flag_disable_z = true
@@ -45,12 +45,12 @@ angle = 10.6
 angle_random = 1.0
 scale = 0.28
 scale_random = 0.56
-scale_curve = SubResource( 12 )
+scale_curve = SubResource( 3 )
 color = Color( 1, 1, 1, 0.796078 )
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=5]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 godotshaders.com/shader/god-rays
@@ -159,8 +159,8 @@ void fragment()
 	COLOR = vec4(shine, rays * color.a);
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 shader_param/angle = 0.0
 shader_param/position = 0.0
 shader_param/spread = 0.711
@@ -175,8 +175,8 @@ shader_param/color = Color( 0.47937, 0.807825, 0.902344, 1 )
 shader_param/hdr = true
 shader_param/seed = 20.0
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 5 )
 shader_param/angle = 0.1
 shader_param/position = 0.2
 shader_param/spread = 0.722
@@ -191,14 +191,14 @@ shader_param/color = Color( 0.47937, 0.807825, 0.902344, 1 )
 shader_param/hdr = true
 shader_param/seed = 50.0
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0.323944, 0.901408 )
 colors = PoolColorArray( 0.741176, 0.901961, 0.945098, 0.376471, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=10]
 lifetime_randomness = 0.18
 emission_shape = 2
 emission_box_extents = Vector3( 100, 2, 1 )
@@ -213,15 +213,15 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.8
 scale_random = 0.1
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 9 )
 
-[sub_resource type="InputEventAction" id=7]
+[sub_resource type="InputEventAction" id=11]
 action = "ui_cancel"
 
-[sub_resource type="ShortCut" id=8]
-shortcut = SubResource( 7 )
+[sub_resource type="ShortCut" id=12]
+shortcut = SubResource( 11 )
 
-[sub_resource type="Environment" id=9]
+[sub_resource type="Environment" id=13]
 background_mode = 4
 glow_enabled = true
 glow_bloom = 0.03
@@ -244,26 +244,26 @@ centered = false
 
 [node name="Bubbles2" type="Particles2D" parent="ParallaxBackground"]
 modulate = Color( 1, 1, 1, 0.329412 )
-material = SubResource( 10 )
+material = SubResource( 1 )
 position = Vector2( 501.085, 746.341 )
 amount = 3
 lifetime = 15.0
 preprocess = 12.0
 explosiveness = 0.95
 randomness = 0.38
-process_material = SubResource( 13 )
+process_material = SubResource( 4 )
 texture = ExtResource( 15 )
 
 [node name="Bubbles3" type="Particles2D" parent="ParallaxBackground"]
 modulate = Color( 1, 1, 1, 0.329412 )
-material = SubResource( 10 )
-position = Vector2( 937.394, 726.141 )
+material = SubResource( 1 )
+position = Vector2( 939.193, 726.141 )
 amount = 3
 lifetime = 20.0
-preprocess = 8.0
+preprocess = 15.0
 explosiveness = 0.95
 randomness = 0.38
-process_material = SubResource( 13 )
+process_material = SubResource( 4 )
 texture = ExtResource( 15 )
 
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -275,23 +275,23 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 centered = false
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Background"]
+[node name="Godray" type="Sprite" parent="ParallaxBackground/Background"]
 modulate = Color( 1, 1, 1, 0.160784 )
-material = SubResource( 2 )
+material = SubResource( 6 )
 position = Vector2( 378.496, 509.147 )
 scale = Vector2( 1.92808, 2.03856 )
 texture = ExtResource( 13 )
 
 [node name="Bubbles" type="Particles2D" parent="ParallaxBackground"]
 modulate = Color( 1, 1, 1, 0.694118 )
-material = SubResource( 10 )
+material = SubResource( 1 )
 position = Vector2( 1742.32, 968.907 )
 amount = 5
 lifetime = 20.0
 preprocess = 15.0
 explosiveness = 0.95
 randomness = 0.27
-process_material = SubResource( 13 )
+process_material = SubResource( 4 )
 texture = ExtResource( 15 )
 
 [node name="Objects" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -313,9 +313,9 @@ offset = Vector2( 0, -278 )
 region_enabled = true
 region_rect = Rect2( 2, 0, 5186.34, 279.332 )
 
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground/Foreground"]
+[node name="Godray2" type="Sprite" parent="ParallaxBackground/Foreground"]
 modulate = Color( 1, 1, 1, 0.160784 )
-material = SubResource( 3 )
+material = SubResource( 7 )
 position = Vector2( 1449.99, 505.334 )
 scale = Vector2( 1.92808, 2.03856 )
 texture = ExtResource( 13 )
@@ -327,7 +327,7 @@ lifetime = 12.0
 preprocess = 15.0
 randomness = 0.69
 visibility_rect = Rect2( -200, -100, 400, 200 )
-process_material = SubResource( 6 )
+process_material = SubResource( 10 )
 texture = ExtResource( 14 )
 
 [node name="LightParticles2" type="Particles2D" parent="."]
@@ -337,7 +337,7 @@ lifetime = 12.0
 preprocess = 15.0
 randomness = 0.69
 visibility_rect = Rect2( -200, -100, 400, 200 )
-process_material = SubResource( 6 )
+process_material = SubResource( 10 )
 texture = ExtResource( 14 )
 
 [node name="Takos" type="YSort" parent="."]
@@ -363,14 +363,14 @@ position = Vector2( 960, 0 )
 rotation = 1.5708
 scale = Vector2( 1, 30 )
 
+[node name="TakoUI" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 924.782, 302.381 )
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
 bus = "Music"
-
-[node name="TakoUI" parent="." instance=ExtResource( 10 )]
-visible = false
-position = Vector2( 924.782, 302.381 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -382,14 +382,36 @@ theme = ExtResource( 11 )
 margin_left = -126.0
 margin_top = 10.0
 margin_right = -10.0
-shortcut = SubResource( 8 )
+shortcut = SubResource( 12 )
 pause = false
 
 [node name="ChooseMinigame" parent="UI" instance=ExtResource( 12 )]
 visible = false
 
+[node name="AlertGLES" type="AcceptDialog" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -294.5
+margin_top = -209.5
+margin_right = 294.5
+margin_bottom = 209.5
+theme = ExtResource( 11 )
+popup_exclusive = true
+window_title = "Driver error!"
+dialog_text = "Hello I noticed that you don't have GLES3, this might be due to hardware acceleration being disabled.
+
+This might cause some elements of the game to look incorrectly, missing entirely, or even cause performance issues. 
+
+I recommend enabling hardware acceleration in your browser or try using the executable version of the game to fix this problem, even then I still tried to disable most of the GLES3 specific things to mitigate the problem."
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 9 )
+environment = SubResource( 13 )
 [connection signal="pressed" from="TakoUI/ButtonContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 
 [editable path="TakoUI"]
