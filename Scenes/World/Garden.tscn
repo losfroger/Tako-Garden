@@ -382,6 +382,7 @@ theme = ExtResource( 11 )
 margin_left = -126.0
 margin_top = 10.0
 margin_right = -10.0
+shortcut_in_tooltip = false
 shortcut = SubResource( 12 )
 pause = false
 
