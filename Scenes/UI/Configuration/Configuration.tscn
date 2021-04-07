@@ -43,7 +43,7 @@ __meta__ = {
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 margin_right = 354.0
-margin_bottom = 557.0
+margin_bottom = 554.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -51,7 +51,7 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
 margin_right = 354.0
-margin_bottom = 557.0
+margin_bottom = 554.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 20
@@ -63,7 +63,7 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 334.0
-margin_bottom = 537.0
+margin_bottom = 534.0
 
 [node name="Display" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 margin_right = 314.0
@@ -76,6 +76,7 @@ text = "Display"
 margin_top = 45.0
 margin_right = 314.0
 margin_bottom = 105.251
+hint_tooltip = "Toggle fullscreen"
 text = "FullScreen"
 script = ExtResource( 4 )
 
@@ -83,6 +84,7 @@ script = ExtResource( 4 )
 margin_top = 109.0
 margin_right = 314.0
 margin_bottom = 169.251
+hint_tooltip = "Show fps counter on the bottom left corner"
 text = "Show FPS"
 script = ExtResource( 5 )
 
@@ -151,7 +153,7 @@ scrollable = false
 audio_bus_name = "SFX"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 561.0
+margin_top = 558.0
 margin_right = 354.0
 margin_bottom = 621.251
 custom_constants/margin_right = 5
@@ -163,7 +165,7 @@ custom_constants/margin_bottom = 5
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 349.0
-margin_bottom = 55.251
+margin_bottom = 58.251
 text = "Close"
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FullScreen" to="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FullScreen" method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FpsLabel" to="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FpsLabel" method="_on_FpsLabel_pressed"]
