@@ -87,6 +87,7 @@ size_flags_horizontal = 4
 [node name="Continue" type="Button" parent="VBoxContainer/Buttons"]
 margin_right = 271.0
 margin_bottom = 81.251
+focus_neighbour_bottom = NodePath("../Retry")
 custom_fonts/font = SubResource( 2 )
 shortcut = SubResource( 4 )
 text = "Continue"
@@ -95,12 +96,16 @@ text = "Continue"
 margin_top = 85.0
 margin_right = 271.0
 margin_bottom = 166.251
+focus_neighbour_top = NodePath("../Continue")
+focus_neighbour_bottom = NodePath("../Options")
 custom_fonts/font = SubResource( 5 )
 
 [node name="Options" type="Button" parent="VBoxContainer/Buttons"]
 margin_top = 170.0
 margin_right = 271.0
 margin_bottom = 251.251
+focus_neighbour_top = NodePath("../Retry")
+focus_neighbour_bottom = NodePath("../MainMenu")
 custom_fonts/font = SubResource( 2 )
 text = "Options"
 
@@ -110,6 +115,7 @@ anchor_bottom = 0.0
 margin_top = 255.0
 margin_right = 271.324
 margin_bottom = 336.251
+focus_neighbour_top = NodePath("../Options")
 custom_fonts/font = SubResource( 6 )
 text = "Main Menu"
 Scene = "res://Scenes/World/Garden.tscn"

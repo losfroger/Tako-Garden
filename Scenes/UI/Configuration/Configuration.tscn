@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Fonts/ArialRound/ArialRound-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Theme/kenneyUI-yellow.tres" type="Theme" id=2]
@@ -17,6 +17,12 @@ font_data = ExtResource( 1 )
 size = 24
 use_filter = true
 font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
 
 [node name="ConfigPanel" type="Panel"]
 pause_mode = 2
@@ -77,6 +83,7 @@ margin_top = 45.0
 margin_right = 314.0
 margin_bottom = 105.251
 hint_tooltip = "Toggle fullscreen"
+focus_neighbour_bottom = NodePath("../FpsLabel")
 text = "FullScreen"
 script = ExtResource( 4 )
 
@@ -85,6 +92,8 @@ margin_top = 109.0
 margin_right = 314.0
 margin_bottom = 169.251
 hint_tooltip = "Show fps counter on the bottom left corner"
+focus_neighbour_top = NodePath("../FullScreen")
+focus_neighbour_bottom = NodePath("../Sound")
 text = "Show FPS"
 script = ExtResource( 5 )
 
@@ -114,6 +123,8 @@ text = "Master"
 margin_top = 283.0
 margin_right = 314.0
 margin_bottom = 325.0
+focus_neighbour_top = NodePath("../FpsLabel")
+focus_neighbour_bottom = NodePath("../MusicSlider")
 max_value = 1.0
 step = 0.01
 scrollable = false
@@ -130,6 +141,8 @@ text = "Music"
 margin_top = 362.0
 margin_right = 314.0
 margin_bottom = 404.0
+focus_neighbour_top = NodePath("../MasterSlider")
+focus_neighbour_bottom = NodePath("../SfxSlider")
 max_value = 1.0
 step = 0.01
 scrollable = false
@@ -147,6 +160,8 @@ text = "Sound effects"
 margin_top = 441.0
 margin_right = 314.0
 margin_bottom = 483.0
+focus_neighbour_top = NodePath("../MusicSlider")
+focus_neighbour_bottom = NodePath("../../../../MarginContainer/CloseBt")
 max_value = 1.0
 step = 0.01
 scrollable = false
@@ -166,6 +181,7 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = 349.0
 margin_bottom = 58.251
+shortcut = SubResource( 4 )
 text = "Close"
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FullScreen" to="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FullScreen" method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FpsLabel" to="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FpsLabel" method="_on_FpsLabel_pressed"]

@@ -21,6 +21,7 @@ func _on_PopupMenu_id_pressed(id: int) -> void:
 		"Options":
 			get_tree().paused = pause
 			configPanel.visible = true
+			configPanel.focus()
 			disabled = true
 		"Exit":
 			get_tree().quit()
