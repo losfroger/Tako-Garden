@@ -347,10 +347,8 @@ autoplay = true
 bus = "Music"
 
 [node name="BonkTime" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
 stream = ExtResource( 8 )
 volume_db = 10.0
-autoplay = true
 bus = "SFX"
 
 [node name="GitGud" type="AudioStreamPlayer" parent="."]

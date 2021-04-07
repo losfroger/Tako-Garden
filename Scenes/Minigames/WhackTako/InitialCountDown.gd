@@ -5,6 +5,7 @@ signal end_timer()
 export var timeCountdown = 5
 
 onready var clockSound = $ClockSound
+onready var countDownSound = $SequentialStreamPlayer
 onready var timer = $Timer
 
 func start() -> void:
@@ -13,11 +14,13 @@ func start() -> void:
 	clear()
 	push_align(RichTextLabel.ALIGN_CENTER)
 	append_bbcode("[count]" + str(timeCountdown) + "[count]")
+	countDownSound.play_next()
+	timer.start()
 
 
 func _on_Timer_timeout() -> void:
 	timeCountdown -= 1
-	
+	countDownSound.play_next()
 	clear()
 	push_align(RichTextLabel.ALIGN_CENTER)
 	

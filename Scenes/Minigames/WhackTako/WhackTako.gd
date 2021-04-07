@@ -3,6 +3,7 @@ extends Node2D
 onready var playerHammer = $PlayerHammer
 onready var initalCountDown = $UI/InitialCountDown
 onready var retryDialog = $UI/RetryDialog
+onready var bonkTimeSFX = $BonkTime
 
 onready var takoContainer = $Takos
 onready var moreTime = $MoreTime
@@ -44,6 +45,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	playerHammer.visible = true
 	playerHammer.global_position = get_global_mouse_position()
+	bonkTimeSFX.play()
 
 
 func add_score(newScore) -> void:
