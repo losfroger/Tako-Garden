@@ -7,8 +7,7 @@
 			" ",
 			"Bonk AO-chan to get more time!",
 			" ",
-			"Points: ",
-			"[table=2] [cell]Golden tako [/cell] [cell] 300 points[/cell] [cell]Normal tako [/cell][cell] 100 points[/cell] [cell]Ika [/cell][cell]-150 points[/cell] [/table]"
+			"[table=3] [cell]Points: [/cell] [cell]\t\t\t\t\t\t\t[/cell] [cell]Time: [/cell] [cell][img=50]res://Assets/Art/Tako/GoldTakoIcon.png[/img] Golden tako: 300 points [/cell] [cell]\t[/cell] [cell][img=50]res://Assets/Art/WhackATako/AO-chan.png[/img] AO-chan:  +10s[/cell] [cell][img=50]res://Assets/Art/Tako/TakoIcon.png[/img] Normal tako: 100 points[/cell] [cell]\t[/cell] [cell] [/cell] [cell][img=50]res://Assets/Art/Tako/IkaIcon.png[/img] Ika: -150 points[/cell] [cell] [/cell] [cell] [/cell] [/table]"
 		],
 		"controls": [
 			"[table=2] [cell]Bonk: [/cell][cell] Left mouse button[/cell] [cell]Control hammer: [/cell][cell] Move mouse[/cell] [/table]"
