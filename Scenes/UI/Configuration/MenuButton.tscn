@@ -38,5 +38,5 @@ anchor_bottom = 0.0
 margin_left = -354.324
 margin_top = 68.0
 margin_right = -0.324127
-margin_bottom = 657.0
+margin_bottom = 659.0
 [connection signal="closed_configuration" from="ConfigPanel" to="." method="_on_ConfigPanel_closed_configuration"]
