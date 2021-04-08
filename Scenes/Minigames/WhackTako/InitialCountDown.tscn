@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Source/BBCode/CountDown.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/ArialRound/ArialRound-regular.ttf" type="DynamicFontData" id=2]
@@ -11,10 +11,8 @@
 [ext_resource path="res://Scenes/Utilities/SequentialStreamPlayer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/SFX/WhackTako/CountDown/Ina_-_Two.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Assets/SFX/WhackTako/CountDown/Ina_-_Go.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Assets/SFX/WhackTako/CountDown/Ina_-_Four.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Assets/SFX/WhackTako/CountDown/Ina_-_One.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Assets/SFX/WhackTako/CountDown/Ina_-_Three.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Assets/SFX/WhackTako/CountDown/Ina_-_Five.ogg" type="AudioStream" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -38,13 +36,14 @@ margin_right = 272.5
 margin_bottom = 118.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center][count]5[/count][/center]"
-text = "5"
+bbcode_text = "[center][count]3[/count][/center]"
+text = "3"
 custom_effects = [ SubResource( 2 ) ]
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+timeCountdown = 3
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -64,5 +63,5 @@ pitch_max = 1.1
 [node name="SequentialStreamPlayer" parent="." instance=ExtResource( 9 )]
 volume_db = 3.206
 bus = "SFX"
-streams = [ ExtResource( 15 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 11 ) ]
+streams = [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 11 ) ]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
