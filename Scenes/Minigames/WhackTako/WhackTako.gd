@@ -34,8 +34,8 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	randomize()
 	for tako in takoContainer.get_children():
-		tako.connect("bonked", self, "add_score")
-		tako.connect("missed", self, "reduce_score")
+		tako.connect("bonked", scoreLabel, "addScore")
+		tako.connect("missed", scoreLabel, "addScore")
 	moreTime.connect("bonked_more_time", self, "add_time")
 	
 	yield(get_tree().create_timer(0.02), "timeout")
@@ -49,14 +49,6 @@ func _ready() -> void:
 	playerHammer.visible = true
 	playerHammer.global_position = get_global_mouse_position()
 	bonkTimeSFX.play()
-
-
-func add_score(newScore) -> void:
-	scoreLabel.addScore(newScore)
-
-
-func reduce_score(newScore) -> void:
-	scoreLabel.addScore(newScore)
 
 
 func add_time() -> void:
