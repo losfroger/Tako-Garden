@@ -8,6 +8,11 @@ var _readyVolume = false
 
 func _ready() -> void:
 	soundTest.bus = audio_bus_name
+	update_value()
+	TransitionScreen.connect("transition_complete", self, "update_value")
+
+
+func update_value():
 	value = db2linear(AudioServer.get_bus_volume_db(_bus))
 
 
