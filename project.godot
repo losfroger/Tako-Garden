@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "AudioStreamPlayer",
+"class": "FadeInPlayer",
+"language": "GDScript",
+"path": "res://Scenes/Utilities/FadeInMusic.gd"
+}, {
 "base": "Reference",
 "class": "GSAIAgentLocation",
 "language": "GDScript",
@@ -185,6 +190,7 @@ _global_script_classes=[ {
 "path": "res://Source/WeightedRandom.gd"
 } ]
 _global_script_class_icons={
+"FadeInPlayer": "",
 "GSAIAgentLocation": "",
 "GSAIArrive": "",
 "GSAIAvoidCollisions": "",
@@ -239,6 +245,7 @@ InterfaceSignals="*res://Source/Globals/InterfaceSignals.gd"
 GlobalFunctions="*res://Source/Globals/GlobalFunctions.gd"
 ParticlesCache="*res://Source/Globals/ParticlesCache.gd"
 FPSlabel="*res://Scenes/Debug/FPSlabel.tscn"
+TransitionScreen="*res://Scenes/ScreenSpace/TransitionScreen.tscn"
 
 [debug]
 
@@ -251,10 +258,9 @@ window/size/height=1080
 window/size/resizable=false
 window/size/test_width=1280
 window/size/test_height=720
-window/vsync/use_vsync=false
 mouse_cursor/custom_image="res://Assets/Art/cursorHand_grey.png"
 window/stretch/mode="2d"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="keep"
 
 [editor_plugins]
 
@@ -301,4 +307,6 @@ fast_reset={
 
 [rendering]
 
+quality/driver/fallback_to_gles2=true
+threads/thread_model=2
 environment/default_environment="res://default_env.tres"
