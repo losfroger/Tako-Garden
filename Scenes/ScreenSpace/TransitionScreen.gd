@@ -9,6 +9,11 @@ onready var tween = $Tween
 onready var volumeTween = $VolumeTween
 onready var transition = $Control/TransitionGradient
 
+# Code mostly to help test scenes that need the transition_complete signal to continue
+func _ready() -> void:
+	yield(get_tree().create_timer(0.2), "timeout")
+	emit_signal("transition_complete")
+
 
 func transition_scene(new_scene: String, time_in = 2.0, time_out = 1.5):
 	get_tree().paused = true
