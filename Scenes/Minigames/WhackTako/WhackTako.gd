@@ -29,16 +29,19 @@ var probStates = [
 # TODO: Change speed when gaining more points so the takos are
 # harder to hit
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = false
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	randomize()
 	for tako in takoContainer.get_children():
 		tako.connect("bonked", self, "add_score")
 		tako.connect("missed", self, "reduce_score")
 	moreTime.connect("bonked_more_time", self, "add_time")
 	
-	yield(get_tree().create_timer(0.01), "timeout")
+	yield(get_tree().create_timer(0.02), "timeout")
+	get_tree().paused = true
 	
+	yield(TransitionScreen, "transition_complete")
 	initalCountDown.start()
 	yield(initalCountDown, "end_timer")
 	

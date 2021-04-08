@@ -19,6 +19,7 @@ onready var shaders = [$ParallaxBackground/Bubbles,
 	]
 
 func _ready() -> void:
+	get_tree().paused = false
 	if OS.get_current_video_driver() != OS.VIDEO_DRIVER_GLES3:
 		alertGLES.popup_centered()
 		for shader in shaders:

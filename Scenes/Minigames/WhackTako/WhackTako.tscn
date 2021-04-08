@@ -389,6 +389,8 @@ theme = ExtResource( 10 )
 visible = false
 
 [node name="InitialCountDown" parent="UI" instance=ExtResource( 13 )]
+bbcode_text = ""
+text = ""
 
 [node name="RetryDialog" parent="UI" instance=ExtResource( 14 )]
 pause_mode = 2
