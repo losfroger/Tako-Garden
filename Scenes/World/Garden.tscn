@@ -391,6 +391,7 @@ pause = false
 visible = false
 
 [node name="AlertGLES" type="AcceptDialog" parent="UI"]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -404,7 +405,7 @@ popup_exclusive = true
 window_title = "Driver error!"
 dialog_text = "Hello I noticed that you don't have GLES3, this might be due to hardware acceleration being disabled.
 
-This might cause some elements of the game to look incorrectly, missing entirely, or even cause performance issues. 
+This could cause some elements of the game to look incorrectly, missing entirely, or even cause performance issues. 
 
 I recommend enabling hardware acceleration in your browser or try using the executable version of the game to fix this problem, even then I still tried to disable most of the GLES3 specific things to mitigate the problem."
 dialog_autowrap = true
