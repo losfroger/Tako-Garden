@@ -29,6 +29,7 @@ var probStates = [
 # TODO: Change speed when gaining more points so the takos are
 # harder to hit
 func _ready() -> void:
+	# Setup the initial screen
 	get_tree().paused = false
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -38,9 +39,11 @@ func _ready() -> void:
 		tako.connect("missed", scoreLabel, "addScore")
 	moreTime.connect("bonked_more_time", self, "add_time")
 	
+	# Wait a little bit so the sprites look correct
 	yield(get_tree().create_timer(0.02), "timeout")
 	get_tree().paused = true
 	
+	# Wait for the loading transition to finish
 	yield(TransitionScreen, "transition_complete")
 	initalCountDown.start()
 	yield(initalCountDown, "end_timer")

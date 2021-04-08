@@ -20,11 +20,16 @@ onready var shaders = [$ParallaxBackground/Bubbles,
 
 func _ready() -> void:
 	get_tree().paused = false
+	
+	# Show driver alert in case GLES3 is not detected, and hide
+	# the shaders from the menu screen 
 	if OS.get_current_video_driver() != OS.VIDEO_DRIVER_GLES3:
 		alertGLES.popup_centered()
 		for shader in shaders:
 			shader.visible = false
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	randomize()
 	var tako_agents := []
 	
@@ -36,6 +41,9 @@ func _ready() -> void:
 	
 	var probClass = WeightedRandom.new(probStates)
 	
+	# Right now the takos are generated randomly each time
+	# when saving and loading saves is in place here is where the takos
+	# will get loaded
 	for _i in range(12):
 		var takoInst = tako_template.instance()
 		takos.add_child(takoInst, true)
