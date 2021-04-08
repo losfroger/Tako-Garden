@@ -1,0 +1,39 @@
+{
+	"0": {
+		"id": 0,
+		"name": "Whack a tako",
+		"description": [
+			"Bonk the takos to gain points before the timer runs out! But avoid bonking the ikas, or you'll loose points.",
+			" ",
+			"Bonk AO-chan to get more time!",
+			" ",
+			"[table=3] [cell]Points: [/cell] [cell]\t\t\t\t\t\t\t[/cell] [cell]Time: [/cell] [cell][img=50]res://Assets/Art/Tako/GoldTakoIcon.png[/img] Golden tako: 300 points [/cell] [cell]\t[/cell] [cell][img=50]res://Assets/Art/WhackATako/AO-chan.png[/img] AO-chan:  +10s[/cell] [cell][img=50]res://Assets/Art/Tako/TakoIcon.png[/img] Normal tako: 100 points[/cell] [cell]\t[/cell] [cell] [/cell] [cell][img=50]res://Assets/Art/Tako/IkaIcon.png[/img] Ika: -150 points[/cell] [cell] [/cell] [cell] [/cell] [/table]"
+		],
+		"controls": [
+			"[table=2] [cell]Bonk: [/cell][cell] Left mouse button[/cell] [cell]Control hammer: [/cell][cell] Move mouse[/cell] [cell]Fast reset: [/cell][cell] R Key[/cell][/table]"
+		],
+		"image": "res://Assets/MinigameSS/Whack a tako.png",
+		"playBt": "res://Scenes/Minigames/WhackTako/WhackTako.tscn"
+	},
+	"1": {
+		"id": 1,
+		"name": "Test",
+		"description": [
+			"This is just some place holder test. Here have some bbcode tests:",
+			" ",
+			"[color=aqua][url=https://www.youtube.com/channel/UCMwGHR0BTZuLsmjY_NT5Pwg]Ina YT channel[/url][/color]",
+			" ",
+			"[tornado radius=5 freq=3]Guranado![/tornado]",
+			"[u]Underline[/u]",
+			"[s]Strikethrough[/s]",
+			"[code]cout << Hello world!;[/code]",
+			"[fade start=4 length=20]Help I'm starting to fade away...[/fade]"
+		],
+		"controls":[
+			"Hello there, I hope you're having a great day",
+			"[img=<width>]res://Assets/Art/Tako/Heart.png[/img]"
+		],
+		"image": "res://Assets/Art/WhackATako/AO-chan.png",
+		"playBt": null
+	}
+}

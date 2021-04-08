@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Theme/kenneyUI-yellow.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/Utilities/ChangeSceneButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Fonts/ArialRound/ArialRound-regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/UI/RetryButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/UI/PauseMenu.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/ScreenSpace/BlurScreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/UI/Configuration/Configuration.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = -3
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "ui_cancel"
+pressed = true
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 48
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.33496
+margin_right = -1.33496
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlurScreen" parent="." instance=ExtResource( 6 )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -195.0
+margin_top = -236.0
+margin_right = 195.0
+margin_bottom = 236.0
+custom_constants/separation = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 390.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 1 )
+text = "PAUSED"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
+margin_left = 59.0
+margin_top = 136.0
+margin_right = 330.0
+margin_bottom = 472.0
+size_flags_horizontal = 4
+
+[node name="Continue" type="Button" parent="VBoxContainer/Buttons"]
+margin_right = 271.0
+margin_bottom = 81.251
+focus_neighbour_bottom = NodePath("../Retry")
+custom_fonts/font = SubResource( 2 )
+shortcut = SubResource( 4 )
+text = "Continue"
+
+[node name="Retry" parent="VBoxContainer/Buttons" instance=ExtResource( 4 )]
+margin_top = 85.0
+margin_right = 271.0
+margin_bottom = 166.251
+focus_neighbour_top = NodePath("../Continue")
+focus_neighbour_bottom = NodePath("../Options")
+custom_fonts/font = SubResource( 5 )
+
+[node name="Options" type="Button" parent="VBoxContainer/Buttons"]
+margin_top = 170.0
+margin_right = 271.0
+margin_bottom = 251.251
+focus_neighbour_top = NodePath("../Retry")
+focus_neighbour_bottom = NodePath("../MainMenu")
+custom_fonts/font = SubResource( 2 )
+text = "Options"
+
+[node name="MainMenu" parent="VBoxContainer/Buttons" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 255.0
+margin_right = 271.324
+margin_bottom = 336.251
+focus_neighbour_top = NodePath("../Options")
+custom_fonts/font = SubResource( 6 )
+text = "Main Menu"
+Scene = "res://Scenes/World/Garden.tscn"
+
+[node name="ConfigPanel" parent="." instance=ExtResource( 7 )]
+visible = false
+margin_left = -207.0
+margin_right = 207.0
+[connection signal="pressed" from="VBoxContainer/Buttons/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Options" to="." method="_on_Options_pressed"]
+[connection signal="closed_configuration" from="ConfigPanel" to="." method="_on_ConfigPanel_closed_configuration"]

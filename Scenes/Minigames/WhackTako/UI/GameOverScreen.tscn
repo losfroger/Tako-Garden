@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Fonts/ArialRound/ArialRound-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/Utilities/ChangeSceneButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Minigames/WhackTako/UI/GameOverScreen.gd" type="Script" id=3]
-
+[ext_resource path="res://Scenes/UI/RetryButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 96
@@ -24,6 +24,11 @@ extra_spacing_char = -2
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 48
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 48
 use_filter = true
 font_data = ExtResource( 1 )
@@ -86,24 +91,18 @@ margin_bottom = 180.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
 
-[node name="Retry" parent="VBoxContainer/MarginContainer/Buttons" instance=ExtResource( 2 )]
+[node name="MainMenu" parent="VBoxContainer/MarginContainer/Buttons" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 390.0
 margin_bottom = 63.0
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 3 )
-text = "Retry"
-script = null
+text = "Main screen"
+Scene = "res://Scenes/World/Garden.tscn"
 
-[node name="MainMenu" parent="VBoxContainer/MarginContainer/Buttons" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="RetryButton" parent="VBoxContainer/MarginContainer/Buttons" instance=ExtResource( 4 )]
 margin_top = 67.0
 margin_right = 390.0
 margin_bottom = 130.0
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
-text = "Main screen"
-Scene = "res://Scenes/World/Garden.tscn"
-[connection signal="pressed" from="VBoxContainer/MarginContainer/Buttons/Retry" to="." method="_on_Retry_pressed"]
+custom_fonts/font = SubResource( 4 )

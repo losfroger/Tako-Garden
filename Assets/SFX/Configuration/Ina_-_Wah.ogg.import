@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ina_-_Wah.ogg-61adab78cb2e694daba0571ed621370c.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Configuration/Ina_-_Wah.ogg"
+dest_files=[ "res://.import/Ina_-_Wah.ogg-61adab78cb2e694daba0571ed621370c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

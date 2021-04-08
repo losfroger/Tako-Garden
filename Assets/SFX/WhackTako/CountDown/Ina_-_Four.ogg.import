@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ina_-_Four.ogg-24327afdef7871a62e3431fd08ae2996.oggstr"
+
+[deps]
+
+source_file="res://Assets/SFX/WhackTako/CountDown/Ina_-_Four.ogg"
+dest_files=[ "res://.import/Ina_-_Four.ogg-24327afdef7871a62e3431fd08ae2996.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

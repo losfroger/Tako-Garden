@@ -1,0 +1,188 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/Fonts/ArialRound/ArialRound-regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Theme/kenneyUI-yellow.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/UI/Configuration/VolumeSlider.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI/Configuration/FullScreen.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/UI/Configuration/FpsLabel.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/UI/Configuration/Configuration.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 34
+use_filter = true
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[node name="ConfigPanel" type="Panel"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -177.0
+margin_top = -311.0
+margin_right = 177.0
+margin_bottom = 310.0
+theme = ExtResource( 2 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_right = 354.0
+margin_bottom = 554.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 354.0
+margin_bottom = 554.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 334.0
+margin_bottom = 534.0
+
+[node name="Display" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_right = 314.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Display"
+
+[node name="FullScreen" type="CheckButton" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 45.0
+margin_right = 314.0
+margin_bottom = 105.251
+hint_tooltip = "Toggle fullscreen"
+focus_neighbour_bottom = NodePath("../FpsLabel")
+text = "FullScreen"
+script = ExtResource( 4 )
+
+[node name="FpsLabel" type="CheckButton" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 109.0
+margin_right = 314.0
+margin_bottom = 169.251
+hint_tooltip = "Show fps counter on the bottom left corner"
+focus_neighbour_top = NodePath("../FullScreen")
+focus_neighbour_bottom = NodePath("../Sound")
+text = "Show FPS"
+script = ExtResource( 5 )
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 173.0
+margin_right = 314.0
+margin_bottom = 201.0
+custom_constants/separation = 28
+
+[node name="Sound" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 205.0
+margin_right = 314.0
+margin_bottom = 246.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Sound"
+
+[node name="Master" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 250.0
+margin_right = 314.0
+margin_bottom = 279.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Master"
+
+[node name="MasterSlider" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 283.0
+margin_right = 314.0
+margin_bottom = 325.0
+focus_neighbour_top = NodePath("../FpsLabel")
+focus_neighbour_bottom = NodePath("../MusicSlider")
+max_value = 1.0
+step = 0.01
+scrollable = false
+
+[node name="Music" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 329.0
+margin_right = 314.0
+margin_bottom = 358.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Music"
+
+[node name="MusicSlider" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 362.0
+margin_right = 314.0
+margin_bottom = 404.0
+focus_neighbour_top = NodePath("../MasterSlider")
+focus_neighbour_bottom = NodePath("../SfxSlider")
+max_value = 1.0
+step = 0.01
+scrollable = false
+audio_bus_name = "Music"
+
+[node name="Sfx" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+margin_top = 408.0
+margin_right = 314.0
+margin_bottom = 437.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Sound effects"
+
+[node name="SfxSlider" parent="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 441.0
+margin_right = 314.0
+margin_bottom = 483.0
+focus_neighbour_top = NodePath("../MusicSlider")
+focus_neighbour_bottom = NodePath("../../../../MarginContainer/CloseBt")
+max_value = 1.0
+step = 0.01
+scrollable = false
+audio_bus_name = "SFX"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 558.0
+margin_right = 354.0
+margin_bottom = 621.251
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="CloseBt" type="Button" parent="VBoxContainer/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 349.0
+margin_bottom = 58.251
+shortcut = SubResource( 4 )
+text = "Close"
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FullScreen" to="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FullScreen" method="_on_FullScreen_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FpsLabel" to="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FpsLabel" method="_on_FpsLabel_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/CloseBt" to="." method="_on_CloseBt_pressed"]

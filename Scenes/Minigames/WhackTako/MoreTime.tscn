@@ -41,6 +41,7 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, 4.08912 )
 
 [node name="Sprite" type="Sprite" parent="Position2D"]
 scale = Vector2( 0.25, 0.25 )
@@ -66,7 +67,6 @@ one_shot = true
 stream = ExtResource( 3 )
 volume_db = 2.0
 pitch_scale = 1.37
-bus = "Sound effects"
 [connection signal="area_entered" from="Position2D/HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="tween_completed" from="TweenX" to="." method="_on_TweenX_tween_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
