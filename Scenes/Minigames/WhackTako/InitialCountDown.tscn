@@ -49,8 +49,14 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="."]
 
 [node name="ClockSound" type="AudioStreamPlayer" parent="."]
+volume_db = -7.28
+bus = "SFX"
 script = ExtResource( 8 )
 streams = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ) ]
+random_strategy = 0
+randomize_volume = false
+volume_min = 0.0
+volume_max = 0.0
 randomize_pitch = true
 pitch_min = 0.9
 pitch_max = 1.1
