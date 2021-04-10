@@ -24,7 +24,7 @@ polygon = PoolVector2Array( -279.081, -110.405, -195.13, 6.80316, -2.47852, 27.0
 position = Vector2( 0, -109 )
 space_override = 1
 gravity_distance_scale = 0.003
-gravity = 100.0
+gravity = 225.0
 linear_damp = 0.0
 monitoring = true
 monitorable = true
@@ -36,5 +36,7 @@ shape = SubResource( 2 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PoolVector2Array( -280.607, -111.188, -165.324, -29.293, -0.904175, 2.83496, 166.665, -28.6631, 278.798, -101.739, 193.124, 8.50458, -4.05402, 27.4034, -195.562, 5.98474 )
+
+[node name="GravityTween" type="Tween" parent="."]
 
 [editable path="impulseArea"]

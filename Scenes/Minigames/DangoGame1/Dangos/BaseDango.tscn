@@ -5,7 +5,7 @@
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.6
-bounce = 0.1
+bounce = 0.05
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 36.4435
@@ -34,4 +34,3 @@ scale = Vector2( 4.12541, 4.25785 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PoolVector2Array( -36.63, -0.710327, -34.5111, -9.98062, -30.2733, -19.5158, -22.0624, -28.2563, -12.2624, -34.0834, 0.186295, -36.4672, 15.0188, -33.0239, 26.6729, -24.5482, 33.5594, -13.159, 35.6783, -1.76979, 35.6783, 9.0897, 31.9702, 17.5654, 21.6404, 28.9546, 10.2512, 35.0465, -0.343445, 36.6357, -11.9975, 33.7222, -24.7111, 26.8357, -32.9219, 15.1816, -35.0408, 8.55997 )
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -20,3 +20,7 @@ func _on_Bomb_body_entered(_body: Node) -> void:
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
+
+
+func _on_VisibilityNotifier2D_screen_entered() -> void:
+	connect("body_entered", self, "_on_Bomb_body_entered")

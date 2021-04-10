@@ -1,27 +1,36 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Minigames/DangoGame1/TakoPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Minigames/DangoGame1/DespawnArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Minigames/DangoGame1/DangoGame1.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Music/InaLoadBGM.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scenes/Minigames/DangoGame1/Bowl.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Tako/Emotes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/UI/CountDownTimer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Fonts/ArialRound/ArialRound-regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Assets/Theme/kenneyUI-yellow.tres" type="Theme" id=10]
 [ext_resource path="res://Scenes/Minigames/WhackTako/UI/GameOverScreen.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 276.636, 318.838 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 180, 137.203 )
-
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 72
 use_filter = true
 font_data = ExtResource( 9 )
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 283.426, 2438.48 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 1193.5, 236.578 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 180, 137.203 )
+
 [node name="DangoGame1" type="Node2D"]
+pause_mode = 1
 script = ExtResource( 4 )
 
 [node name="Dangos" type="Node2D" parent="."]
@@ -51,18 +60,6 @@ shape = SubResource( 1 )
 [node name="Bowl" parent="." instance=ExtResource( 6 )]
 position = Vector2( 941.552, 790.135 )
 
-[node name="Walls" type="StaticBody2D" parent="."]
-position = Vector2( 0, 922.893 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
-shape = SubResource( 2 )
-
-[node name="Walls2" type="StaticBody2D" parent="."]
-position = Vector2( 1920, 925.012 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls2"]
-shape = SubResource( 2 )
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Count" type="Label" parent="UI"]
@@ -75,7 +72,7 @@ margin_left = -369.0
 margin_top = -257.756
 margin_right = 369.0
 margin_bottom = -172.756
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Dangos: "
 align = 1
 __meta__ = {
@@ -93,6 +90,7 @@ margin_right = 295.5
 
 [node name="GameOverScreen" parent="UI" instance=ExtResource( 11 )]
 visible = false
+theme = ExtResource( 10 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -109,7 +107,8 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 5 )
 autoplay = true
 bus = "Music"
@@ -120,7 +119,78 @@ rotation = 3.14159
 scale = Vector2( 1, 1 )
 z_index = 1
 frame = 25
+
+[node name="DespawnGroup" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="DespawnArea" parent="DespawnGroup" instance=ExtResource( 3 )]
+position = Vector2( -477.699, -674.571 )
+collision_layer = 4
+collision_mask = 4
+groups_to_despawn = [ "Dango", "Bombs" ]
+
+[node name="CollisionShape2D" parent="DespawnGroup/DespawnArea" index="0"]
+shape = SubResource( 3 )
+
+[node name="DespawnArea2" parent="DespawnGroup" instance=ExtResource( 3 )]
+position = Vector2( 2409.04, -674.571 )
+collision_layer = 4
+collision_mask = 2147483652
+groups_to_despawn = [ "Dango", "Bombs" ]
+
+[node name="CollisionShape2D" parent="DespawnGroup/DespawnArea2" index="0"]
+shape = SubResource( 3 )
+
+[node name="DespawnArea3" parent="DespawnGroup" instance=ExtResource( 3 )]
+position = Vector2( 960, -2730.84 )
+collision_layer = 4
+collision_mask = 4
+groups_to_despawn = [ "Dango", "Bombs" ]
+
+[node name="CollisionShape2D" parent="DespawnGroup/DespawnArea3" index="0"]
+shape = SubResource( 4 )
+
+[node name="DespawnArea4" parent="DespawnGroup" instance=ExtResource( 3 )]
+position = Vector2( 960, 1541.76 )
+collision_layer = 4
+collision_mask = 4
+groups_to_despawn = [ "Dango", "Bombs" ]
+
+[node name="CollisionShape2D" parent="DespawnGroup/DespawnArea4" index="0"]
+shape = SubResource( 4 )
+
+[node name="WallsGroup" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="WallsGroup"]
+position = Vector2( 0, 922.893 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallsGroup/Walls"]
+shape = SubResource( 5 )
+
+[node name="Walls2" type="StaticBody2D" parent="WallsGroup"]
+position = Vector2( 1920, 925.012 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallsGroup/Walls2"]
+shape = SubResource( 5 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -400 )
 [connection signal="end_timer" from="UI/CountDownTimer" to="." method="_on_CountDownTimer_end_timer"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="SpawnTimer2" to="." method="_on_SpawnTimer2_timeout"]
 [connection signal="timeout" from="SpawnCoin" to="." method="_on_SpawnCoin_timeout"]
+
+[editable path="DespawnGroup/DespawnArea"]
+
+[editable path="DespawnGroup/DespawnArea2"]
+
+[editable path="DespawnGroup/DespawnArea3"]
+
+[editable path="DespawnGroup/DespawnArea4"]

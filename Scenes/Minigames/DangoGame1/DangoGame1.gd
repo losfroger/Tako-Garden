@@ -6,8 +6,8 @@ var items := [
 ]
 
 var probStates := [
-	{"item": items[0], "weight": 0.60},
-	{"item": items[1], "weight": 0.40}
+	{"item": items[0], "weight": 0.65},
+	{"item": items[1], "weight": 0.35}
 ]
 var probClass: WeightedRandom
 
@@ -16,6 +16,8 @@ var emoteInstance = preload("res://Scenes/Tako/Emotes.tscn")
 var coinInstance = preload("res://Scenes/Minigames/DangoGame1/Dangos/Coin.tscn")
 
 onready var dangoNode = dangoInstance.instance()
+
+onready var pauseMenu = $UI/PauseMenu
 
 onready var emote = $Emotes
 onready var spawnTimer = $SpawnTimer
@@ -37,25 +39,28 @@ func _ready() -> void:
 	spawnTimer2.start()
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	if event.get_action_strength("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		pauseMenu.show()
+		pauseMenu.mouseMode = Input.MOUSE_MODE_VISIBLE
+		get_tree().paused = true
+	
 	if event.get_action_strength("l_click"):
-		var bombInstance = items[0].instance.instance()
-		bombInstance.global_position = get_global_mouse_position()
-		dangosParent.add_child(bombInstance)
+		var newBomb = items[0].instance.instance()
+		newBomb.global_position = get_global_mouse_position()
+		dangosParent.add_child(newBomb)
 	
 	if event.get_action_strength("r_click"):
-		var dangoInstance = items[1].instance.instance()
-		dangoInstance.global_position = get_global_mouse_position()
-		dangosParent.add_child(dangoInstance)
-		#body.physics_material_override.bounce = 0.3
-		#yield(get_tree().create_timer(0.2), "timeout")
-		#body.physics_material_override.bounce = 0.1
+		var newDango = items[1].instance.instance()
+		newDango.global_position = get_global_mouse_position()
+		dangosParent.add_child(newDango)
 
 
 func on_bomb_exploded() -> void:
 	dangoNode.physics_material_override.bounce = 0.3
 	yield(get_tree().create_timer(0.15), "timeout")
-	dangoNode.physics_material_override.bounce = 0.1
+	dangoNode.physics_material_override.bounce = 0.05
 
 
 func new_falling_entity():
@@ -63,7 +68,7 @@ func new_falling_entity():
 	
 	var newDango:RigidBody2D = randomPick.instance.instance()
 	var dangoCoord = GlobalFunctions.randomCord(Vector2(500, 0)) 
-	dangoCoord.y = rand_range(-50, -200)
+	dangoCoord.y = rand_range(-50, -400)
 	newDango.global_position = dangoCoord
 	
 	dangosParent.add_child(newDango)
@@ -82,7 +87,8 @@ func new_falling_entity():
 		"dango":
 			newEmote.emote(newEmote.EMOTES.circle, 0.8)
 		"bomb":
-			newDango.connect("exploded", self, "on_bomb_exploded")
+			if newDango != null:
+				newDango.connect("exploded", self, "on_bomb_exploded")
 			newEmote.emote(newEmote.EMOTES.cross, 0.8)
 	newEmote.connect("animation_finished", newEmote, "queue_free")
 
@@ -126,7 +132,6 @@ func _on_CountDownTimer_end_timer() -> void:
 	spawnTimer2.stop()
 	spawnCoin.stop()
 	takoPlayer.disable_controls()
-	bowl.disable_impulse()
 	
 	scoreTimer.start()
 	yield(scoreTimer,"timeout")
@@ -134,7 +139,7 @@ func _on_CountDownTimer_end_timer() -> void:
 	var check_bodies = true
 	var bodies = countArea.get_overlapping_bodies()
 	var iterations = 0
-	var margin = 10
+	var margin = 12
 	# Wait for the bodies to stop moving
 	while check_bodies and iterations < 100:
 		yield(get_tree().create_timer(0.1), "timeout")
@@ -151,3 +156,4 @@ func _on_CountDownTimer_end_timer() -> void:
 	countLabel.text = "Dangos: " + str(len(bodies) - 1)
 	countLabel.visible = true
 	gameOver.visible = true
+	get_tree().paused = true
