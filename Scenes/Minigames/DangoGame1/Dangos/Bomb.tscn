@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Minigames/DangoGame1/Dangos/Bomb.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 17.2583
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 228.933
+
+[node name="Bomb" type="RigidBody2D" groups=[
+"Bombs",
+]]
+modulate = Color( 1, 0.0313726, 0.0313726, 1 )
+collision_layer = 4
+collision_mask = 4
+gravity_scale = 4.0
+contacts_reported = 5
+contact_monitor = true
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="explosionRadius" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explosionRadius"]
+modulate = Color( 1, 1, 1, 0.0941176 )
+shape = SubResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
+color = Color( 0.0666667, 0.329412, 0.580392, 1 )
+polygon = PoolVector2Array( -17.1805, -0.103153, -16.0892, -5.85748, -14.1049, -9.9252, -10.9301, -13.3976, -5.07657, -16.4732, 0.479332, -17.4654, 5.93603, -15.7787, 10.9959, -12.6039, 14.3691, -8.93307, 16.8494, -3.77402, 17.147, 1.38504, 15.7581, 6.24645, 13.9722, 10.5126, 10.103, 13.8858, 5.7376, 16.3661, -0.115944, 17.259, -3.7868, 16.3661, -8.94586, 14.6795, -12.4183, 11.7031, -14.7002, 8.52834, -16.3868, 4.65905 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+scale = Vector2( 1.90284, 2.14094 )
+[connection signal="body_entered" from="." to="." method="_on_Bomb_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -17,6 +17,22 @@
 	},
 	"1": {
 		"id": 1,
+		"name": "Catch dango",
+		"description": [
+			"Catch the dangos, avoid the [tornado radius=5 freq=3]bombs[/tornado]",
+			" ",
+			"WIP: Alpha version",
+			"Right now you can spawn dango with left click, and bombs with right click",
+			"(This is for testing only)"
+		],
+		"controls":[
+			"[table=2] [cell]Move left: [/cell][cell] A or left arrow[/cell] [cell]Move right: [/cell][cell] D or right arrow[/cell] [/table]"
+		],
+		"image": "res://Assets/Art/WhackATako/AO-chan.png",
+		"playBt": "res://Scenes/Minigames/DangoGame1/DangoGame1.tscn"
+	},
+	"2": {
+		"id": 2,
 		"name": "Test",
 		"description": [
 			"This is just some place holder test. Here have some bbcode tests:",

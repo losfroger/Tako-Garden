@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Minigames/DangoGame1/impulseArea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Minigames/DangoGame1/Bowl.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 238.932, 120.229 )
+
+[node name="Bowl" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
+mode = 2
+mass = 76.8
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -279.081, -110.405, -195.13, 6.80316, -2.47852, 27.0197, 193.741, 7.99237, 297.081, -110.405, 165.4, -28.873, -0.849304, 2.87946, -165.4, -28.873 )
+
+[node name="impulseArea" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -109 )
+space_override = 1
+gravity_distance_scale = 0.003
+gravity = 100.0
+linear_damp = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" parent="impulseArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -280.607, -111.188, -165.324, -29.293, -0.904175, 2.83496, 166.665, -28.6631, 278.798, -101.739, 193.124, 8.50458, -4.05402, 27.4034, -195.562, 5.98474 )
+
+[editable path="impulseArea"]

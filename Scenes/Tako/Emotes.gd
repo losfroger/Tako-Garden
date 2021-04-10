@@ -1,5 +1,7 @@
 extends Sprite
 
+signal animation_finished()
+
 enum EMOTES {
 	blank, dot1, dot2, dot3, brokoro, heart,
 	heart2, exclamation2, exclamation, question, z, z2,
@@ -26,3 +28,5 @@ func emote(emote, duration: float) -> void:
 
 func _on_Timer_timeout() -> void:
 	animationPlayer.play("dissappear")
+	yield(animationPlayer,"animation_finished")
+	emit_signal("animation_finished")
