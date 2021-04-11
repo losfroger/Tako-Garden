@@ -2,6 +2,8 @@ extends RigidBody2D
 
 signal exploded()
 
+export var explosionEffect: PackedScene
+
 onready var explosionRadius = $explosionRadius
 
 func _ready() -> void:
@@ -10,6 +12,10 @@ func _ready() -> void:
 
 
 func _on_Bomb_body_entered(_body: Node) -> void:
+	var newExplosion = explosionEffect.instance()
+	newExplosion.global_position = global_position
+	get_parent().add_child(newExplosion)
+	
 	var bodies = explosionRadius.get_overlapping_bodies()
 	for body in bodies:
 		if body.has_method("explosion"):

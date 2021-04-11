@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Whack a tako BG.png-6d8a5c2d3cef089985a753e65a2de5cb.stex"
+path="res://.import/BowlFront.png-838fe602e2a3a223e26f1a8df6346ec5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/WhackATako/Whack a tako BG.png"
-dest_files=[ "res://.import/Whack a tako BG.png-6d8a5c2d3cef089985a753e65a2de5cb.stex" ]
+source_file="res://Assets/Art/DangoGame/BowlFront.png"
+dest_files=[ "res://.import/BowlFront.png-838fe602e2a3a223e26f1a8df6346ec5.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false

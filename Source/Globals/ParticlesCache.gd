@@ -2,9 +2,16 @@ extends CanvasLayer
 
 
 var takoHeart = preload("res://Assets/Particles/TakoHearts.tres")
+var bomb_sparks = preload("res://Assets/Particles/BombSparks.tres")
+var explosion_main = preload("res://Assets/Particles/Explosion/MainExplosion.tres")
+var explosion_sparks = preload("res://Assets/Particles/Explosion/Sparks.tres")
+var explosion_smoke = preload("res://Assets/Particles/Explosion/Smoke.tres")
 
 var materials = [
 	takoHeart,
+	explosion_main,
+	explosion_sparks,
+	explosion_smoke,
 ]
 
 

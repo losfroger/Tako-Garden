@@ -29,10 +29,7 @@ func _physics_process(delta: float) -> void:
 
 
 func explosion(_explosion_coord: Vector2) -> void:
-	return
-	_enabled = false
-	yield(get_tree().create_timer(0.3), "timeout")
-	_enabled = true
+	pass
 
 
 func get_direction():

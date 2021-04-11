@@ -67,7 +67,7 @@ func new_falling_entity():
 	var randomPick = probClass.random_pick()
 	
 	var newDango:RigidBody2D = randomPick.instance.instance()
-	var dangoCoord = GlobalFunctions.randomCord(Vector2(500, 0)) 
+	var dangoCoord = GlobalFunctions.randomCord(Vector2(580, 0)) 
 	dangoCoord.y = rand_range(-50, -400)
 	newDango.global_position = dangoCoord
 	
@@ -141,7 +141,7 @@ func _on_CountDownTimer_end_timer() -> void:
 	var iterations = 0
 	var margin = 12
 	# Wait for the bodies to stop moving
-	while check_bodies and iterations < 100:
+	while check_bodies and iterations < 60:
 		yield(get_tree().create_timer(0.1), "timeout")
 		
 		check_bodies = false

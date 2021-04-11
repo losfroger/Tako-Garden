@@ -2,10 +2,12 @@ extends RigidBody2D
 
 export var greatest_force = 300
 
+onready var sprite = $Sprite
 
 func _ready() -> void:
 	angular_velocity = rand_range(-10, 10)
 	linear_velocity.y = rand_range(-50, 50)
+	sprite.frame = randi() % 3
 
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
