@@ -21,11 +21,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		_input_vector = Vector2.ZERO
 	
+	if is_on_wall():
+		_velocity = Vector2.ZERO
+	
 	if _input_vector != Vector2.ZERO:
 		_velocity = _velocity.move_toward(_input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
 		_velocity = _velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-	move_and_collide(_velocity)
+	
+	move_and_slide(_velocity)
 
 
 func explosion(_explosion_coord: Vector2) -> void:
