@@ -41,11 +41,9 @@ color = Color( 0.0666667, 0.329412, 0.580392, 1 )
 polygon = PoolVector2Array( -17.1805, -0.103153, -16.0892, -5.85748, -14.1049, -9.9252, -10.9301, -13.3976, -5.07657, -16.4732, 0.479332, -17.4654, 5.93603, -15.7787, 10.9959, -12.6039, 14.3691, -8.93307, 16.8494, -3.77402, 17.147, 1.38504, 15.7581, 6.24645, 13.9722, 10.5126, 10.103, 13.8858, 5.7376, 16.3661, -0.115944, 17.259, -3.7868, 16.3661, -8.94586, 14.6795, -12.4183, 11.7031, -14.7002, 8.52834, -16.3868, 4.65905 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-visible = false
-scale = Vector2( 1.90284, 2.14094 )
+scale = Vector2( 0.843376, 0.816611 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 2 )
 
 [node name="SparksParticles" type="Particles2D" parent="."]
@@ -55,4 +53,5 @@ lifetime = 0.2
 randomness = 0.29
 local_coords = false
 process_material = ExtResource( 3 )
+
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
