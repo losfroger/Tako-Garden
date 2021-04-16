@@ -71,6 +71,10 @@ func new_falling_entity():
 	dangoCoord.y = rand_range(-50, -400)
 	newDango.global_position = dangoCoord
 	
+	if newDango != null:
+		if newDango.is_in_group("Bombs"):
+			newDango.connect("exploded", self, "on_bomb_exploded")
+	
 	dangosParent.add_child(newDango)
 	
 	var newEmote = emoteInstance.instance()
@@ -87,8 +91,6 @@ func new_falling_entity():
 		"dango":
 			newEmote.emote(newEmote.EMOTES.circle, 0.8)
 		"bomb":
-			if newDango != null:
-				newDango.connect("exploded", self, "on_bomb_exploded")
 			newEmote.emote(newEmote.EMOTES.cross, 0.8)
 	newEmote.connect("animation_finished", newEmote, "queue_free")
 
