@@ -40,19 +40,21 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	# Code to spawn thingies
 	if event.get_action_strength("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pauseMenu.show()
 		pauseMenu.mouseMode = Input.MOUSE_MODE_VISIBLE
 		get_tree().paused = true
 	
-	if event.get_action_strength("l_click"):
-		var newBomb = items[0].instance.instance()
+	if event.get_action_strength("r_click"):
+		var newBomb = items[1].instance.instance()
 		newBomb.global_position = get_global_mouse_position()
+		newBomb.connect("exploded", self, "on_bomb_exploded")
 		dangosParent.add_child(newBomb)
 	
-	if event.get_action_strength("r_click"):
-		var newDango = items[1].instance.instance()
+	if event.get_action_strength("l_click"):
+		var newDango = items[0].instance.instance()
 		newDango.global_position = get_global_mouse_position()
 		dangosParent.add_child(newDango)
 
