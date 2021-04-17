@@ -25,11 +25,13 @@ onready var spawnTimer2 = $SpawnTimer2
 onready var spawnCoin = $SpawnCoin
 onready var scoreTimer = $ScoreTimer
 onready var dangosParent = $Dangos
+onready var emotesParent = $UI/EmoteGroup
 onready var takoPlayer = $TakoPlayer
 onready var countArea = $TakoPlayer/CountArea
 onready var countLabel = $UI/Count
 onready var bowl = $Bowl
 onready var gameOver = $UI/GameOverScreen
+
 
 func _ready() -> void:
 	yield(TransitionScreen, "transition_complete")
@@ -82,9 +84,8 @@ func new_falling_entity():
 	var newEmote = emoteInstance.instance()
 	newEmote.rotation = emote.rotation
 	newEmote.scale = emote.scale
-	newEmote.z_index = 2
 	
-	dangosParent.add_child(newEmote)
+	emotesParent.add_child(newEmote)
 	newEmote.global_position = emote.global_position
 	newEmote.global_position.x = dangoCoord.x
 	yield(get_tree().create_timer(0.15), "timeout")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Minigames/DangoGame1/TakoPlayer.tscn" type="PackedScene" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://Scenes/UI/CountDownTimer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Fonts/ArialRound/ArialRound-regular.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Assets/Theme/kenneyUI-yellow.tres" type="Theme" id=10]
-[ext_resource path="res://Scenes/Minigames/WhackTako/UI/GameOverScreen.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Minigames/UI/GameOverScreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Art/WhackATako/Whack a tako BG.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Minigames/UI/Score.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 276.636, 318.838 )
@@ -100,18 +101,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PauseMenu" parent="UI" instance=ExtResource( 1 )]
-visible = false
-
 [node name="CountDownTimer" parent="UI" instance=ExtResource( 8 )]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -295.5
 margin_right = 295.5
 
+[node name="Score" parent="UI" instance=ExtResource( 13 )]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 298.0
+margin_bottom = 70.0
+
+[node name="EmoteGroup" type="Control" parent="UI"]
+modulate = Color( 1, 1, 1, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GameOverScreen" parent="UI" instance=ExtResource( 11 )]
 visible = false
 theme = ExtResource( 10 )
+
+[node name="PauseMenu" parent="UI" instance=ExtResource( 1 )]
+visible = false
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -200,9 +213,6 @@ position = Vector2( 1920, 925.012 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallsGroup/Walls2"]
 shape = SubResource( 5 )
-
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 0, -400 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 6 )
