@@ -7,14 +7,22 @@ onready var optionsPanel = $ConfigPanel
 onready var continueButton = $VBoxContainer/Buttons/Continue
 onready var firstButton = $VBoxContainer/Buttons/Continue
 
+onready var buttonContainer = $VBoxContainer
+
 func show():
 	blurScreen.show()
 	visible = true
+	buttonContainer.visible = true
 	firstButton.grab_focus()
 
 func unpause():
 	Input.set_mouse_mode(mouseMode)
 	blurScreen.hide()
+	
+	buttonContainer.visible = false
+	
+	yield(blurScreen, "hidden")
+	
 	visible = false
 	get_tree().paused = false
 

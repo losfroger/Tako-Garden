@@ -124,6 +124,7 @@ Scene = "res://Scenes/World/Garden.tscn"
 visible = false
 margin_left = -207.0
 margin_right = 207.0
+
 [connection signal="pressed" from="VBoxContainer/Buttons/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/Options" to="." method="_on_Options_pressed"]
 [connection signal="closed_configuration" from="ConfigPanel" to="." method="_on_ConfigPanel_closed_configuration"]
