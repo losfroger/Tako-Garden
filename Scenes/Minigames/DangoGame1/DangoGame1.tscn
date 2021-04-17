@@ -63,9 +63,9 @@ bias = 0.552
 
 [node name="TakoPlayer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 995.118, 927.289 )
-MAX_SPEED = 50
-ACCELERATION = 30
-FRICTION = 10
+MAX_SPEED = 1000
+ACCELERATION = 1500
+FRICTION = 1300
 
 [node name="CountArea" type="Area2D" parent="TakoPlayer"]
 position = Vector2( 0, -411.036 )
@@ -206,15 +206,13 @@ position = Vector2( 0, -400 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 6 )
+
 [connection signal="end_timer" from="UI/CountDownTimer" to="." method="_on_CountDownTimer_end_timer"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="SpawnTimer2" to="." method="_on_SpawnTimer2_timeout"]
 [connection signal="timeout" from="SpawnCoin" to="." method="_on_SpawnCoin_timeout"]
 
 [editable path="DespawnGroup/DespawnArea"]
-
 [editable path="DespawnGroup/DespawnArea2"]
-
 [editable path="DespawnGroup/DespawnArea3"]
-
 [editable path="DespawnGroup/DespawnArea4"]
