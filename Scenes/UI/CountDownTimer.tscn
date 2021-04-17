@@ -27,6 +27,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
+bbcode_text = "[center]Time: 00 [/center]"
+text = "Time: 00 "
 scroll_active = false
 custom_effects = [ SubResource( 2 ) ]
 script = ExtResource( 2 )
@@ -42,4 +44,5 @@ volume_db = 2.916
 script = ExtResource( 8 )
 streams = [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ) ]
 random_strategy = 2
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
