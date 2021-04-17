@@ -160,5 +160,4 @@ func _on_CountDownTimer_end_timer() -> void:
 	
 	countLabel.text = "Dangos: " + str(len(bodies) - 1)
 	countLabel.visible = true
-	gameOver.visible = true
-	get_tree().paused = true
+	gameOver.show(0)
