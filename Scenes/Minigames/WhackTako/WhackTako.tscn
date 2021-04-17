@@ -5,10 +5,10 @@
 [ext_resource path="res://Scenes/Minigames/WhackTako/WhackTako.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Minigames/WhackTako/PlayerHammer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/UI/CountDownTimer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Minigames/WhackTako/UI/Score.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Minigames/UI/Score.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Music/Kanalumi.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Assets/SFX/WhackTako/Ina_-_WhackATako.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Scenes/Minigames/WhackTako/UI/GameOverScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Minigames/UI/GameOverScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Theme/kenneyUI-yellow.tres" type="Theme" id=10]
 [ext_resource path="res://Scenes/Minigames/WhackTako/MoreTime.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/SFX/WhackTako/Ina_-_GitGud.ogg" type="AudioStream" id=12]
@@ -394,11 +394,10 @@ text = ""
 
 [node name="RetryDialog" parent="UI" instance=ExtResource( 14 )]
 pause_mode = 2
+
 [connection signal="end_timer" from="UI/CountDownTimer" to="." method="_on_CountDownTimer_end_timer"]
 [connection signal="popup_hide" from="UI/RetryDialog" to="." method="_on_RetryDialog_popup_hide"]
 
 [editable path="Takos/TakoWhack5"]
-
 [editable path="Takos/TakoWhack6"]
-
 [editable path="Takos/TakoWhack7"]
