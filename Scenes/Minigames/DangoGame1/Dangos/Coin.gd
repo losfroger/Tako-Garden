@@ -3,7 +3,7 @@ extends Area2D
 onready var timer = $Timer
 
 func _ready() -> void:
-	timer.wait_time = rand_range(3, 5)
+	timer.wait_time = rand_range(6, 10)
 	timer.start()
 
 
