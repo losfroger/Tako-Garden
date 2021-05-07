@@ -17,21 +17,27 @@ var coinInstance = preload("res://Scenes/Minigames/DangoGame1/Dangos/Coin.tscn")
 
 onready var dangoNode = dangoInstance.instance()
 
-onready var pauseMenu = $UI/PauseMenu
-
 onready var emote = $Emotes
+# Timers
 onready var spawnTimer = $SpawnTimer
 onready var spawnTimer2 = $SpawnTimer2
 onready var spawnCoin = $SpawnCoin
 onready var scoreTimer = $ScoreTimer
 onready var dangosParent = $Dangos
-onready var emotesParent = $UI/EmoteGroup
+
 onready var takoPlayer = $TakoPlayer
 onready var countArea = $TakoPlayer/CountArea
-onready var countLabel = $UI/Count
 onready var bowl = $Bowl
-onready var gameOver = $UI/GameOverScreen
 
+onready var camera = $Camera
+
+# UI
+onready var pauseMenu = $UI/PauseMenu
+onready var emotesParent = $UI/EmoteGroup
+onready var countLabel = $UI/Count
+onready var gameOver = $UI/GameOverScreen
+onready var scoreLabel = $UI/Score
+onready var countTween = $CountTween
 
 func _ready() -> void:
 	yield(TransitionScreen, "transition_complete")
@@ -52,19 +58,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.get_action_strength("r_click"):
 		var newBomb = items[1].instance.instance()
 		newBomb.global_position = get_global_mouse_position()
-		newBomb.connect("exploded", self, "on_bomb_exploded")
+		newBomb.connect("exploded", self, "_on_bomb_exploded")
 		dangosParent.add_child(newBomb)
 	
 	if event.get_action_strength("l_click"):
 		var newDango = items[0].instance.instance()
 		newDango.global_position = get_global_mouse_position()
 		dangosParent.add_child(newDango)
-
-
-func on_bomb_exploded() -> void:
-	dangoNode.physics_material_override.bounce = 0.3
-	yield(get_tree().create_timer(0.15), "timeout")
-	dangoNode.physics_material_override.bounce = 0.05
 
 
 func new_falling_entity():
@@ -77,7 +77,7 @@ func new_falling_entity():
 	
 	if newDango != null:
 		if newDango.is_in_group("Bombs"):
-			newDango.connect("exploded", self, "on_bomb_exploded")
+			newDango.connect("exploded", self, "_on_bomb_exploded")
 	
 	dangosParent.add_child(newDango)
 	
@@ -123,13 +123,17 @@ func _on_SpawnCoin_timeout() -> void:
 		coords.x = takoPlayer.global_position.x + (
 			rand_range(300, 600) * pow(-1, randi() % 5))
 	
-	newCoin.global_position= coords
+	newCoin.global_position = coords
 	dangosParent.add_child(newCoin)
+	
+	newCoin.connect("collected", scoreLabel, "addScore")
 	
 	spawnCoin.wait_time = rand_range(10, 20)
 	spawnCoin.start()
 
 func _on_CountDownTimer_end_timer() -> void:
+	scoreLabel.visible = false
+	
 	get_tree().call_group("Bombs", "queue_free")
 	get_tree().call_group("Dango", "final_friction")
 	
@@ -158,6 +162,27 @@ func _on_CountDownTimer_end_timer() -> void:
 				break
 		iterations += 1
 	
-	countLabel.text = "Dangos: " + str(len(bodies) - 1)
 	countLabel.visible = true
-	gameOver.show(0)
+	countTween.interpolate_method(self, "dangoCountAnimation", 0, len(bodies) - 1, 2.0,
+		Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	countTween.start()
+	
+	yield(countTween, "tween_all_completed")
+	scoreLabel.addScore(150 * (len(bodies) - 1))
+	
+	gameOver.show(scoreLabel.score)
+
+func dangoCountAnimation(number: int):
+	countLabel.text = "Dangos: " + str(number)
+
+
+func _on_bomb_exploded(bombCoord: Vector2):
+	var distanceExplosion = bowl.global_position.distance_to(bombCoord)
+	#print(distanceExplosion)
+	camera.shake(range_lerp(distanceExplosion, 10, 600, 50.0, 5.0), 0.8)
+
+
+func _on_Bowl_bowl_exploded(distanceExplosion) -> void:
+	dangoNode.physics_material_override.bounce = 0.3
+	yield(get_tree().create_timer(0.15), "timeout")
+	dangoNode.physics_material_override.bounce = 0.05

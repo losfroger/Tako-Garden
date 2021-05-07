@@ -28,7 +28,7 @@
 		"controls":[
 			"[table=2] [cell]Move left: [/cell][cell] A or left arrow[/cell] [cell]Move right: [/cell][cell] D or right arrow[/cell] [/table]"
 		],
-		"image": "res://Assets/Art/WhackATako/AO-chan.png",
+		"image": "res://Assets/MinigameSS/Dango Game.png",
 		"playBt": "res://Scenes/Minigames/DangoGame1/DangoGame1.tscn"
 	},
 	"2": {

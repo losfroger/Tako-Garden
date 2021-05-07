@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal bowl_exploded(distanceExplosion)
+
 onready var impCenter = $impulseArea
 onready var collisionPol = $CollisionPolygon2D
 onready var polygon = $Polygon2D
@@ -11,7 +13,10 @@ func _ready() -> void:
 
 
 func explosion(_explosion_coord: Vector2) -> void:
-	if global_position.distance_to(_explosion_coord) < 300:
+	var distance = global_position.distance_to(_explosion_coord)
+	emit_signal("bowl_exploded", distance)
+	
+	if distance < 300:	
 		impCenter.gravity = -300
 		impCenter.modulate = Color("#ff1818")
 		yield(get_tree().create_timer(0.2), "timeout")

@@ -27,8 +27,8 @@ shape = SubResource( 2 )
 position = Vector2( 0, 0.49606 )
 scale = Vector2( 0.322406, 0.318376 )
 texture = ExtResource( 1 )
-vframes = 2
 hframes = 2
+vframes = 2
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 visible = false

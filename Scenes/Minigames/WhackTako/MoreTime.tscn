@@ -67,6 +67,7 @@ one_shot = true
 stream = ExtResource( 3 )
 volume_db = 2.0
 pitch_scale = 1.37
+
 [connection signal="area_entered" from="Position2D/HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="tween_completed" from="TweenX" to="." method="_on_TweenX_tween_completed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

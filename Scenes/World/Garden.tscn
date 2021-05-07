@@ -416,6 +416,7 @@ __meta__ = {
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 13 )
+
 [connection signal="pressed" from="TakoUI/ButtonContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 
 [editable path="TakoUI"]

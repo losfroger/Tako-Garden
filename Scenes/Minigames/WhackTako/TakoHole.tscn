@@ -203,11 +203,9 @@ volume_db = 10.0
 script = ExtResource( 7 )
 streams = [ ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 11 ) ]
 random_strategy = 2
-randomize_volume = false
-volume_min = 0.0
-volume_max = 0.0
 randomize_pitch = true
 pitch_min = 0.9
 pitch_max = 1.1
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
