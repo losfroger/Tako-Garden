@@ -12,8 +12,8 @@ onready var alertGLES = $UI/AlertGLES
 onready var shaders = [$ParallaxBackground/Bubbles, 
 	$ParallaxBackground/Bubbles2, 
 	$ParallaxBackground/Bubbles3,
-	$ParallaxBackground/Background/Godray,
-	$ParallaxBackground/Foreground/Godray2,
+	$Godray,
+	$ParallaxBackground/Godray2,
 	$LightParticles,
 	$LightParticles2
 	]
