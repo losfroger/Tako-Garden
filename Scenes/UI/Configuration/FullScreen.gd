@@ -7,3 +7,4 @@ func _ready() -> void:
 
 func _on_FullScreen_pressed() -> void:
 	OS.window_fullscreen = !OS.window_fullscreen
+	ConfigManager.set_setting("display", "fullscreen", OS.window_fullscreen)

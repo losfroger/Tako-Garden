@@ -6,6 +6,7 @@ onready var firstButton = $VBoxContainer/ScrollContainer/MarginContainer/VBoxCon
 
 func _on_CloseBt_pressed() -> void:
 	visible = false
+	ConfigManager.save_settings_file()
 	emit_signal("closed_configuration")
 
 

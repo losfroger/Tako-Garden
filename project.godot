@@ -240,12 +240,13 @@ output_latency.web=75
 
 [autoload]
 
+FPSlabel="*res://Scenes/Debug/FPSlabel.tscn"
+ConfigManager="*res://Source/Globals/ConfigManager.gd"
 GlobalShortcuts="*res://Source/Globals/GlobalShortcuts.gd"
 GlobalFunctions="*res://Source/Globals/GlobalFunctions.gd"
 InterfaceSignals="*res://Source/Globals/InterfaceSignals.gd"
 DebugEvents="*res://Source/Globals/DebugEvents.gd"
 ParticlesCache="*res://Source/Globals/ParticlesCache.gd"
-FPSlabel="*res://Scenes/Debug/FPSlabel.tscn"
 TransitionScreen="*res://Scenes/ScreenSpace/TransitionScreen.tscn"
 
 [debug]
