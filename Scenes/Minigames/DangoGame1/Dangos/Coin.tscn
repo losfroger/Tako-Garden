@@ -1,0 +1,180 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Minigames/DangoGame1/Dangos/Coin.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/DangoGame/GoldDango.png" type="Texture" id=2]
+[ext_resource path="res://Assets/SFX/WhackTako/jingles_STEEL16.ogg" type="AudioStream" id=3]
+[ext_resource path="res://addons/randomAudioStreamPlayer/random_audio_stream_player.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Art/DangoGame/ShineRays.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 33.7033
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Position2D/GoldDango:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Position2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Position2D/GlowSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.435294 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Position2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 25 ), Vector2( 0, -25 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Position2D/GoldDango:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Position2D/GlowSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.435294 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Glow"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Position2D/GlowSprite:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Position2D/GlowSprite:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.222393, 0.222393 ), Vector2( 0.3, 0.3 ) ]
+}
+
+[node name="Coin" type="Area2D"]
+z_index = -1
+monitorable = false
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+scale = Vector2( 2, 2 )
+color = Color( 0.929412, 0.968627, 0.258824, 1 )
+polygon = PoolVector2Array( -13.0675, -0.0676575, -11.7432, -4.83524, -8.6972, -9.60282, -2.87016, -12.5163, 1.89743, -12.7812, 5.34068, -12.119, 9.18124, -10.1326, 11.4326, -6.95417, 12.7569, -3.11361, 13.0218, 1.38911, 11.3002, 6.02426, 8.51907, 9.33508, 5.47311, 11.1891, 0.573097, 12.381, -3.79719, 11.7189, -6.84314, 10.9243, -10.4188, 7.34859, -12.2729, 3.3756 )
+
+[node name="DespawnTimer" type="Timer" parent="."]
+
+[node name="BlinkTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, 21.7 )
+
+[node name="GlowSprite" type="Sprite" parent="Position2D"]
+self_modulate = Color( 1, 1, 1, 0.960784 )
+rotation = 0.0623286
+scale = Vector2( 0.224011, 0.224011 )
+texture = ExtResource( 5 )
+
+[node name="GoldDango" type="Sprite" parent="Position2D"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="FloatAnim" type="AnimationPlayer" parent="."]
+anims/default = SubResource( 2 )
+anims/float = SubResource( 3 )
+
+[node name="DissappearAnim" type="AnimationPlayer" parent="."]
+anims/blink = SubResource( 4 )
+
+[node name="GlowAnim" type="AnimationPlayer" parent="."]
+anims/Glow = SubResource( 5 )
+
+[node name="blinkSpeedTween" type="Tween" parent="."]
+
+[node name="CollectSFX" type="AudioStreamPlayer" parent="."]
+volume_db = 1.0
+bus = "SFX"
+script = ExtResource( 4 )
+streams = [ ExtResource( 3 ) ]
+randomize_pitch = true
+pitch_min = 1.5
+pitch_max = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_BlinkTimer_timeout"]

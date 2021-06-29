@@ -144,6 +144,7 @@ one_shot = true
 [node name="RemoteTakoUI" type="RemoteTransform2D" parent="."]
 position = Vector2( 0, 103.38 )
 update_scale = false
+
 [connection signal="input_event" from="." to="." method="_on_Tako_input_event"]
 [connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_end"]
 [connection signal="timeout" from="StateMachine/Move/Timer" to="StateMachine/Move" method="_on_timer_end"]

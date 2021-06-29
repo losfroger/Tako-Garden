@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Minigames/DangoGame1/Dangos/Explosion.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Particles/Explosion/Sparks.tres" type="Material" id=2]
+[ext_resource path="res://Assets/Particles/Explosion/Smoke.tres" type="Material" id=3]
+[ext_resource path="res://Assets/Particles/Explosion/MainExplosion.tres" type="Material" id=4]
+[ext_resource path="res://addons/randomAudioStreamPlayer/random_audio_stream_player_2D.gd" type="Script" id=5]
+[ext_resource path="res://Assets/SFX/Explosions/grenade3.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/SFX/Explosions/explosion.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Assets/SFX/Explosions/grenade.ogg" type="AudioStream" id=8]
+
+[node name="Explosion" type="Node2D"]
+scale = Vector2( 6, 6 )
+z_index = 3
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="MainExplosion" type="Particles2D" parent="."]
+modulate = Color( 2, 1.2, 0.2, 1 )
+amount = 200
+lifetime = 0.55
+speed_scale = 2.0
+explosiveness = 0.5
+randomness = 0.13
+process_material = ExtResource( 4 )
+
+[node name="Sparks" type="Particles2D" parent="MainExplosion"]
+emitting = false
+amount = 10
+lifetime = 0.8
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.8
+process_material = ExtResource( 2 )
+
+[node name="Smoke" type="Particles2D" parent="MainExplosion"]
+show_behind_parent = true
+emitting = false
+amount = 100
+lifetime = 0.8
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.8
+process_material = ExtResource( 3 )
+
+[node name="ExplosionSFX" type="AudioStreamPlayer2D" parent="."]
+volume_db = 5.5
+attenuation = 0.435275
+bus = "SFX"
+script = ExtResource( 5 )
+streams = [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ]
+random_strategy = 1
+randomize_pitch = true
+pitch_min = 0.6
+pitch_max = 1.5
