@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Assets/Art/WhackATako/Whack a tako BG.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Minigames/WhackTako/TakoHole.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/SFX/WhackTako/Ina_-_GitGud.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Scenes/Minigames/WhackTako/InitialCountDown.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/UI/RetryDialog.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/World/Env.tres" type="Environment" id=15]
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Utilities/FadeInMusic.tscn" type="PackedScene" id=17]
 
@@ -389,6 +390,9 @@ text = ""
 
 [node name="RetryDialog" parent="UI" instance=ExtResource( 14 )]
 pause_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 15 )
 
 [connection signal="end_timer" from="UI/CountDownTimer" to="." method="_on_CountDownTimer_end_timer"]
 [connection signal="popup_hide" from="UI/RetryDialog" to="." method="_on_RetryDialog_popup_hide"]

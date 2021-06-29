@@ -47,6 +47,7 @@ scale = Vector2( 0.843376, 0.816611 )
 shape = SubResource( 2 )
 
 [node name="SparksParticles" type="Particles2D" parent="."]
+modulate = Color( 3, 1.2, 0.2, 1 )
 position = Vector2( 35.3949, -36.0222 )
 amount = 10
 lifetime = 0.2

@@ -16,6 +16,7 @@ z_as_relative = false
 script = ExtResource( 1 )
 
 [node name="MainExplosion" type="Particles2D" parent="."]
+modulate = Color( 2, 1.2, 0.2, 1 )
 amount = 200
 lifetime = 0.55
 speed_scale = 2.0

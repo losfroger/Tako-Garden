@@ -26,7 +26,8 @@ func _ready() -> void:
 	if OS.get_current_video_driver() != OS.VIDEO_DRIVER_GLES3:
 		alertGLES.popup_centered()
 		for shader in shaders:
-			shader.visible = false
+			pass
+			#shader.visible = false
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	

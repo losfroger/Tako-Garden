@@ -334,4 +334,4 @@ fullscreen={
 
 quality/driver/fallback_to_gles2=true
 environment/default_clear_color=Color( 0.180392, 0.180392, 0.180392, 1 )
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://Scenes/World/Env.tres"
