@@ -181,8 +181,10 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = 349.0
 margin_bottom = 58.251
+shortcut_in_tooltip = false
 shortcut = SubResource( 4 )
 text = "Close"
+
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FullScreen" to="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FullScreen" method="_on_FullScreen_pressed"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FpsLabel" to="VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/FpsLabel" method="_on_FpsLabel_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/CloseBt" to="." method="_on_CloseBt_pressed"]

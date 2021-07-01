@@ -19,5 +19,6 @@ func update_value():
 func _on_VolumeSlider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(_bus, linear2db(value))
 	if _readyVolume:
+		ConfigManager.set_setting("sound", audio_bus_name, value)
 		soundTest.play()
 	_readyVolume = true
