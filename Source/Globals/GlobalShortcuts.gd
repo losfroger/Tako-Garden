@@ -8,6 +8,7 @@ func _ready():
 
 # TODO: Make fullscreen toggle with F11
 func _input(event):
+	# Save a screenshot in the screenshots folder
 	if event.is_action_pressed("screenshot"):
 		# TODO: Make version to save screenshot on HTML
 		if OS.get_name() != "HTML5":

@@ -1,3 +1,4 @@
+# Tako that shows in the main screen
 class_name Tako
 extends KinematicBody2D
 
@@ -58,6 +59,7 @@ func _on_SearchFood_body_entered(_body: Node) -> void:
 	if stateMachine.state.name != "Food":
 		stateMachine.transition_to("Food")
 
+
 func get_food_sorted() -> Array:
 	var bodySort: Array = []
 	for body in searchFoodArea.get_overlapping_bodies():
@@ -67,6 +69,7 @@ func get_food_sorted() -> Array:
 	if searchFoodArea.get_overlapping_bodies().size() > 1:
 		bodySort.sort_custom(FoodSorter, "sort_desc_distance")
 	return bodySort
+
 
 func _on_EatArea_body_entered(body: Node) -> void:
 	DebugEvents.console_print(logColor, name, "Yummy food!")
@@ -102,9 +105,11 @@ func _on_Tako_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -
 				})
 			takoSprite.outline(true)
 
+
 func _on_Deselected() -> void:
 	takoSprite.outline(false)
 	InterfaceSignals.disconnect("DeselectedTako", self, "_on_Deselected")
+
 
 func _on_EatCD_timeout() -> void:
 	eat_recently = false

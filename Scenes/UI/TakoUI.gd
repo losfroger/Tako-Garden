@@ -1,4 +1,4 @@
-# TODO: Add functionality to the play and pat button
+# Menu that shows up when you select a tako
 extends Node2D
 
 var currentRemote: RemoteTransform2D = null

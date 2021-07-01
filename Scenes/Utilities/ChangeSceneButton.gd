@@ -1,3 +1,4 @@
+# Button that changes to the scene you specify with the exported variable
 extends Button
 
 export (String, FILE, "*.tscn") var Scene

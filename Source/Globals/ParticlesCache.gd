@@ -1,3 +1,4 @@
+# Global class that loads the particles at the start of the game, to not cause stutters later
 extends CanvasLayer
 
 

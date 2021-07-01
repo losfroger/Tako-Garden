@@ -41,6 +41,7 @@ func _ready() -> void:
 		
 		buttonContainer.add_child(button)
 
+
 func loadId(id: String) -> void:
 	tabContainer.current_tab = 0
 	
@@ -60,6 +61,7 @@ func loadId(id: String) -> void:
 	playBt.Scene = json[id]["playBt"]
 	
 	playBt.disabled = true if json[id]["playBt"] == null else false
+
 
 func _on_IdButton_pressed(id: String) -> void:
 	loadId(id)

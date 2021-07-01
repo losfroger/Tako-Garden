@@ -1,0 +1,1108 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://addons/project_map/pm_file_node.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/project_map/pm_comment_node.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/project_map/pm_group_node.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/project_map/node.stylebox" type="StyleBox" id=4]
+[ext_resource path="res://addons/project_map/group_selected.stylebox" type="StyleBox" id=5]
+[ext_resource path="res://addons/project_map/group.stylebox" type="StyleBox" id=6]
+[ext_resource path="res://addons/project_map/node_selected.stylebox" type="StyleBox" id=7]
+[ext_resource path="res://addons/project_map/project_map.gd" type="Script" id=8]
+[ext_resource path="res://addons/project_map/pm_group_node.gd" type="Script" id=9]
+[ext_resource path="res://addons/project_map/pm_file_node.gd" type="Script" id=10]
+[ext_resource path="res://addons/project_map/pm_comment_node.gd" type="Script" id=11]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.2, 0.231373, 0.309804, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="ProjectMap" type="GraphEdit"]
+margin_right = 1312.0
+margin_bottom = 889.0
+rect_min_size = Vector2( 500, 500 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
+scroll_offset = Vector2( 178.21, -623.426 )
+snap_distance = 32
+zoom = 0.878704
+minimap_size = Vector2( 178, 167 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CommentNode4" type="GraphNode" parent="." instance=ExtResource( 2 )]
+margin_left = 65.68
+margin_top = 289.323
+margin_right = 392.347
+margin_bottom = 418.212
+rect_min_size = Vector2( 326.667, 128.889 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = SubResource( 2 )
+custom_styles/comment = SubResource( 3 )
+offset = Vector2( 277.556, -380.222 )
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+comment_text = "Message that shows up when you take a screenshot (F2). could be used for something else in the future"
+comment_rect = Vector2( 326.667, 128.889 )
+
+[node name="GroupNode6" type="GraphNode" parent="." instance=ExtResource( 3 )]
+margin_left = 102.976
+margin_top = 820.256
+margin_right = 678.976
+margin_bottom = 1204.26
+rect_min_size = Vector2( 576, 384 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 5 )
+custom_styles/comment = ExtResource( 6 )
+offset = Vector2( 320, 224 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Tako"
+
+[node name="CommentNode" type="GraphNode" parent="." instance=ExtResource( 2 )]
+margin_left = 304.419
+margin_top = 885.5
+margin_right = 600.669
+margin_bottom = 979.25
+rect_min_size = Vector2( 296.25, 93.75 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = SubResource( 2 )
+custom_styles/comment = SubResource( 3 )
+offset = Vector2( 549.25, 298.25 )
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+comment_text = "State machine states for the tako in the main screen"
+comment_rect = Vector2( 296.25, 93.75 )
+
+[node name="CommentNode5" type="GraphNode" parent="." instance=ExtResource( 2 )]
+margin_left = 80.6312
+margin_top = 936.496
+margin_right = 344.917
+margin_bottom = 1073.64
+rect_min_size = Vector2( 264.286, 137.143 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = SubResource( 2 )
+custom_styles/comment = SubResource( 3 )
+offset = Vector2( 294.571, 356.286 )
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+comment_text = "These two can be resused whenever you need a tako sprite or the little emote things that pop out"
+comment_rect = Vector2( 264.286, 137.143 )
+
+[node name="GroupNode" type="GraphNode" parent="." instance=ExtResource( 3 )]
+margin_left = 102.976
+margin_top = 482.833
+margin_right = 678.976
+margin_bottom = 802.833
+rect_min_size = Vector2( 576, 320 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 5 )
+custom_styles/comment = ExtResource( 6 )
+offset = Vector2( 320, -160 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Main Screen"
+
+[node name="GroupNode7" type="GraphNode" parent="." instance=ExtResource( 3 )]
+margin_left = 665.346
+margin_top = 482.833
+margin_right = 1145.35
+margin_bottom = 930.833
+rect_min_size = Vector2( 480, 448 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 5 )
+custom_styles/comment = ExtResource( 6 )
+offset = Vector2( 960, -160 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Minigames"
+
+[node name="CommentNode3" type="GraphNode" parent="." instance=ExtResource( 2 )]
+margin_left = 288.09
+margin_top = 571.852
+margin_right = 659.201
+margin_bottom = 708.519
+rect_min_size = Vector2( 371.111, 136.667 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = SubResource( 2 )
+custom_styles/comment = SubResource( 3 )
+offset = Vector2( 530.667, -58.6936 )
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+comment_text = "Button that shows up when you select a tako, maybe in the future. There could be a hunger, hapiness, clean, etc. sliders in here too"
+comment_rect = Vector2( 371.111, 136.667 )
+
+[node name="CommentNode2" type="GraphNode" parent="." instance=ExtResource( 2 )]
+margin_left = 94.4927
+margin_top = 496.107
+margin_right = 380.493
+margin_bottom = 584.107
+rect_min_size = Vector2( 286, 88 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = SubResource( 2 )
+custom_styles/comment = SubResource( 3 )
+offset = Vector2( 310.346, -144.894 )
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+comment_text = "Main screen, where you have the takos, and can feed them"
+comment_rect = Vector2( 286, 88 )
+
+[node name="GroupNode5" type="GraphNode" parent="." instance=ExtResource( 3 )]
+margin_left = 440.398
+margin_top = 201.648
+margin_right = 632.398
+margin_bottom = 457.648
+rect_min_size = Vector2( 192, 256 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 5 )
+custom_styles/comment = ExtResource( 6 )
+offset = Vector2( 704, -480 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Globals"
+
+[node name="GroupNode8" type="GraphNode" parent="." instance=ExtResource( 3 )]
+margin_left = 665.346
+margin_top = 932.73
+margin_right = 889.346
+margin_bottom = 1188.73
+rect_min_size = Vector2( 224, 256 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 5 )
+custom_styles/comment = ExtResource( 6 )
+offset = Vector2( 960, 352 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Useful classes"
+
+[node name="CommentNode6" type="GraphNode" parent="." instance=ExtResource( 2 )]
+margin_left = 58.7388
+margin_top = 177.564
+margin_right = 458.739
+margin_bottom = 377.564
+rect_min_size = Vector2( 400, 200 )
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/commentfocus = SubResource( 4 )
+custom_styles/comment = SubResource( 5 )
+offset = Vector2( 269.657, -507.409 )
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+comment_text = "IMPORTANT
+Don't commit changes to the project_map_save.tscn unless you really changed something in here"
+
+[node name="FileNode" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 131.094
+margin_top = 567.189
+margin_right = 255.094
+margin_bottom = 629.189
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 352, -64 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/MainScreen/Garden.tscn"
+icon_class = "Node2D"
+script_path = "res://Scenes/MainScreen/Garden.gd"
+script_name = "Garden.gd"
+
+[node name="FileNode2" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 131.094
+margin_top = 679.663
+margin_right = 322.094
+margin_bottom = 741.663
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 352, 64 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/UI/ChooseMinigame.tscn"
+icon_class = "Control"
+script_path = "res://Scenes/UI/ChooseMinigame.gd"
+script_name = "ChooseMinigame.gd"
+
+[node name="FileNode3" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 327.924
+margin_top = 679.663
+margin_right = 447.924
+margin_bottom = 741.663
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 576, 64 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/UI/TakoUI.tscn"
+icon_class = "Node2D"
+script_path = "res://Scenes/UI/TakoUI.gd"
+script_name = "TakoUI.gd"
+
+[node name="FileNode4" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 102.976
+margin_top = 398.478
+margin_right = 212.976
+margin_bottom = 460.478
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 320, -256 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/UI/Toast.tscn"
+icon_class = "Label"
+script_path = "res://Scenes/UI/Toast.gd"
+script_name = "Toast.gd"
+
+[node name="FileNode27" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 440.398
+margin_top = 257.885
+margin_right = 609.398
+margin_bottom = 289.885
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 704, -416 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/Globals/ConfigManager.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode28" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 440.398
+margin_top = 286.004
+margin_right = 612.398
+margin_bottom = 318.004
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 704, -384 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/Globals/GlobalFunctions.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode29" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 440.398
+margin_top = 314.122
+margin_right = 611.398
+margin_bottom = 346.122
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 704, -352 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/Globals/GlobalShortcuts.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode30" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 440.398
+margin_top = 342.241
+margin_right = 614.398
+margin_bottom = 374.241
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 704, -320 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/Globals/InterfaceSignals.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode31" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 440.398
+margin_top = 370.359
+margin_right = 602.398
+margin_bottom = 402.359
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 704, -288 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/Globals/ParticlesCache.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode34" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 327.924
+margin_top = 988.967
+margin_right = 423.924
+margin_bottom = 1020.97
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 576, 416 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/States/Food.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode35" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 327.924
+margin_top = 1017.09
+margin_right = 417.924
+margin_bottom = 1049.09
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 576, 448 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/States/Idle.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode36" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 327.924
+margin_top = 1045.2
+margin_right = 427.924
+margin_bottom = 1077.2
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 576, 480 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/States/Move.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode37" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 440.398
+margin_top = 960.848
+margin_right = 521.398
+margin_bottom = 992.848
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 704, 384 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/States/Sit.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode38" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 440.398
+margin_top = 988.967
+margin_right = 534.398
+margin_bottom = 1020.97
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 704, 416 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/States/Spin.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode39" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 440.398
+margin_top = 1017.09
+margin_right = 569.398
+margin_bottom = 1049.09
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 704, 448 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/States/StartConv.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode40" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 440.398
+margin_top = 1045.2
+margin_right = 567.398
+margin_bottom = 1077.2
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 704, 480 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/States/WaitConv.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode33" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 327.924
+margin_top = 960.848
+margin_right = 424.924
+margin_bottom = 992.848
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 576, 384 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/States/Conv.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode18" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 131.094
+margin_top = 1045.2
+margin_right = 254.094
+margin_bottom = 1107.2
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 352, 480 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/Emotes.tscn"
+icon_class = "Sprite"
+script_path = "res://Scenes/Tako/Emotes.gd"
+script_name = "Emotes.gd"
+
+[node name="FileNode32" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 131.094
+margin_top = 1101.44
+margin_right = 276.094
+margin_bottom = 1163.44
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 352, 544 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/TakoSprite.tscn"
+icon_class = "Sprite"
+script_path = "res://Scenes/Tako/TakoSprite.gd"
+script_name = "TakoSprite.gd"
+
+[node name="FileNode19" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 131.094
+margin_top = 876.493
+margin_right = 236.094
+margin_bottom = 938.493
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 352, 288 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Scenes/Tako/Tako.tscn"
+icon_class = "KinematicBody2D"
+script_path = "res://Scenes/Tako/Tako.gd"
+script_name = "Tako.gd"
+
+[node name="FileNode41" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 665.346
+margin_top = 539.07
+margin_right = 814.346
+margin_bottom = 601.071
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 960, -96 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Minigames/WhackTako/WhackTako.tscn"
+icon_class = "Node2D"
+script_path = "res://Minigames/WhackTako/WhackTako.gd"
+script_name = "WhackTako.gd"
+
+[node name="FileNode42" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 805.939
+margin_top = 539.07
+margin_right = 970.939
+margin_bottom = 601.071
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 1120, -96 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Minigames/DangoGame1/DangoGame1.tscn"
+icon_class = "Node2D"
+script_path = "res://Minigames/DangoGame1/DangoGame1.gd"
+script_name = "DangoGame1.gd"
+
+[node name="FileNode44" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 890.295
+margin_top = 735.9
+margin_right = 1044.3
+margin_bottom = 797.9
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 1216, 128 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Minigames/UI/RetryButton.tscn"
+icon_class = "Button"
+script_path = "res://Minigames/UI/RetryButton.gd"
+script_name = "RetryButton.gd"
+
+[node name="FileNode45" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 890.295
+margin_top = 792.137
+margin_right = 1042.3
+margin_bottom = 854.137
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 1216, 192 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Minigames/UI/RetryDialog.tscn"
+icon_class = "ConfirmationDialog"
+script_path = "res://Minigames/UI/RetryDialog.gd"
+script_name = "RetryDialog.gd"
+
+[node name="FileNode46" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 665.346
+margin_top = 651.545
+margin_right = 818.346
+margin_bottom = 713.545
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 960, 32 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Minigames/UI/PauseMenu.tscn"
+icon_class = "Control"
+script_path = "res://Minigames/UI/PauseMenu.gd"
+script_name = "PauseMenu.gd"
+
+[node name="FileNode43" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 665.346
+margin_top = 707.782
+margin_right = 856.346
+margin_bottom = 769.782
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 960, 96 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Minigames/UI/GameOverScreen.tscn"
+icon_class = "Control"
+script_path = "res://Minigames/UI/GameOverScreen.gd"
+script_name = "GameOverScreen.gd"
+
+[node name="FileNode47" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 890.295
+margin_top = 651.545
+margin_right = 1081.3
+margin_bottom = 713.545
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 1216, 32 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Minigames/UI/CountDownTimer.tscn"
+icon_class = "RichTextLabel"
+script_path = "res://Minigames/UI/CountDownTimer.gd"
+script_name = "CountDownTimer.gd"
+
+[node name="FileNode48" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 665.346
+margin_top = 792.137
+margin_right = 776.346
+margin_bottom = 854.137
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 960, 192 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Minigames/UI/Score.tscn"
+icon_class = "Label"
+script_path = "res://Minigames/UI/Score.gd"
+script_name = "Score.gd"
+
+[node name="FileNode49" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 665.346
+margin_top = 1017.09
+margin_right = 798.346
+margin_bottom = 1049.09
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 960, 448 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/StateMachineClass/StateClass.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode50" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 665.346
+margin_top = 988.967
+margin_right = 856.346
+margin_bottom = 1020.97
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 960, 416 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/StateMachineClass/StateMachineClass.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode51" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 665.346
+margin_top = 1073.32
+margin_right = 850.346
+margin_bottom = 1105.32
+rect_scale = Vector2( 0.878704, 0.878704 )
+mouse_filter = 1
+custom_styles/frame = ExtResource( 4 )
+custom_styles/selectedframe = ExtResource( 7 )
+custom_constants/port_offset = 0
+offset = Vector2( 960, 512 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://Source/WeightedRandom.gd"
+resource_type = 2
+icon_class = "Script"
+
+[connection signal="delete_nodes_request" from="." to="." method="_on_GraphEdit_delete_nodes_request"]

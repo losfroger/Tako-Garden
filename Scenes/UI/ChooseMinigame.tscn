@@ -213,6 +213,7 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="meta_clicked" from="Panel/MarginContainer/HBoxContainer/Container/VBoxContainer/TabContainer/Description" to="." method="_on_Description_meta_clicked"]
 [connection signal="meta_clicked" from="Panel/MarginContainer/HBoxContainer/Container/VBoxContainer/TabContainer/Controls" to="." method="_on_Description_meta_clicked"]
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_CloseButton_pressed"]

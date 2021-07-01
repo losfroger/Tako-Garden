@@ -1,3 +1,5 @@
+# Used in the choose minigame window, it saves it's id and emits it when pressed
+# useful because the minigames get loaded from a json
 extends Button
 
 signal IdPressed(id)

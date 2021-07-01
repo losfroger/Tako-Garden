@@ -1,3 +1,4 @@
+# Plays the sounds in order one after the other
 extends AudioStreamPlayer
 
 export(Array, AudioStream) var streams 
