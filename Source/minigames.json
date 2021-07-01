@@ -13,7 +13,7 @@
 			"[table=2] [cell]Bonk: [/cell][cell] Left mouse button[/cell] [cell]Control hammer: [/cell][cell] Move mouse[/cell] [cell]Fast reset: [/cell][cell] R Key[/cell][/table]"
 		],
 		"image": "res://Assets/MinigameSS/Whack a tako.png",
-		"playBt": "res://Scenes/Minigames/WhackTako/WhackTako.tscn"
+		"playBt": "res://Minigames/WhackTako/WhackTako.tscn"
 	},
 	"1": {
 		"id": 1,
@@ -29,7 +29,7 @@
 			"[table=2] [cell]Move left: [/cell][cell] A or left arrow[/cell] [cell]Move right: [/cell][cell] D or right arrow[/cell] [/table]"
 		],
 		"image": "res://Assets/MinigameSS/Dango Game.png",
-		"playBt": "res://Scenes/Minigames/DangoGame1/DangoGame1.tscn"
+		"playBt": "res://Minigames/DangoGame1/DangoGame1.tscn"
 	},
 	"2": {
 		"id": 2,

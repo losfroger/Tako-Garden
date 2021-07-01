@@ -231,7 +231,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Tako Garden"
-run/main_scene="res://Scenes/World/Garden.tscn"
+run/main_scene="res://Scenes/MainScreen/Garden.tscn"
 config/icon="res://Assets/Art/Tako/Tako.png"
 
 [audio]
@@ -335,4 +335,4 @@ fullscreen={
 
 quality/driver/fallback_to_gles2=true
 environment/default_clear_color=Color( 0.180392, 0.180392, 0.180392, 1 )
-environment/default_environment="res://Scenes/World/Env.tres"
+environment/default_environment="res://Scenes/MainScreen/Env.tres"

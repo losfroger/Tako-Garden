@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/SFX/Clock/ticking clock - tick2.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/SFX/Clock/ticking clock - tick4.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/SFX/Clock/ticking clock - tick3.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/SFX/Clock/ticking clock - tick1.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Fonts/ArialRound/ArialRound-regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://addons/randomAudioStreamPlayer/random_audio_stream_player.gd" type="Script" id=6]
+[ext_resource path="res://Minigames/UI/CountDownTimer.gd" type="Script" id=7]
+[ext_resource path="res://Source/BBCode/CountDown.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="RichTextEffect" id=2]
+script = ExtResource( 8 )
+
+[node name="CountDownTimer" type="RichTextLabel"]
+margin_right = 591.0
+margin_bottom = 114.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Time: 00 [/center]"
+text = "Time: 00 "
+scroll_active = false
+custom_effects = [ SubResource( 2 ) ]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="RandomAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 2.916
+script = ExtResource( 6 )
+streams = [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ) ]
+random_strategy = 2
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
