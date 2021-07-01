@@ -29,8 +29,8 @@ func _exit_tree():
 
 
 func _input(event):
-
 	if event is InputEventKey:
+		return
 		if event.pressed and event.scancode == KEY_SPACE && event.control:
 			get_editor_interface().set_main_screen_editor("Project")
 
