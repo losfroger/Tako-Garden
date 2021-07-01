@@ -1,19 +1,20 @@
 extends Node2D
 
-var items := [
-	{"name": "dango", "instance": preload("res://Minigames/DangoGame1/Dangos/BaseDango.tscn")},
-	{"name": "bomb", "instance": preload("res://Minigames/DangoGame1/Dangos/Bomb.tscn")}
+onready var items := [
+	{"name": "dango", "instance": dangoInstance},
+	{"name": "bomb", "instance": bombInstance}
 ]
 
-var probStates := [
+onready var probStates := [
 	{"item": items[0], "weight": 0.65},
 	{"item": items[1], "weight": 0.35}
 ]
 var probClass: WeightedRandom
 
-var dangoInstance = preload("res://Minigames/DangoGame1/Dangos/BaseDango.tscn")
-var emoteInstance = preload("res://Scenes/Tako/Emotes.tscn")
-var coinInstance = preload("res://Minigames/DangoGame1/Dangos/Coin.tscn")
+export var dangoInstance: PackedScene
+export var emoteInstance: PackedScene
+export var coinInstance: PackedScene
+export var bombInstance: PackedScene
 
 onready var dangoNode = dangoInstance.instance()
 

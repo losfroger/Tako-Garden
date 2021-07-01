@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Minigames/UI/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Minigames/DangoGame1/TakoPlayer.tscn" type="PackedScene" id=2]
@@ -14,7 +14,10 @@
 [ext_resource path="res://Assets/Art/WhackATako/Whack a tako BG.png" type="Texture" id=12]
 [ext_resource path="res://Minigames/UI/Score.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Utilities/Camera.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Minigames/DangoGame1/Dangos/Coin.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/MainScreen/Env.tres" type="Environment" id=16]
+[ext_resource path="res://Minigames/DangoGame1/Dangos/BaseDango.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Minigames/DangoGame1/Dangos/Bomb.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 276.636, 318.838 )
@@ -39,6 +42,10 @@ extents = Vector2( 180, 137.203 )
 [node name="DangoGame1" type="Node2D"]
 pause_mode = 1
 script = ExtResource( 4 )
+dangoInstance = ExtResource( 17 )
+emoteInstance = ExtResource( 7 )
+coinInstance = ExtResource( 15 )
+bombInstance = ExtResource( 18 )
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -3
