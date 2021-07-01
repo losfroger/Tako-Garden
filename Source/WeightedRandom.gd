@@ -1,3 +1,4 @@
+# Class that lets you assign probabilities to the items, and lets you get a random item based on that
 class_name WeightedRandom
 
 var _total_weight = 0
@@ -10,7 +11,7 @@ func _init(_items: Array) -> void:
 		add_entry(item.item, item.weight)
 	calc_probability()
 
-func add_entry(item, weight: float):
+func add_entry(item, weight: float) -> void:
 	_total_weight += weight
 	_prob_table.append({"item": item, "weight": weight, "accumulated": _total_weight, "probability": 0.0})
 
@@ -20,6 +21,7 @@ func calc_probability():
 		item.probability = item.weight / _total_weight
 
 
+# This method returns an item from the list, taking into account the probability of each one
 func random_pick():
 	var roll: float = rand_range(0.0, _total_weight)
 	for item in _prob_table:

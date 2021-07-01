@@ -1,11 +1,14 @@
+# Global class that manages the settings for the game
 extends Node
 
 signal loaded_settings()
 signal changed_settings()
-signal loaded_languages()
+
 const SAVE_PATH = "user://config.cfg"
 
-var _config_file:ConfigFile = ConfigFile.new()
+var _config_file : ConfigFile = ConfigFile.new()
+
+# TODO: add version checking in case the settings file isn't the same
 var _settings = {
 	"display" : {
 		"fullscreen": true,
@@ -18,13 +21,13 @@ var _settings = {
 	}
 }
 var _default_settings = _settings.duplicate(true)
-var loaded_languages:Array = []
 
 func _ready() -> void:
 	load_settings_file()
 	apply_settings()
 	
 	emit_signal("loaded_settings")
+
 
 func save_settings_file() -> void:
 	for section in _settings.keys():
@@ -66,6 +69,7 @@ func restore_settings() -> void:
 	emit_signal("changed_settings")
 
 
+# These two functions are the best way to read and set settings
 func get_setting(category:String, key:String):
 	return _settings[category][key]
 

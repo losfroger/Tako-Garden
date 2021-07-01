@@ -1,3 +1,4 @@
+# Configuration menu
 extends Panel
 
 signal closed_configuration()

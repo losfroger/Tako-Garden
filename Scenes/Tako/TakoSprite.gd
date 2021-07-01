@@ -1,3 +1,6 @@
+# Sprite for all your tako needs
+# If you want to disable the animation tree thing, use ``takoSprite.animationTree.active = false``
+
 extends Sprite
 
 const SPRITES = {

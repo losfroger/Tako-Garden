@@ -1,3 +1,4 @@
+# Camera with shake function
 extends Camera2D
 
 onready var shakeTween = $ShakeTween
