@@ -12,11 +12,11 @@
 [ext_resource path="res://Assets/SFX/WhackTako/TakoSounds/Ina_-_Tako1.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Assets/SFX/WhackTako/TakoSounds/Ina_-_Tako4.ogg" type="AudioStream" id=11]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "default"
+length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("TakoSprite:frame")
+tracks/0/path = NodePath("TakoSprite:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -24,11 +24,11 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 9 ]
+"update": 0,
+"values": [ Vector2( 0, 190 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("TakoSprite:offset")
+tracks/1/path = NodePath("TakoSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -37,7 +37,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 120 ) ]
+"values": [ 5 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
@@ -51,34 +51,46 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("TakoSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.65, 0.65 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "down"
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("TakoSprite:offset")
-tracks/0/interp = 2
+tracks/0/path = NodePath("TakoSprite:frame")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -200 ), Vector2( 0, 120 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("TakoSprite:frame")
+tracks/1/path = NodePath("TakoSprite:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 7, 9 ]
+"times": PoolRealArray( 0, 0.05, 0.3 ),
+"transitions": PoolRealArray( 0.5, 1, 5.85634 ),
+"update": 0,
+"values": [ Vector2( 0, -200 ), Vector2( 0, -200 ), Vector2( 0, 145 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
@@ -111,28 +123,28 @@ tracks/3/keys = {
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("TakoSprite:offset")
-tracks/0/interp = 2
+tracks/0/path = NodePath("TakoSprite:frame")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 120 ), Vector2( 0, -200 ) ]
+"times": PoolRealArray( 0.05, 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 4, 3 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("TakoSprite:frame")
-tracks/1/interp = 1
+tracks/1/path = NodePath("TakoSprite:offset")
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2 ),
 "update": 0,
-"values": [ 9, 15, 10 ]
+"values": [ Vector2( 0, 150 ), Vector2( 0, -200 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Hurtbox/CollisionShape2D:disabled")
@@ -158,18 +170,18 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( -1, -1 )
-scale = Vector2( 0.7, 0.7 )
+position = Vector2( -1, -0.030658 )
+scale = Vector2( 0.7, 0.709054 )
 texture = ExtResource( 1 )
 mode = 3
 range_item_cull_mask = 2
 
 [node name="TakoSprite" parent="." instance=ExtResource( 3 )]
 light_mask = 2
-position = Vector2( 1, 57.2878 )
-scale = Vector2( 0.7, 0.7 )
-offset = Vector2( 0, 130 )
-frame = 9
+position = Vector2( 1, 50.6136 )
+scale = Vector2( 0.65, 0.65 )
+offset = Vector2( 0, -200 )
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/default = SubResource( 1 )
